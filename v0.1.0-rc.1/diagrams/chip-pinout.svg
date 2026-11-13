@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="533" viewBox="0 0 760 533" role="img" aria-labelledby="chip-pinout-title chip-pinout-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-pinout-title">BASIS 2 (B and BC series) pinout, JST GH 6-pin connector</title>
+<desc id="chip-pinout-desc">Pinout of the BASIS 2 (B and BC series) in JST GH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it.</desc>
+<rect x="0.5" y="0.5" width="759" height="532" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#7A360E">HARDWARE</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">BASIS 2 (B and BC series) pinout, JST GH 6-pin connector</text>
+<text x="32" y="103.8" font-size="15" fill="#566070">Top view, pin 1 marked. Colour is the pin's electrical type; the mono text outside is the port</text>
+<text x="32" y="125.5" font-size="15" fill="#566070">hook the driver uses for it. Datasheet: Power and Signal Connections, pin table, p. 7.</text>
+<rect x="32" y="141.6" width="696" height="1" fill="#E2E7EE"/>
+<rect x="250" y="179.6" width="260" height="248" rx="8" fill="#F5F7FA" stroke="#2B3442" stroke-width="2"/>
+<path d="M364 179.6 A16 16 0 0 0 396 179.6" fill="#FFFFFF" stroke="#2B3442" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="270" cy="199.6" r="6" fill="#2B3442"/>
+<rect x="220" y="208.6" width="30" height="20" rx="3" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="220" y="242.6" width="30" height="20" rx="3" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="220" y="276.6" width="30" height="20" rx="3" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<rect x="220" y="310.6" width="30" height="20" rx="3" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<rect x="220" y="344.6" width="30" height="20" rx="3" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="220" y="378.6" width="30" height="20" rx="3" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<text x="380" y="293.6" font-size="20" font-weight="700" text-anchor="middle" fill="#0E1726">BASIS 2 (B and BC series)</text>
+<text x="380" y="317.6" font-size="13" text-anchor="middle" fill="#566070">JST GH 6-pin connector, top view</text>
+<text x="235" y="222.7" font-size="11.5" font-weight="700" text-anchor="middle" fill="#86198F">1</text>
+<text x="210" y="223.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">A-SET*</text>
+<text x="235" y="256.7" font-size="11.5" font-weight="700" text-anchor="middle" fill="#86198F">2</text>
+<text x="210" y="257.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">A-OUT*</text>
+<text x="235" y="290.7" font-size="11.5" font-weight="700" text-anchor="middle" fill="#334155">3</text>
+<text x="210" y="291.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">GND</text>
+<text x="235" y="324.7" font-size="11.5" font-weight="700" text-anchor="middle" fill="#9F1239">4</text>
+<text x="210" y="325.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">PWR</text>
+<text x="235" y="358.7" font-size="11.5" font-weight="700" text-anchor="middle" fill="#1E429F">5</text>
+<text x="210" y="359.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">RX/B</text>
+<text x="138.6" y="358.9" font-size="12" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#566070">Write()</text>
+<text x="235" y="392.7" font-size="11.5" font-weight="700" text-anchor="middle" fill="#1E429F">6</text>
+<text x="210" y="393.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">TX/A</text>
+<text x="138.6" y="392.9" font-size="12" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#566070">Read()</text>
+<text x="32" y="449.6" font-size="12.5" fill="#566070">* Not confirmed in the datasheet: pin 1 A-SET: the manual does not say whether an unused pin may float; pin 2</text>
+<text x="32" y="467.6" font-size="12.5" fill="#566070">A-OUT: the manual does not say whether an unused pin may float.</text>
+<rect x="32" y="486.7" width="14" height="14" rx="4" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<text x="54" y="498.3" font-size="12.5" fill="#566070">power</text>
+<rect x="117.6" y="486.7" width="14" height="14" rx="4" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<text x="139.6" y="498.3" font-size="12.5" fill="#566070">ground</text>
+<rect x="208.5" y="486.7" width="14" height="14" rx="4" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<text x="230.5" y="498.3" font-size="12.5" fill="#566070">bus</text>
+<rect x="277.4" y="486.7" width="14" height="14" rx="4" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<text x="299.4" y="498.3" font-size="12.5" fill="#566070">analog</text>
+</svg>

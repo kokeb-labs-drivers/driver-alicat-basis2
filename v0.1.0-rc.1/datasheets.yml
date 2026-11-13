@@ -1,0 +1,231 @@
+---
+# The vendor documents this driver was written against (handbook ADR-0019), and where the driver relies on them.
+# Never commit a PDF: `sha256` identifies the exact file that was used, so a reader can confirm they hold the same
+# revision. `pdf` is a stable direct link when the vendor publishes one; page numbers are the printed ones, which
+# equal the PDF's (`page_offset: 0`).
+#
+# The README card, docs/datasheet.md and the "Datasheet" box on each page are generated from this file by
+# tools/docs/generators/datasheet.py (`kokeb-docs gen`).
+#
+# Document `manual` is the only source of the protocols. The specification sheets are cited for electrical and
+# mechanical facts. The generic Modbus manual and the serial primer describe the vendor's classic line, not this
+# one: the driver takes only generic facts from them, each recorded as an assumption in docs/datasheet.md.
+# The vendor URL of the manual served a file with other bytes on the day it was fetched
+# (sha256 0f6b51bd13b98c2b4387b55a4c58aa19780db43371dbbb2d59123837e0b53c2e); its text equals the file recorded
+# here after whitespace normalisation, so both are Rev 4.
+documents:
+  - id: manual
+    vendor: Alicat Scientific, Inc.
+    title: Operating Manual for Mass Flow Instruments, BASIS 2 Meters and Controllers
+    kind: Datasheet manual
+    number: DOC-MANUAL-BASIS2
+    revision: Rev 4
+    date: 2025-05-23
+    url: https://www.alicat.com/basisoem
+    pdf: https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf
+    page_offset: 0
+    sha256: "388d686bd1a943e48d62ae13582a2114afd25d874600aeecdee33333f1a287d8"
+  - id: specs
+    vendor: Alicat Scientific, Inc.
+    title: Technical Data for BASIS 2.0 Mass Flow Meters and Controllers
+    kind: Datasheet specification sheet
+    number: DOC-SPECS-BASIS
+    revision: Rev 19
+    date: 2026-08-17
+    url: https://www.alicat.com/basisoem
+    pdf: https://documents.alicat.com/specifications/DOC-SPECS-BASIS.pdf
+    page_offset: 0
+    sha256: "f3f11b4c949caf92b6952b8a6f5cc0b9b2ca4d6a325d4ea3b878c6db51d9a507"
+  - id: specs16
+    vendor: Alicat Scientific, Inc.
+    title: Technical Data for BASIS 2 (pages 1 to 3 of the combined manual and specification file)
+    kind: Datasheet specification sheet
+    number: MANUAL+SPECS_BASIS2
+    revision: Rev 16
+    date: 2024-03-01
+    url: https://www.alicat.com/basisoem
+    pdf: https://documents.alicat.com/specifications/MANUAL+SPECS_BASIS2.pdf
+    page_offset: 0
+    sha256: "f8ec4537221306cac68f851ef9a4dfb6886a75f6c8e6dcb6eef648e306c4c988"
+  - id: modbus
+    vendor: Alicat Scientific, Inc.
+    title: Alicat Modbus Manual (generic, written for the classic registers)
+    kind: Datasheet manual
+    number: DOC-MANUAL-MODBUS
+    revision: Rev 7
+    date: 2024-11-01
+    url: https://www.alicat.com/basisoem
+    pdf: https://documents.alicat.com/manuals/DOC-MANUAL-MODBUS.pdf
+    page_offset: 0
+    sha256: "4363886366ccd572c40fa47fdcc3cf9f98e6a397c7cfee720dfe9bdb2049de28"
+  - id: primer
+    vendor: Alicat Scientific, Inc.
+    title: Alicat Serial Communications Primer (classic line, firmware 4v to 10v)
+    kind: Datasheet application note
+    number: Alicat-Serial-Primer
+    revision: Rev 2
+    date: 2023-02-01
+    url: https://www.alicat.com/basisoem
+    pdf: https://documents.alicat.com/Alicat-Serial-Primer.pdf
+    page_offset: 0
+    sha256: "e80684d7529eb62ce0725829207c567b35480d9efe655e7fb0fef2d978dc5e34"
+
+# One row per thing the driver takes from a document: the document's own section names and printed page
+# numbers, the driver API that implements it, and the docs pages that explain it (file names in docs/).
+topics:
+  - topic: Models, ranges and options
+    doc: manual
+    section: Introduction
+    page: 3
+    driver: "`DeviceKind`, `Config::kind`"
+    docs: [index, hardware, quickstart]
+  - topic: Mounting, LED and power-up behaviour
+    doc: manual
+    section: Getting Started, Mounting
+    page: 5
+    driver: "-"
+    docs: [hardware, safety]
+  - topic: Power and signal connections, pin 4 only
+    doc: manual
+    section: Power and Signal Connections
+    page: 6
+    driver: "-"
+    docs: [hardware, safety]
+  - topic: Connector pins and serial levels
+    doc: manual
+    section: Power and Signal Connections (pin table)
+    page: 7
+    driver: "`UartPort::Write`, `UartPort::Read`"
+    docs: [hardware, porting, quickstart]
+  - topic: Default serial settings and the link layer
+    doc: manual
+    section: Alicat ASCII Serial Communication, Establishing Communication
+    page: 10
+    driver: "`Bus`, `Config::baud`, `Config::unit_id`, `ascii::Make`"
+    docs: [architecture, protocols, contract]
+  - topic: Data frame
+    doc: manual
+    section: Data Frame Format
+    page: 10
+    driver: "`Frame`, `Decimal`, `StatusFlags`, `Basis2::ReadFrame()`"
+    docs: [protocols, api-guide]
+  - topic: Query specific data
+    doc: manual
+    section: Query Specific Data
+    page: 11
+    driver: "`Basis2::ReadData()`, `ReadFlow()`, `ReadTemperature()`, `ReadTotal()`, `ReadValveDrive()`"
+    docs: [api-guide, protocols]
+  - topic: Setpoint, setpoint source and ramp
+    doc: manual
+    section: Setpoint; Setpoint Source; Maximum Setpoint Ramp Rate
+    page: 11
+    driver: "`SetSetpoint()`, `SetSetpointSource()`, `SetRamp()`, `Config::saved_setpoint_min_interval_ms`"
+    docs: [api-guide, safety]
+  - topic: Communication watchdog
+    doc: manual
+    section: Communication Watchdog
+    page: 12
+    driver: "`SetWatchdog()`, `WatchdogProtects()`"
+    docs: [safety, api-guide]
+  - topic: Hold valve, gains, reference temperature, averaging
+    doc: manual
+    section: Hold Valve Position; Loop Control Gains; Reference Temperature; Readings Averaging
+    page: 13
+    driver: "`HoldValve()`, `SetGains()`, `SetReferenceTemperature()`, `SetAveraging()`"
+    docs: [api-guide, safety]
+  - topic: Measurement triggering, averages and ranges
+    doc: manual
+    section: Configure Measurement Triggering; Start a Measurement; Measurement Averages and Ranges
+    page: 13
+    driver: "`SetMeasurementTrigger()`, `StartMeasurement()`, `ReadAverages()`, `ReadRanges()`"
+    docs: [api-guide]
+  - topic: Tare and autotare
+    doc: manual
+    section: Taring the Instrument; Using Ground to Tare; Autotare
+    page: 14
+    driver: "`Tare()`, `TareDefault()`, `SetAutotare()`"
+    docs: [api-guide, safety, hardware]
+  - topic: Active gas
+    doc: manual
+    section: Active Gas
+    page: 15
+    driver: "`SetGas()`, `ReadGasList()`, `GasId`, `GasName()`"
+    docs: [api-guide, protocols]
+  - topic: Totalizer and batch
+    doc: manual
+    section: Totalizer Reset; Totalizer Batch; Totalizer Configuration
+    page: 15
+    driver: "`ResetTotal()`, `SetBatch()`, `DisableBatch()`, `SetTotalizerLimit()`"
+    docs: [api-guide]
+  - topic: Full scale flow, serial number, firmware
+    doc: manual
+    section: Full Scale Flow; Unit ID; Version Number
+    page: 16
+    driver: "`ReadFullScale()`, `ReadSerialNumber()`, `ReadFirmware()`, `Identity`"
+    docs: [api-guide, configuration]
+  - topic: Unit ID
+    doc: manual
+    section: Unit ID
+    page: 16
+    driver: "`ChangeUnitId()`, `FactoryRestore()`"
+    docs: [safety, api-guide, troubleshooting]
+  - topic: Modbus address, baud rate, command protocol
+    doc: manual
+    section: Modbus Address; Serial Baud Rate; Command Protocol
+    page: 17
+    driver: "`SetModbusAddress()`, `ChangeBaud()`, `SwitchToProtocol1()`, `FactoryRestore()`"
+    docs: [safety, api-guide, troubleshooting]
+  - topic: Modbus RTU framing, address and baud
+    doc: manual
+    section: Modbus-RTU; Communicating Via Modbus-RTU; Changing the Baud Rate
+    page: 18
+    driver: "`modbus::Build*()`, `modbus::ParseResponse()`, `Config::modbus_address`"
+    docs: [protocols, architecture]
+  - topic: Modbus setpoint, watchdog and tare
+    doc: manual
+    section: Setpoint Type; Changing the Setpoint; Communication Watchdog; Taring the Instrument
+    page: 19
+    driver: "`Config::protocol`, `Basis2::SetSetpoint()`, `Tare()`"
+    docs: [protocols]
+  - topic: Modbus averaging, totalizer, batch, gas table
+    doc: manual
+    section: Flow Averaging; Totalizer; Batch Dispensing; Changing the Gas
+    page: 20
+    driver: "`Basis2::SetAveraging()`, `ResetTotal()`, `SetBatch()`, `SetGas()`"
+    docs: [protocols]
+  - topic: Modbus register tables
+    doc: manual
+    section: User, Instantaneous Data, Measurement Data and Configuration and Function Registers
+    page: 21
+    driver: "`inc/alicat_basis2_registers.hpp`, `reg::kRegisterRows`"
+    docs: [protocols, datasheet]
+  - topic: Analog signals
+    doc: manual
+    section: Analog Signals
+    page: 28
+    driver: "-"
+    docs: [hardware, safety]
+  - topic: Troubleshooting
+    doc: manual
+    section: Troubleshooting
+    page: 29
+    driver: "`Error`"
+    docs: [troubleshooting]
+  - topic: Engineering units
+    doc: manual
+    section: Reference, Engineering Units
+    page: 31
+    driver: "`FlowUnit`, `TimeUnit`, `Identity::unit_label`"
+    docs: [api-guide, protocols]
+  - topic: Supply current, accuracy and update rate
+    doc: specs
+    section: Technical Data
+    page: 1
+    driver: "`Config::flow_margin_permille`, `Config::processing_ms`"
+    docs: [hardware, configuration]
+  - topic: Size classes and dimensions
+    doc: specs
+    section: Dimensions
+    page: 3
+    driver: "-"
+    docs: [hardware]

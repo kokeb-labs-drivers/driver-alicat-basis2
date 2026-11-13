@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1468" viewBox="0 0 1200 1468" role="img" aria-labelledby="driver-layers-title driver-layers-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="driver-layers-title">The layers, one of them yours</title>
+<desc id="driver-layers-desc">Layer diagram: your application calls the Basis2 core, which sends register reads and writes through the UART port contract to the port class you write, which drives the chip; the core and the contract are the same on every MCU.</desc>
+<defs><marker id="fk-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6C7889"/></marker></defs>
+<rect x="0.5" y="0.5" width="1199" height="1467" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="46.8" font-size="16" font-weight="700" letter-spacing="1.2" fill="#F8D27A">ARCHITECTURE</text>
+<text x="32" y="85.6" font-size="32" font-weight="700" fill="#E8EDF3">The layers, one of them yours</text>
+<text x="32" y="115.4" font-size="18" fill="#9AA6B5">Each arrow is a call. Only the port changes from one MCU to the next.</text>
+<rect x="32" y="131.4" width="1136" height="1" fill="#252F3C"/>
+<rect x="32" y="302.4" width="796" height="622.2" rx="16" fill="#2A2113" stroke="#6B5424" stroke-width="1.2"/>
+<path d="M430 242.4 L430 298.4" fill="none" stroke="#6C7889" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M430 928.6 L430 984.6" fill="none" stroke="#6C7889" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M430 1081.6 L430 1137.6" fill="none" stroke="#6C7889" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M430 1256.6 L430 1312.6" fill="none" stroke="#6C7889" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<rect x="32" y="149.4" width="796" height="89" rx="12" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="32" y="157.4" width="4" height="73" rx="2" fill="#2BB3A3"/>
+<rect x="32" y="988.6" width="796" height="89" rx="12" fill="#2A2113" stroke="#F4B942" stroke-width="1.4"/>
+<rect x="32" y="996.6" width="4" height="73" rx="2" fill="#F4B942"/>
+<rect x="32" y="1141.6" width="796" height="111" rx="12" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="32" y="1149.6" width="4" height="95" rx="2" fill="#2BB3A3"/>
+<rect x="32" y="1316.6" width="796" height="89" rx="12" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<rect x="32" y="1324.6" width="4" height="73" rx="2" fill="#94A3B8"/>
+<rect x="868" y="302.4" width="300" height="128.3" rx="12" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<rect x="868" y="1141.6" width="300" height="103.6" rx="12" fill="#0F2A28" stroke="#215A54" stroke-width="1"/>
+<text x="56" y="184.4" font-size="20" font-weight="700" fill="#A7F3E6">Your application</text>
+<text x="56" y="215" font-size="17" fill="#D2DAE4">a handler, a manager or a test</text>
+<rect x="48" y="370.6" width="167" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="388.7" font-size="16" font-weight="700" fill="#F8D27A">EnsureInitialized()</text>
+<rect x="223" y="370.6" width="76" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="231" y="388.7" font-size="16" font-weight="700" fill="#F8D27A">Begin()</text>
+<rect x="307" y="370.6" width="97.6" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="315" y="388.7" font-size="16" font-weight="700" fill="#F8D27A">Recover()</text>
+<rect x="412.6" y="370.6" width="175.2" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="420.6" y="388.7" font-size="16" font-weight="700" fill="#F8D27A">ReadRegisterRaw()</text>
+<rect x="595.8" y="370.6" width="140.8" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="603.8" y="388.7" font-size="16" font-weight="700" fill="#F8D27A">ReadRawLine()</text>
+<rect x="48" y="404.6" width="122.9" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="422.7" font-size="16" font-weight="700" fill="#F8D27A">ReadFrame()</text>
+<rect x="178.9" y="404.6" width="108.7" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="186.9" y="422.7" font-size="16" font-weight="700" fill="#F8D27A">ReadData()</text>
+<rect x="295.6" y="404.6" width="109.9" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="303.6" y="422.7" font-size="16" font-weight="700" fill="#F8D27A">ReadFlow()</text>
+<rect x="413.5" y="404.6" width="178.8" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="421.5" y="422.7" font-size="16" font-weight="700" fill="#F8D27A">ReadTemperature()</text>
+<rect x="600.3" y="404.6" width="112.9" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="608.3" y="422.7" font-size="16" font-weight="700" fill="#F8D27A">ReadTotal()</text>
+<rect x="48" y="438.6" width="162" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="456.7" font-size="16" font-weight="700" fill="#F8D27A">ReadValveDrive()</text>
+<rect x="218" y="438.6" width="188.2" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="226" y="456.7" font-size="16" font-weight="700" fill="#F8D27A">ReadSetpointValue()</text>
+<rect x="414.2" y="438.6" width="206" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="422.2" y="456.7" font-size="16" font-weight="700" fill="#F8D27A">ReadBatchRemaining()</text>
+<rect x="628.2" y="438.6" width="124" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="636.2" y="456.7" font-size="16" font-weight="700" fill="#F8D27A">ReadStatus()</text>
+<rect x="48" y="472.6" width="102.6" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="490.7" font-size="16" font-weight="700" fill="#F8D27A">ReadGas()</text>
+<rect x="158.6" y="472.6" width="126.1" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="166.6" y="490.7" font-size="16" font-weight="700" fill="#F8D27A">SetSetpoint()</text>
+<rect x="292.7" y="472.6" width="199.5" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="300.7" y="490.7" font-size="16" font-weight="700" fill="#F8D27A">ReadSetpointSource()</text>
+<rect x="500.2" y="472.6" width="185.1" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="508.2" y="490.7" font-size="16" font-weight="700" fill="#F8D27A">SetSetpointSource()</text>
+<rect x="693.4" y="472.6" width="117.7" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="701.4" y="490.7" font-size="16" font-weight="700" fill="#F8D27A">ReadRamp()</text>
+<rect x="48" y="506.6" width="103.4" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="524.7" font-size="16" font-weight="700" fill="#F8D27A">SetRamp()</text>
+<rect x="159.4" y="506.6" width="137.5" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="167.4" y="524.7" font-size="16" font-weight="700" fill="#F8D27A">DisableRamp()</text>
+<rect x="304.9" y="506.6" width="156.6" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="312.9" y="524.7" font-size="16" font-weight="700" fill="#F8D27A">ReadWatchdog()</text>
+<rect x="469.5" y="506.6" width="142.2" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="477.5" y="524.7" font-size="16" font-weight="700" fill="#F8D27A">SetWatchdog()</text>
+<rect x="619.7" y="506.6" width="114.5" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="627.7" y="524.7" font-size="16" font-weight="700" fill="#F8D27A">HoldValve()</text>
+<rect x="48" y="540.6" width="157.3" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="558.7" font-size="16" font-weight="700" fill="#F8D27A">ResumeControl()</text>
+<rect x="213.3" y="540.6" width="120.6" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="221.3" y="558.7" font-size="16" font-weight="700" fill="#F8D27A">OpenValve()</text>
+<rect x="341.9" y="540.6" width="123.3" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="349.9" y="558.7" font-size="16" font-weight="700" fill="#F8D27A">CloseValve()</text>
+<rect x="473.2" y="540.6" width="117.8" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="481.2" y="558.7" font-size="16" font-weight="700" fill="#F8D27A">ReadGains()</text>
+<rect x="599" y="540.6" width="103.4" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="607" y="558.7" font-size="16" font-weight="700" fill="#F8D27A">SetGains()</text>
+<rect x="48" y="574.6" width="143.5" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="592.7" font-size="16" font-weight="700" fill="#F8D27A">ReadAutotare()</text>
+<rect x="199.5" y="574.6" width="129.1" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="207.5" y="592.7" font-size="16" font-weight="700" fill="#F8D27A">SetAutotare()</text>
+<rect x="336.6" y="574.6" width="247" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="344.6" y="592.7" font-size="16" font-weight="700" fill="#F8D27A">ReadMeasurementTrigger()</text>
+<rect x="48" y="608.6" width="232.6" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="626.7" font-size="16" font-weight="700" fill="#F8D27A">SetMeasurementTrigger()</text>
+<rect x="288.6" y="608.6" width="184.2" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="296.6" y="626.7" font-size="16" font-weight="700" fill="#F8D27A">StartMeasurement()</text>
+<rect x="480.9" y="608.6" width="150.6" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="488.9" y="626.7" font-size="16" font-weight="700" fill="#F8D27A">ReadAverages()</text>
+<rect x="639.4" y="608.6" width="132.4" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="647.4" y="626.7" font-size="16" font-weight="700" fill="#F8D27A">ReadRanges()</text>
+<rect x="48" y="642.6" width="259" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="660.7" font-size="16" font-weight="700" fill="#F8D27A">ReadPreviousMeasurement()</text>
+<rect x="315" y="642.6" width="67" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="323" y="660.7" font-size="16" font-weight="700" fill="#F8D27A">Tare()</text>
+<rect x="389.9" y="642.6" width="127.3" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="397.9" y="660.7" font-size="16" font-weight="700" fill="#F8D27A">TareDefault()</text>
+<rect x="525.2" y="642.6" width="88.3" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="533.2" y="660.7" font-size="16" font-weight="700" fill="#F8D27A">SetGas()</text>
+<rect x="621.5" y="642.6" width="132.5" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="629.5" y="660.7" font-size="16" font-weight="700" fill="#F8D27A">ReadGasList()</text>
+<rect x="48" y="676.6" width="149.2" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="694.7" font-size="16" font-weight="700" fill="#F8D27A">ReadGasTable()</text>
+<rect x="205.2" y="676.6" width="118.2" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="213.2" y="694.7" font-size="16" font-weight="700" fill="#F8D27A">ResetTotal()</text>
+<rect x="331.4" y="676.6" width="184.7" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="339.4" y="694.7" font-size="16" font-weight="700" fill="#F8D27A">ReadTotalizerLimit()</text>
+<rect x="524.2" y="676.6" width="170.4" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="532.2" y="694.7" font-size="16" font-weight="700" fill="#F8D27A">SetTotalizerLimit()</text>
+<rect x="702.5" y="676.6" width="104" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="710.5" y="694.7" font-size="16" font-weight="700" fill="#F8D27A">SetBatch()</text>
+<rect x="48" y="710.6" width="138.2" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="728.7" font-size="16" font-weight="700" fill="#F8D27A">DisableBatch()</text>
+<rect x="194.2" y="710.6" width="156.8" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="202.2" y="728.7" font-size="16" font-weight="700" fill="#F8D27A">ReadAveraging()</text>
+<rect x="359" y="710.6" width="142.5" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="367" y="728.7" font-size="16" font-weight="700" fill="#F8D27A">SetAveraging()</text>
+<rect x="509.5" y="710.6" width="264.5" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="517.5" y="728.7" font-size="16" font-weight="700" fill="#F8D27A">ReadReferenceTemperature()</text>
+<rect x="48" y="744.6" width="250.2" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="762.7" font-size="16" font-weight="700" fill="#F8D27A">SetReferenceTemperature()</text>
+<rect x="306.2" y="744.6" width="145.9" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="314.2" y="762.7" font-size="16" font-weight="700" fill="#F8D27A">ReadFullScale()</text>
+<rect x="460.1" y="744.6" width="184.4" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="468.1" y="762.7" font-size="16" font-weight="700" fill="#F8D27A">ReadSerialNumber()</text>
+<rect x="652.5" y="744.6" width="148.8" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="660.5" y="762.7" font-size="16" font-weight="700" fill="#F8D27A">ReadFirmware()</text>
+<rect x="48" y="778.6" width="208.3" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="796.7" font-size="16" font-weight="700" fill="#F8D27A">ReadModbusAddress()</text>
+<rect x="264.3" y="778.6" width="112.9" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="272.3" y="796.7" font-size="16" font-weight="700" fill="#F8D27A">ReadBaud()</text>
+<rect x="385.1" y="778.6" width="140.5" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="393.1" y="796.7" font-size="16" font-weight="700" fill="#F8D27A">ReadProtocol()</text>
+<rect x="533.6" y="778.6" width="143.7" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="541.6" y="796.7" font-size="16" font-weight="700" fill="#F8D27A">ReadFlowUnit()</text>
+<rect x="48" y="812.6" width="192.4" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="830.7" font-size="16" font-weight="700" fill="#F8D27A">ReadFullScaleSccm()</text>
+<rect x="248.4" y="812.6" width="181.5" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="256.4" y="830.7" font-size="16" font-weight="700" fill="#F8D27A">ReadSensorOffset()</text>
+<rect x="438" y="812.6" width="142.4" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="446" y="830.7" font-size="16" font-weight="700" fill="#F8D27A">ChangeUnitId()</text>
+<rect x="588.3" y="812.6" width="193.9" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="596.3" y="830.7" font-size="16" font-weight="700" fill="#F8D27A">SetModbusAddress()</text>
+<rect x="48" y="846.6" width="135.4" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="864.7" font-size="16" font-weight="700" fill="#F8D27A">ChangeBaud()</text>
+<rect x="191.4" y="846.6" width="184.6" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="199.4" y="864.7" font-size="16" font-weight="700" fill="#F8D27A">SwitchToProtocol1()</text>
+<rect x="384" y="846.6" width="187.9" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="392" y="864.7" font-size="16" font-weight="700" fill="#F8D27A">SwitchToProtocol2()</text>
+<rect x="580" y="846.6" width="156.7" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="588" y="864.7" font-size="16" font-weight="700" fill="#F8D27A">FactoryRestore()</text>
+<rect x="48" y="880.6" width="129" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="56" y="898.7" font-size="16" font-weight="700" fill="#F8D27A">ScanUnitIds()</text>
+<rect x="185" y="880.6" width="227.6" height="26" rx="13" fill="#2A2113" stroke="#6B5424" stroke-width="1"/>
+<text x="193" y="898.7" font-size="16" font-weight="700" fill="#F8D27A">ScanModbusAddresses()</text>
+<text x="48" y="331.4" font-size="17" font-weight="700" fill="#F8D27A">HARDWARE-AGNOSTIC CORE</text>
+<text x="48" y="354.6" font-size="16" fill="#F8D27A">Basis2, inc/alicat_basis2.hpp</text>
+<rect x="405.4" y="258.4" width="49.1" height="24" rx="12" fill="#0E131A"/>
+<text x="430" y="276.2" font-size="16" font-weight="500" text-anchor="middle" fill="#9AA6B5">calls</text>
+<text x="56" y="1023.6" font-size="20" font-weight="700" fill="#F8D27A">Port contract</text>
+<text x="56" y="1054.2" font-size="17" fill="#D2DAE4">UartInterface&lt;YourPort&gt;: checked at compile time, no virtual calls</text>
+<text x="56" y="1176.6" font-size="20" font-weight="700" fill="#A7F3E6">Your port</text>
+<text x="56" y="1205.8" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#D2DAE4">EnsureInitialized()  Write()  Read()  FlushInput()  NowMs()  DelayMs() </text>
+<text x="56" y="1229" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#D2DAE4">SetBaud()  Log()</text>
+<text x="56" y="1351.6" font-size="20" font-weight="700" fill="#E2E8F0">Basis2</text>
+<text x="56" y="1382.2" font-size="17" fill="#D2DAE4">the chip, on the UART bus</text>
+<rect x="322.9" y="944.6" width="214.1" height="24" rx="12" fill="#0E131A"/>
+<text x="430" y="962.4" font-size="16" font-weight="500" text-anchor="middle" fill="#9AA6B5">register reads and writes</text>
+<rect x="329.6" y="1097.6" width="200.8" height="24" rx="12" fill="#0E131A"/>
+<text x="430" y="1115.4" font-size="16" font-weight="500" text-anchor="middle" fill="#9AA6B5">forwards to your hooks</text>
+<rect x="361.7" y="1272.6" width="136.5" height="24" rx="12" fill="#0E131A"/>
+<text x="430" y="1290.4" font-size="16" font-weight="500" text-anchor="middle" fill="#9AA6B5">UART transfers</text>
+<text x="886" y="337.4" font-size="20" font-weight="700" fill="#F8D27A">Shared</text>
+<text x="886" y="360.8" font-size="17" fill="#F8D27A">The core and the contract are</text>
+<text x="886" y="385.5" font-size="17" fill="#F8D27A">the same code on every MCU</text>
+<text x="886" y="410.1" font-size="17" fill="#F8D27A">and on the host.</text>
+<text x="886" y="1176.6" font-size="20" font-weight="700" fill="#A7F3E6">Yours</text>
+<text x="886" y="1200.1" font-size="17" fill="#A7F3E6">One small class per MCU or</text>
+<text x="886" y="1224.7" font-size="17" fill="#A7F3E6">board.</text>
+<rect x="32" y="1418" width="14" height="14" rx="4" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<text x="54" y="1432.6" font-size="16" fill="#9AA6B5">you write</text>
+<rect x="152.3" y="1418" width="14" height="14" rx="4" fill="#2A2113" stroke="#F4B942" stroke-width="1.4"/>
+<text x="174.3" y="1432.6" font-size="16" fill="#9AA6B5">this library</text>
+<rect x="282.1" y="1418" width="14" height="14" rx="4" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<text x="304.1" y="1432.6" font-size="16" fill="#9AA6B5">hardware</text>
+<path d="M404.1 1426L434.1 1426" fill="none" stroke="#6C7889" stroke-width="2.2" marker-end="url(#fk-arrow-rail)"/>
+<text x="448.1" y="1432.6" font-size="16" fill="#9AA6B5">calls</text>
+</svg>

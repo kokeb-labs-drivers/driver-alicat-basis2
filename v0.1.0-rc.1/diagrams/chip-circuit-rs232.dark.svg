@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1016" height="810" viewBox="0 0 1016 810" role="img" aria-labelledby="chip-circuit-rs232-title chip-circuit-rs232-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-circuit-rs232-title">BASIS 2 (B and BC series): RS-232 point to point</title>
+<desc id="chip-circuit-rs232-desc">Schematic of the BASIS 2 (B and BC series) rs-232 point to point: the chip with U2 MCU, U3 RS-232 level shifter, C1 capacitor 100 nF, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write().</desc>
+<rect x="0.5" y="0.5" width="1015" height="809" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#F8D27A">HARDWARE</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#E8EDF3">BASIS 2 (B and BC series): RS-232 point to point</text>
+<text x="32" y="103.8" font-size="15" fill="#9AA6B5">One instrument on an RS-232 port. The instrument's levels are RS-232, so a TTL UART needs a level shifter. The shifter is</text>
+<text x="32" y="125.5" font-size="15" fill="#9AA6B5">general practice: the manual gives no TTL option. The MCU's TX goes to pin 5 (the instrument receives) and the MCU's RX to</text>
+<text x="32" y="147.3" font-size="15" fill="#9AA6B5">pin 6. This is unverified: the manual's pin table lists "Rx" and "Tx" without saying whose side they name. Above each MCU</text>
+<text x="32" y="169.1" font-size="15" fill="#9AA6B5">wire: the port hook that drives it. Datasheet: Power and Signal Connections, pin table, p. 7.</text>
+<rect x="32" y="185.1" width="952" height="1" fill="#252F3C"/>
+<path d="M680 539 L680 547" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M680 547 L696 547" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M280 659 L280 675" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M608 411.1 L696 411.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M696 411.1 L696 427.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M280 723 L280 739" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M680 571 L696 571" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M680 571 L680 579" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M200 355.1 L200 491.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M200 491.1 L616 491.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M616 379.1 L696 379.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M616 379.1 L616 491.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M200 251.1 L696 251.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M200 251.1 L200 331.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M696 251.1 L696 355.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M608 387.1 L608 395.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M608 395.1 L696 395.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M696 395.1 L696 403.1" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<rect x="280" y="307.1" width="304" height="136" rx="4" fill="#151C26" stroke="#F4B942" stroke-width="1.8"/>
+<path d="M584 339.1 L608 339.1" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M584 363.1 L608 363.1" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M584 387.1 L608 387.1" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M584 411.1 L608 411.1" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M432 307.1 L432 283.1" fill="none" stroke="#FB7185" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M432 443.1 L432 467.1" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<rect x="32" y="275.1" width="144" height="112" rx="4" fill="#18202B" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M176 331.1 L200 331.1" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M176 355.1 L200 355.1" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M152 275.1 L152 251.1" fill="none" stroke="#FB7185" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M152 387.1 L152 411.1" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M432 283.1 L432 272.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M423 272.1 L441 272.1" fill="none" stroke="#FB7185" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M432 467.1 L432 475.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M424 475.1 L440 475.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M427 478.6 L437 478.6" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M430 482.1 L434 482.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M152 251.1 L152 240.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M143 240.1 L161 240.1" fill="none" stroke="#FB7185" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M152 411.1 L152 419.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M144 419.1 L160 419.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M147 422.6 L157 422.6" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M150 426.1 L154 426.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="720" y="307.1" width="248" height="144" rx="4" fill="#18202B" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M720 355.1 L696 355.1" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M720 379.1 L696 379.1" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M720 403.1 L696 403.1" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M720 427.1 L696 427.1" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<rect x="720" y="499.1" width="208" height="96" rx="4" fill="#18202B" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M720 547 L696 547" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M720 571 L696 571" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M280 675 L280 695.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M280 702.5 L280 723" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M270 695.5 L290 695.5" fill="none" stroke="#E8EDF3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M270 702.5 L290 702.5" fill="none" stroke="#E8EDF3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M280 659 L280 648" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M271 648 L289 648" fill="none" stroke="#FB7185" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M680 539 L680 528" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M671 528 L689 528" fill="none" stroke="#FB7185" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M280 739 L280 747" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M272 747 L288 747" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M275 750.5 L285 750.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M278 754 L282 754" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M680 579 L680 587" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M672 587 L688 587" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M675 590.5 L685 590.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M678 594 L682 594" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M604 343.1 L612 335.1" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M604 335.1 L612 343.1" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M604 367.1 L612 359.1" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M604 359.1 L612 367.1" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="578" y="343.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">A-SET</text>
+<text x="588" y="335.1" font-size="11" fill="#9AA6B5">1</text>
+<text x="578" y="367.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">A-OUT</text>
+<text x="588" y="359.1" font-size="11" fill="#9AA6B5">2</text>
+<text x="578" y="391.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">RX/B</text>
+<text x="588" y="383.1" font-size="11" fill="#9AA6B5">5</text>
+<text x="578" y="415.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">TX/A</text>
+<text x="588" y="407.1" font-size="11" fill="#9AA6B5">6</text>
+<text x="432" y="323.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">PWR</text>
+<text x="436" y="301.1" font-size="11" fill="#9AA6B5">4</text>
+<text x="432" y="436.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">GND</text>
+<text x="436" y="457.9" font-size="11" fill="#9AA6B5">3</text>
+<text x="432" y="372.1" font-size="15" font-weight="700" text-anchor="middle" fill="#F8D27A">BASIS 2 (B and BC series)</text>
+<text x="432" y="390.1" font-size="12" text-anchor="middle" fill="#9AA6B5">U1</text>
+<text x="170" y="335.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">UART TX</text>
+<text x="170" y="359.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">UART RX</text>
+<text x="152" y="291.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">VDD</text>
+<text x="152" y="380.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">GND</text>
+<text x="44" y="297.1" font-size="15" font-weight="700" fill="#E8EDF3">MCU</text>
+<text x="44" y="315.1" font-size="12" fill="#9AA6B5">U2</text>
+<text x="432" y="266.1" font-size="12" font-weight="700" text-anchor="middle" fill="#FECDD3">+24V</text>
+<text x="152" y="234.1" font-size="12" font-weight="700" text-anchor="middle" fill="#FECDD3">+3V3</text>
+<text x="726" y="359.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">TIN</text>
+<text x="726" y="383.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">ROUT</text>
+<text x="726" y="407.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">T1OUT</text>
+<text x="726" y="431.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">R1IN</text>
+<text x="732" y="329.1" font-size="15" font-weight="700" fill="#E8EDF3">RS-232 level shifter</text>
+<text x="732" y="347.1" font-size="12" fill="#9AA6B5">U3</text>
+<text x="726" y="551.5" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">24V</text>
+<text x="726" y="575.5" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">GND</text>
+<text x="732" y="521" font-size="15" font-weight="700" fill="#E8EDF3">12 to 24 V supply</text>
+<text x="732" y="539" font-size="12" fill="#9AA6B5">J1</text>
+<text x="295" y="696" font-size="12" font-weight="700" fill="#E8EDF3">C1</text>
+<text x="295" y="710.5" font-size="12" fill="#9AA6B5">100 nF *</text>
+<text x="280" y="642" font-size="12" font-weight="700" text-anchor="middle" fill="#FECDD3">+3V3</text>
+<text x="680" y="522" font-size="12" font-weight="700" text-anchor="middle" fill="#FECDD3">+24V</text>
+<text x="32" y="776" font-size="12.5" fill="#9AA6B5">* Not confirmed in the datasheet: U3: general practice: the manual describes no level shifter; C1 100 nF: decoupling: general practice.</text>
+</svg>
