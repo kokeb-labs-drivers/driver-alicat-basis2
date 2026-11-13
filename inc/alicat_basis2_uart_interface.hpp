@@ -106,13 +106,13 @@ namespace detail {
 
 /// The port declares something called `DelayMs`.
 template <typename Port>
-concept DeclaresDelayMs = requires(Port& port) { port.DelayMs(1_u32); };
+concept DeclaresDelayMs = requires(Port& port) { port.DelayMs(std::uint32_t{1U}); };
 /// The port sleeps: `void DelayMs(uint32_t ms) noexcept`.
 template <typename Port>
 concept HasDelayMs = requires { ExactHook<Port, void(uint32_t) noexcept>::Take(&Port::DelayMs); };
 /// The port declares something called `SetBaud`.
 template <typename Port>
-concept DeclaresSetBaud = requires(Port& port) { port.SetBaud(1_u32); };
+concept DeclaresSetBaud = requires(Port& port) { port.SetBaud(std::uint32_t{1U}); };
 /// The port changes its speed: `bool SetBaud(uint32_t baud) noexcept`.
 template <typename Port>
 concept HasSetBaud = requires { ExactHook<Port, bool(uint32_t) noexcept>::Take(&Port::SetBaud); };
