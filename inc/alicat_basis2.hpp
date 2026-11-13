@@ -467,18 +467,7 @@ private:
   bool scanAddresses(bool alone) noexcept;
   bool scanAtSpeed(uint32_t speed, bool alone) noexcept;
   bool scanForUnit() noexcept;
-  /// What `Recover()` puts back when it fails.
-  struct Held {
-    bool abandoned{false};
-    bool unknown{false};
-    bool ready{false};
-    bool layout_known{false};
-    Identity identity{};
-    char unit_id{'A'};
-    uint8_t address{1};
-    uint32_t baud{38400};
-  };
-  void afterFailedRecover(const Held& held, bool found, Error error) noexcept;
+  void afterFailedRecover(const detail::RecoverHeld& held, bool found, Error error) noexcept;
   Error setpointAllowed(int64_t milli) const noexcept;
   Result<SetpointSource> learnSource(SetpointSource source) noexcept;
   Error needController() const noexcept;

@@ -175,7 +175,9 @@ struct [[nodiscard]] Result {
    * @return `{T{}, e}`.
    */
   static constexpr Result Failure(Error e) noexcept {
-    return {T{}, e};
+    Result r{};
+    r.error = e;
+    return r;
   }
 };
 
@@ -716,6 +718,21 @@ struct Alternatives {
   uint8_t address{0};  ///< The Modbus address it may answer to, or 0.
   uint32_t baud{0};    ///< The baud rate it may run at, or 0.
   bool factory{false}; ///< It may be back at the factory settings (ID `A`, address 1, 38400).
+};
+
+/**
+ * @brief What `Recover()` puts back when it fails: the driver's state and line settings before it
+ * started scanning.
+ */
+struct RecoverHeld {
+  bool abandoned{false};    ///< The protocol had been abandoned.
+  bool unknown{false};      ///< `StateUnknown` held.
+  bool ready{false};        ///< `Begin()` had succeeded.
+  bool layout_known{false}; ///< The frame layout was learnt.
+  Identity identity{};      ///< What `Begin()` had learnt.
+  char unit_id{'A'};        ///< The unit ID used.
+  uint8_t address{1};       ///< The Modbus address used.
+  uint32_t baud{38400};     ///< The line speed used.
 };
 } // namespace detail
 

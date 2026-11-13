@@ -136,8 +136,7 @@ Error Bus<Port>::Submit(const Request& request, const Timing& timing) noexcept {
 
 template <UartPort Port>
 std::size_t Bus<Port>::readChunk(uint32_t now) noexcept {
-  using detail::operator""_u32;
-  const std::size_t n = port_.Read(chunk_.data(), chunk_.size(), 0_u32);
+  const std::size_t n = port_.Read(chunk_.data(), chunk_.size(), uint32_t{0U});
   const std::size_t got = (n < chunk_.size()) ? n : chunk_.size();
   if (got > 0U) {
     last_activity_ms_ = now;
@@ -454,7 +453,6 @@ void Bus<Port>::dropUntaken() noexcept {
 
 template <UartPort Port>
 Result<Reply> Bus<Port>::Execute(const Request& request, const Timing& timing) noexcept {
-  using detail::operator""_u32;
   // A result nobody took must not hold a blocking call (a switch-off among them) back: its
   // transaction is over, so it is dropped after each poll; the wait for a busy bus is bounded in
   // time.
@@ -466,7 +464,7 @@ Result<Reply> Bus<Port>::Execute(const Request& request, const Timing& timing) n
        ++i) {
     static_cast<void>(Poll());
     dropUntaken();
-    sleep(1_u32);
+    sleep(uint32_t{1U});
     e = Submit(request, timing);
   }
   if (e != Error::Ok) {
@@ -481,7 +479,7 @@ Result<Reply> Bus<Port>::Execute(const Request& request, const Timing& timing) n
        ++i) {
     s = Poll();
     if (s == PollState::Pending) {
-      sleep(1_u32);
+      sleep(uint32_t{1U});
     }
   }
   if (s == PollState::Pending) {

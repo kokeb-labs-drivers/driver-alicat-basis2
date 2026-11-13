@@ -736,7 +736,8 @@ bool Basis2<Port>::scanForUnit() noexcept {
 }
 
 template <UartPort Port>
-void Basis2<Port>::afterFailedRecover(const Held& held, bool found, Error error) noexcept {
+void Basis2<Port>::afterFailedRecover(const detail::RecoverHeld& held, bool found,
+                                      Error error) noexcept {
   // A busy line in the scan or in the Begin() after it confirmed nothing: the state stays as it
   // was. If the scan had found the instrument at other settings (another ID, address or speed)
   // before Begin() met the busy line, that evidence is kept: those settings stay, in doubt.
@@ -766,14 +767,14 @@ Result<void> Basis2<Port>::Recover() noexcept {
   }
   // The doubt about the instrument's state ends only with a validated reply from the same
   // instrument (serial number, firmware and kind unchanged); until then it stays.
-  const Held held{.abandoned = abandoned_,
-                  .unknown = state_unknown_,
-                  .ready = ready_,
-                  .layout_known = layout_known_,
-                  .identity = identity_,
-                  .unit_id = config_.unit_id,
-                  .address = config_.modbus_address,
-                  .baud = config_.baud};
+  const detail::RecoverHeld held{.abandoned = abandoned_,
+                                 .unknown = state_unknown_,
+                                 .ready = ready_,
+                                 .layout_known = layout_known_,
+                                 .identity = identity_,
+                                 .unit_id = config_.unit_id,
+                                 .address = config_.modbus_address,
+                                 .baud = config_.baud};
   state_unknown_ = false;
   abandoned_ = false;
   ready_ = false;
