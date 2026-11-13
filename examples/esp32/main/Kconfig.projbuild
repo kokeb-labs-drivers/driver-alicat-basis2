@@ -1,0 +1,27 @@
+menu "BASIS 2 example"
+
+    config ALICAT_BASIS2_EXAMPLE_TX_PIN
+        int "UART TX pin (to the instrument's pin 5, or the transceiver's DI)"
+        default 4
+
+    config ALICAT_BASIS2_EXAMPLE_RX_PIN
+        int "UART RX pin (from the instrument's pin 6, or the transceiver's RO)"
+        default 5
+
+    config ALICAT_BASIS2_EXAMPLE_RS485
+        bool "RS-485 half duplex through a transceiver"
+        default n
+        help
+          Uses the IDF's RS-485 mode. The model of the instrument decides the electrical standard: an RS-232 model
+          needs a level shifter, an RS-485 model a transceiver.
+
+    config ALICAT_BASIS2_EXAMPLE_DE_PIN
+        int "Transceiver direction pin (driven by RTS)"
+        default 6
+        depends on ALICAT_BASIS2_EXAMPLE_RS485
+
+    config ALICAT_BASIS2_EXAMPLE_UNIT_ID
+        string "Unit ID of the instrument (A to Z)"
+        default "A"
+
+endmenu

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="587" viewBox="0 0 1200 587" role="img" aria-labelledby="chip-blocks-title chip-blocks-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-blocks-title">Inside the BASIS 2 (B and BC series)</title>
+<desc id="chip-blocks-desc">Block diagram of the BASIS 2 (B and BC series): its function blocks, how they connect and which package pins reach each block.</desc>
+<defs><marker id="fk-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8893A2"/></marker></defs>
+<rect x="0.5" y="0.5" width="1199" height="586" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#7A360E">HARDWARE</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">Inside the BASIS 2 (B and BC series)</text>
+<text x="32" y="103.8" font-size="15" fill="#566070">Function blocks and their links, from the datasheet's block diagram (Introduction, p. 3). Pins on the edge carry their package number.</text>
+<rect x="32" y="119.8" width="1136" height="1" fill="#E2E7EE"/>
+<rect x="136" y="137.8" width="952" height="344" rx="14" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1.2"/>
+<path d="M143 233.8 L176 233.8" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+<path d="M143 257.8 L176 257.8" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+<path d="M143 377.8 L176 377.8" fill="none" stroke="#A21CAF" stroke-width="1.8"/>
+<path d="M143 401.8 L176 401.8" fill="none" stroke="#A21CAF" stroke-width="1.8"/>
+<path d="M1081 377.8 L1048 377.8" fill="none" stroke="#DB2752" stroke-width="1.8"/>
+<path d="M1081 401.8 L1048 401.8" fill="none" stroke="#64748B" stroke-width="1.8"/>
+<path d="M396 241.8 L500 241.8" fill="none" stroke="#8893A2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)" marker-start="url(#fk-arrow-rail)"/>
+<path d="M828 241.8 L724 241.8" fill="none" stroke="#8893A2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M608 293.8 L608 333.8" fill="none" stroke="#8893A2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M396 393.8 L500 393.8" fill="none" stroke="#8893A2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<rect x="176" y="201.8" width="216" height="88" rx="10" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="176" y="209.8" width="4" height="72" rx="2" fill="#2563EB"/>
+<rect x="504" y="201.8" width="216" height="88" rx="10" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<rect x="504" y="209.8" width="4" height="72" rx="2" fill="#64748B"/>
+<rect x="832" y="201.8" width="216" height="88" rx="10" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="832" y="209.8" width="4" height="72" rx="2" fill="#0B7A72"/>
+<rect x="504" y="337.8" width="216" height="112" rx="10" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4"/>
+<rect x="504" y="345.8" width="4" height="96" rx="2" fill="#C26A05"/>
+<rect x="176" y="337.8" width="216" height="112" rx="10" fill="#F3EEFF" stroke="#7C3AED" stroke-width="1.4"/>
+<rect x="176" y="345.8" width="4" height="96" rx="2" fill="#7C3AED"/>
+<rect x="832" y="337.8" width="216" height="112" rx="10" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<rect x="832" y="345.8" width="4" height="96" rx="2" fill="#64748B"/>
+<rect x="129" y="226.8" width="14" height="14" rx="3" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="129" y="250.8" width="14" height="14" rx="3" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="129" y="370.8" width="14" height="14" rx="3" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="129" y="394.8" width="14" height="14" rx="3" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="1081" y="370.8" width="14" height="14" rx="3" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<rect x="1081" y="394.8" width="14" height="14" rx="3" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<text x="152" y="162.8" font-size="13" font-weight="700" fill="#334155">BASIS 2 (B AND BC SERIES)</text>
+<text x="347.6" y="162.8" font-size="12" fill="#334155">JST GH 6-pin connector</text>
+<text x="196" y="228.6" font-size="15" font-weight="700" fill="#1E429F">Serial interface</text>
+<text x="196" y="253.4" font-size="13" fill="#2B3442">ASCII and Modbus RTU,</text>
+<text x="196" y="272.2" font-size="13" fill="#2B3442">38400 8N1</text>
+<text x="524" y="228.6" font-size="15" font-weight="700" fill="#334155">Command processor*</text>
+<text x="524" y="253.4" font-size="13" fill="#2B3442">DV, S, HPUR, V, GS, T</text>
+<text x="852" y="228.6" font-size="15" font-weight="700" fill="#0B5F59">Thermal flow sensor*</text>
+<text x="852" y="253.4" font-size="13" fill="#2B3442">flow, temperature, totalizer,</text>
+<text x="852" y="272.2" font-size="13" fill="#2B3442">9 gases</text>
+<text x="524" y="364.6" font-size="15" font-weight="700" fill="#8A3C0B">Loop control and</text>
+<text x="524" y="384.1" font-size="15" font-weight="700" fill="#8A3C0B">valve*</text>
+<text x="524" y="408.9" font-size="13" fill="#2B3442">setpoint, ramp, watchdog,</text>
+<text x="524" y="427.8" font-size="13" fill="#2B3442">normally closed</text>
+<text x="196" y="364.6" font-size="15" font-weight="700" fill="#5B21B6">Analog I/O</text>
+<text x="196" y="389.4" font-size="13" fill="#2B3442">0-5 V or 4-20 mA by model</text>
+<text x="852" y="364.6" font-size="15" font-weight="700" fill="#334155">Supply and status LED</text>
+<text x="852" y="389.4" font-size="13" fill="#2B3442">12 to 24 V on pin 4</text>
+<text x="122" y="238.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">RX/B  5</text>
+<text x="122" y="262.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">TX/A  6</text>
+<text x="122" y="382.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">A-SET*  1</text>
+<text x="122" y="406.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#0E1726">A-OUT*  2</text>
+<text x="1102" y="382.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">PWR  4</text>
+<text x="1102" y="406.3" font-size="12.5" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">GND  3</text>
+<circle cx="176" cy="233.8" r="3" fill="#2563EB"/>
+<circle cx="176" cy="257.8" r="3" fill="#2563EB"/>
+<circle cx="176" cy="377.8" r="3" fill="#A21CAF"/>
+<circle cx="176" cy="401.8" r="3" fill="#A21CAF"/>
+<circle cx="1048" cy="377.8" r="3" fill="#DB2752"/>
+<circle cx="1048" cy="401.8" r="3" fill="#64748B"/>
+<rect x="420.7" y="231.8" width="54.6" height="20" rx="10" fill="#FFFFFF"/>
+<text x="448" y="246.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">frames</text>
+<rect x="743.5" y="231.8" width="65.1" height="20" rx="10" fill="#FFFFFF"/>
+<text x="776" y="246.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">readings</text>
+<rect x="577.3" y="303.8" width="61.4" height="20" rx="10" fill="#FFFFFF"/>
+<text x="608" y="318.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">setpoint</text>
+<rect x="417.3" y="383.8" width="61.4" height="20" rx="10" fill="#FFFFFF"/>
+<text x="448" y="398.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">setpoint</text>
+<text x="32" y="503.8" font-size="12.5" fill="#566070">* Not confirmed in the datasheet: Command processor: the manual has no block diagram; Thermal flow sensor: the manual has no block diagram; Loop control and valve: the manual</text>
+<text x="32" y="521.8" font-size="12.5" fill="#566070">has no block diagram; controllers only; pin A-SET: the manual does not say whether an unused pin may float; pin A-OUT: the manual does not say whether an unused pin may float.</text>
+<rect x="32" y="540.9" width="14" height="14" rx="4" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<text x="54" y="552.5" font-size="12.5" fill="#566070">power</text>
+<rect x="117.6" y="540.9" width="14" height="14" rx="4" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<text x="139.6" y="552.5" font-size="12.5" fill="#566070">ground</text>
+<rect x="208.5" y="540.9" width="14" height="14" rx="4" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<text x="230.5" y="552.5" font-size="12.5" fill="#566070">bus</text>
+<rect x="277.4" y="540.9" width="14" height="14" rx="4" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<text x="299.4" y="552.5" font-size="12.5" fill="#566070">analog</text>
+<path d="M365.4 547.2L395.4 547.2" fill="none" stroke="#8893A2" stroke-width="1.6" marker-end="url(#fk-arrow-rail)"/>
+<text x="409.4" y="552.5" font-size="12.5" fill="#566070">signal or data between blocks</text>
+</svg>

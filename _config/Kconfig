@@ -1,0 +1,59 @@
+# Kconfig for the ALICAT_BASIS2 driver. The root CMakeLists.txt registers it with ESP-IDF
+# (idf_component_register(... KCONFIG _config/Kconfig)), so `idf.py menuconfig` shows
+# "ALICAT_BASIS2 mass flow meter". The values reach the code only through
+# inc/alicat_basis2_kconfig.hpp; no public driver signature uses them.
+menuconfig ALICAT_BASIS2
+    bool "ALICAT_BASIS2 mass flow meter"
+    default y
+    help
+      Defaults for alicat_basis2::KconfigDefaults(). The driver itself does not
+      need Kconfig; outside ESP-IDF the same defaults come from Config{}.
+
+if ALICAT_BASIS2
+
+config ALICAT_BASIS2_MODBUS
+    bool "Speak Modbus RTU instead of the ASCII protocol"
+    default n
+    help
+      Config::protocol. The ASCII BASIS Protocol 2 is the default. Modbus also needs
+      Config::modbus_flow_decimals, which has no default.
+
+choice ALICAT_BASIS2_BAUD
+    prompt "Serial baud rate the port runs at"
+    default ALICAT_BASIS2_BAUD_38400
+    help
+      Config::baud; it sizes every timeout. The instrument default is 38400.
+
+config ALICAT_BASIS2_BAUD_4800
+    bool "4800"
+config ALICAT_BASIS2_BAUD_9600
+    bool "9600"
+config ALICAT_BASIS2_BAUD_19200
+    bool "19200"
+config ALICAT_BASIS2_BAUD_38400
+    bool "38400"
+config ALICAT_BASIS2_BAUD_57600
+    bool "57600 (firmware 2.2.2 or later)"
+config ALICAT_BASIS2_BAUD_115200
+    bool "115200 (firmware 2.2.2 or later)"
+
+endchoice
+
+config ALICAT_BASIS2_PROCESSING_MS
+    int "Instrument turnaround added to every reply wait (ms)"
+    range 1 1000
+    default 50
+
+config ALICAT_BASIS2_SLOW_COMMAND_MS
+    int "Reply wait of commands that may write non-volatile memory (ms)"
+    range 1 10000
+    default 1000
+
+config ALICAT_BASIS2_READ_RETRIES
+    int "Retries of a failed read"
+    range 0 3
+    default 1
+    help
+      Writes and guarded commands are never repeated.
+
+endif

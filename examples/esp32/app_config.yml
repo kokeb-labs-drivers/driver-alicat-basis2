@@ -1,0 +1,61 @@
+---
+# BASIS 2 ESP32 examples: the app matrix read by the build scripts, the CI and the docs Examples page.
+version: "1.0"
+
+metadata:
+  project: "ESP32 BASIS 2 Driver Examples"
+  default_app: "alicat_basis2_minimal_example"
+  target: "esp32c6"
+  idf_versions: ["release/v5.5"]
+  build_types: [["Debug", "Release"]]
+
+apps:
+  alicat_basis2_minimal_example:
+    description: "One instrument at its factory settings on UART1 at 38400 baud: poll the flow once a second"
+    source_file: "alicat_basis2_minimal_example.cpp"
+    category: "example"
+    idf_versions: ["release/v5.5"]
+    build_types: ["Debug", "Release"]
+    ci_enabled: true
+    featured: true
+    hardware_required: true
+    features:
+      - "ESP-IDF UART port with the optional DelayMs, SetBaud and Log hooks"
+      - "Pins and unit ID from menuconfig"
+      - "Every Result checked and logged by name"
+  alicat_basis2_full_example:
+    description: "RS-485 half duplex: scan the line, identify, set a setpoint on the unsaved source, measure, map the flags"
+    source_file: "alicat_basis2_full_example.cpp"
+    category: "example"
+    idf_versions: ["release/v5.5"]
+    build_types: ["Debug", "Release"]
+    ci_enabled: true
+    featured: false
+    hardware_required: true
+    features:
+      - "The IDF's RS-485 half-duplex mode, direction on RTS"
+      - "ScanUnitIds, Identity, SetSetpointSource, StartMeasurement, Recover"
+      - "No guarded command is called"
+
+build_config:
+  build_types:
+    Debug:
+      description: "Debug build"
+      cmake_build_type: "Debug"
+      optimization: "-O0"
+      debug_level: "-g3"
+      defines: ["DEBUG"]
+    Release:
+      description: "Release build"
+      cmake_build_type: "Release"
+      optimization: "-O2"
+      debug_level: "-g0"
+      defines: ["NDEBUG"]
+  build_directory_pattern: "build-app-{app_type}-type-{build_type}-target-{target}-idf-{idf_version}"
+  project_name_pattern: "esp32_alicat_basis2_{app_type}_app"
+
+ci_config:
+  timeout_minutes: 30
+  fail_fast: false
+  exclude_combinations: []
+  special_apps: []

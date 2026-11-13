@@ -1,0 +1,25 @@
+---
+# How this repository was made from kokeb-labs/driver-template. The template's drift check
+# (tools/scaffold.py --check-drift, CI: kokeb-labs/ci-tools ru-template-drift) scaffolds the template again
+# with these arguments and compares the files it manages. List a file under `local` only when it differs on
+# purpose, with the reason.
+template: unknown
+kind: "driver"
+name: "alicat_basis2"
+bus: "uart"
+namespace: "alicat_basis2"
+description: "C++20 driver for the Alicat BASIS 2 gas mass flow meters and controllers (B and BC series) over serial, with the ASCII protocol and Modbus RTU."
+include_root: null
+org: "kokeb-labs-drivers"
+repo: "driver-alicat-basis2"
+author: "The driver-alicat-basis2 authors"
+license: "MIT"
+datasheet: "https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf"
+platforms: [host, esp32]
+local:
+  - path: .claude/skills/datasheet-conformance/SKILL.md
+    reason: "links this instrument's manual and revision"
+  - path: _config/Doxyfile
+    reason: "the project title is the product name (BASIS 2 Driver), not the repository name"
+  - path: _config/mkdocs.yml
+    reason: "the site title is the product name (BASIS 2 Driver), not the repository name"
