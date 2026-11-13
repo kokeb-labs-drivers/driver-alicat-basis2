@@ -1,0 +1,165 @@
+---
+# The hardware of the BASIS 2 instruments in one file: connector, pins, the driver hook of each pin, the blocks
+# inside and two reference circuits. `kokeb-docs figures` draws the pinout, the module outline, the block diagram and
+# the circuits from it, `kokeb-docs gen` writes the chip card of the README and the tables of docs/hardware.md, and
+# `kokeb-docs hardware --check` validates it. Schema: docs/chip-diagrams.md in kokeb-labs/ci-tools.
+#
+# The instrument is a module with one six-pin JST GH connector, not a package with leads. The figure system has no
+# module view, so the connector is drawn as one row of pins (the manual's own drawing is one row) and the outline is
+# the plan view of the smallest size class (no pin pitch: the JST GH family's 1.25 mm is not stated by the manual or
+# the sheet). The other size classes are listed as variants. Every fact cites the
+# manual (document `manual`, Rev 4) or the specification sheet (document `specs`, Rev 19). A fact no document states
+# is marked `unverified` with the reason.
+schema: 1
+chip: "BASIS 2 (B and BC series)"
+
+refs:
+  pinout: {doc: manual, section: "Power and Signal Connections, pin table", page: 7}
+  supply: {doc: manual, section: "Power and Signal Connections", page: 6}
+  serial: {doc: manual, section: "Alicat ASCII Serial Communication, Establishing Communication", page: 10}
+  baud: {doc: manual, section: "Serial Baud Rate", page: 17}
+  analog: {doc: manual, section: "Analog Signals", page: 28}
+  tare: {doc: manual, section: "Using Ground to Tare (Meters)", page: 15}
+  led: {doc: manual, section: "Getting Started, Mounting", page: 5}
+  outline: {doc: specs, section: "Dimensions", page: 3}
+  order: {doc: specs, section: "Technical Data, ranges and options", page: 2}
+  electrical: {doc: specs, section: "Technical Data", page: 1}
+  blocks: {doc: manual, section: "Introduction", page: 3}
+
+package:
+  type: "JST GH 6-pin connector"
+  layout: dual
+  pins: 6
+  sides: {left: [1, 2, 3, 4, 5, 6]}
+  ref: pinout
+  # The plan view of the smallest size class (100 SCCM to 2 SLPM): length along the flow, depth, height. No pitch is
+  # given: the JST GH family's is 1.25 mm, but neither the manual nor the sheet states it (unverified, so left out).
+  outline: {length_mm: 68.6, width_mm: 22.2, height_mm: 39.4, ref: outline}
+  variants:
+    - {id: a, type: "Size class a: 100 SCCM to 2 SLPM", pins: 6, size: "68.6 x 22.2 x 39.4 mm, about 116 g",
+       ordering: "1/8 in NPT female or SAE 4", ref: outline}
+    - {id: b, type: "Size class b: 5 to 20 SLPM", pins: 6, size: "84.0 x 25.4 x 45.7 mm, about 171 g",
+       ordering: "3/8 in NPT female or SAE 6", ref: outline}
+    - {id: c, type: "Size class c: 50 to 100 SLPM meter", pins: 6, size: "95.3 x 35.0 x 48.4 mm, about 270 g",
+       ordering: "3/8 in NPT female or SAE 6", ref: outline}
+    - {id: d, type: "Size class d: 50 to 100 SLPM controller", pins: 6, size: "114.8 x 35.0 x 52.3 mm, about 350 g",
+       ordering: "3/8 in NPT female or SAE 6",
+       note: "options by model, not by size: analog 0-5 V or 4-20 mA; serial RS-232, RS-485 or Modbus RTU",
+       ref: outline}
+
+supply:
+  - {name: PWR, min_v: 12, max_v: 24, ref: supply}
+
+hooks:
+  - {id: write, call: "Write()", kind: uart, source: inc/alicat_basis2_uart_interface.hpp, symbol: Write}
+  - {id: read, call: "Read()", kind: uart, source: inc/alicat_basis2_uart_interface.hpp, symbol: Read}
+
+pins:
+  - {number: 1, name: A-SET, type: analog, domain: SIGNAL,
+     function: "Analog setpoint input (controllers); on a meter, ground this pin for at least 25 ms to tare",
+     unused: Leave open, ref: tare,
+     unverified: "the manual does not say whether an unused pin may float"}
+  - {number: 2, name: A-OUT, type: analog, domain: SIGNAL,
+     function: "Analog flow output, 0 to 5 V or 4 to 20 mA by model",
+     unused: Leave open, ref: analog,
+     unverified: "the manual does not say whether an unused pin may float"}
+  - {number: 3, name: GND, type: ground, domain: GND, function: "Ground, common to power, analog and serial",
+     ref: pinout}
+  - {number: 4, name: PWR, type: power, domain: PWR,
+     function: "Power in, 12 to 24 V. Power on any other pin can permanently damage the instrument", ref: supply}
+  - {number: 5, name: RX/B, type: bus, domain: SIGNAL,
+     function: "RS-232 receive (the instrument receives, unverified: the manual does not say whose side Rx names) or RS-485 B (+), by model", hook: write, ref: pinout}
+  - {number: 6, name: TX/A, type: bus, domain: SIGNAL,
+     function: "RS-232 transmit (the instrument transmits, unverified: the manual does not say whose side Tx names) or RS-485 A (-), by model", hook: read, ref: pinout}
+
+block_diagram:
+  ref: blocks
+  blocks:
+    - {id: serial, label: Serial interface, detail: "ASCII and Modbus RTU, 38400 8N1", at: [0, 0], tone: blue,
+       pins: [RX/B, TX/A], ref: serial}
+    - {id: proc, label: Command processor, detail: "DV, S, HPUR, V, GS, T", at: [1, 0], tone: slate,
+       unverified: "the manual has no block diagram"}
+    - {id: sensor, label: Thermal flow sensor, detail: "flow, temperature, totalizer, 9 gases", at: [2, 0], tone: teal,
+       unverified: "the manual has no block diagram"}
+    - {id: ctrl, label: Loop control and valve, detail: "setpoint, ramp, watchdog, normally closed", at: [1, 1],
+       tone: amber, unverified: "the manual has no block diagram; controllers only"}
+    - {id: analog, label: Analog I/O, detail: "0-5 V or 4-20 mA by model", at: [0, 1], tone: violet,
+       pins: [A-SET, A-OUT], ref: analog}
+    - {id: power, label: Supply and status LED, detail: "12 to 24 V on pin 4", at: [2, 1], tone: slate,
+       pins: [PWR, GND], ref: led}
+  links:
+    - {from: serial, to: proc, label: frames, both: true}
+    - {from: sensor, to: proc, label: readings}
+    - {from: proc, to: ctrl, label: setpoint}
+    - {from: analog, to: ctrl, label: setpoint}
+
+circuits:
+  - id: rs485-multidrop
+    title: RS-485 multidrop line
+    description: >-
+      Up to 26 instruments with unit IDs A to Z on one pair. The MCU's UART goes through a half-duplex transceiver
+      whose A and B lines meet pins 6 and 5 of each instrument; the grounds are common on pin 3. The transceiver
+      (its supply and ground pins are not drawn), the 120 ohm terminations at both ends of the line (not drawn) and
+      the 100 nF decoupling are general practice, not manual values. Only pin 4 carries power.
+    ref: pinout
+    parts:
+      - {id: U1, kind: chip}
+      - id: U2
+        kind: mcu
+        label: MCU
+        pins:
+          - {name: TX, label: UART TX}
+          - {name: RX, label: UART RX}
+          - {name: DE, label: GPIO (driver enable)}
+          - VDD
+          - GND
+      - id: U3
+        kind: ic
+        label: RS-485 transceiver
+        pins: [DI, RO, DE, A, B]
+        unverified: "general practice: the manual describes no transceiver"
+      - {id: J1, kind: connector, label: "12 to 24 V supply", ref: supply, pins: ["24V", GND]}
+      - {id: C1, kind: capacitor, value: 100 nF, unverified: "decoupling: general practice"}
+    nets:
+      - {name: "+3V3", kind: supply, nodes: [U2.VDD, C1.1]}
+      - {name: "+24V", kind: supply, nodes: [U1.PWR, J1.24V]}
+      - {name: GND, kind: ground, nodes: [U2.GND, U1.GND, C1.2, J1.GND]}
+      - {name: "MCU TX", nodes: [U2.TX, U3.DI]}
+      - {name: "MCU RX", nodes: [U2.RX, U3.RO]}
+      - {name: "Direction", nodes: [U2.DE, U3.DE]}
+      - {name: "Line A", nodes: [U3.A, U1.TX/A]}
+      - {name: "Line B", nodes: [U3.B, U1.RX/B]}
+    unused: [U1.A-SET, U1.A-OUT]
+  - id: rs232
+    title: RS-232 point to point
+    description: >-
+      One instrument on an RS-232 port. The instrument's levels are RS-232, so a TTL UART needs a level shifter. The
+      shifter is general practice: the manual gives no TTL option. The MCU's TX goes to pin 5 (the instrument
+      receives) and the MCU's RX to pin 6. This is unverified: the manual's pin table lists "Rx" and "Tx" without saying whose side they name.
+    ref: pinout
+    parts:
+      - {id: U1, kind: chip}
+      - id: U2
+        kind: mcu
+        label: MCU
+        pins:
+          - {name: TX, label: UART TX}
+          - {name: RX, label: UART RX}
+          - VDD
+          - GND
+      - id: U3
+        kind: ic
+        label: RS-232 level shifter
+        pins: [TIN, ROUT, T1OUT, R1IN]
+        unverified: "general practice: the manual describes no level shifter"
+      - {id: C1, kind: capacitor, value: 100 nF, unverified: "decoupling: general practice"}
+      - {id: J1, kind: connector, label: "12 to 24 V supply", ref: supply, pins: ["24V", GND]}
+    nets:
+      - {name: "+3V3", kind: supply, nodes: [U2.VDD, C1.1]}
+      - {name: "+24V", kind: supply, nodes: [U1.PWR, J1.24V]}
+      - {name: GND, kind: ground, nodes: [U2.GND, U1.GND, C1.2, J1.GND]}
+      - {name: "MCU TX", nodes: [U2.TX, U3.TIN]}
+      - {name: "MCU RX", nodes: [U2.RX, U3.ROUT]}
+      - {name: "To pin 5", nodes: [U3.T1OUT, U1.RX/B]}
+      - {name: "From pin 6", nodes: [U3.R1IN, U1.TX/A]}
+    unused: [U1.A-SET, U1.A-OUT]
