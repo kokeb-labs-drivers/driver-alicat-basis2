@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['b_0',['b',['../structalicat__basis2_1_1ascii_1_1Args.html#a296c7aedbf508f0f32938f22f3dcad7b',1,'alicat_basis2::ascii::Args']]],
+  ['b115200_1',['B115200',['../group__alicat__basis2__types.html#gga19ce4b81994aa3d070b9d4f0b857cd80a8be838e76b91b0d9bab4ef3ba016d3e2',1,'alicat_basis2']]],
+  ['b19200_2',['B19200',['../group__alicat__basis2__types.html#gga19ce4b81994aa3d070b9d4f0b857cd80a092332f332c2a8477a2827fd56ec55b4',1,'alicat_basis2']]],
+  ['b38400_3',['B38400',['../group__alicat__basis2__types.html#gga19ce4b81994aa3d070b9d4f0b857cd80a0b42bda0b7666085997b25afc2684c79',1,'alicat_basis2']]],
+  ['b4800_4',['B4800',['../group__alicat__basis2__types.html#gga19ce4b81994aa3d070b9d4f0b857cd80a5456468ca6e06f877cf5085d535a49d4',1,'alicat_basis2']]],
+  ['b57600_5',['B57600',['../group__alicat__basis2__types.html#gga19ce4b81994aa3d070b9d4f0b857cd80a626398d36dee813af2d4fa004b9d745f',1,'alicat_basis2']]],
+  ['b9600_6',['B9600',['../group__alicat__basis2__types.html#gga19ce4b81994aa3d070b9d4f0b857cd80a6224a7fe45a73a901e383f98a5d05399',1,'alicat_basis2']]],
+  ['badreply_7',['BadReply',['../group__alicat__basis2__types.html#gga0005be8abb7486e5b9214fe21a848840a867b08150bb4ce65a1c66cedd1d9a7b3',1,'alicat_basis2']]],
+  ['basis_202_20driver_20api_20reference_8',['BASIS 2 Driver API reference',['../index.html',1,'']]],
+  ['basis2_9',['basis2',['../classalicat__basis2_1_1Basis2.html',1,'alicat_basis2::Basis2&lt; Port &gt;'],['../classalicat__basis2_1_1Basis2.html#a59cd8f0e5f5b39fc7957f51379c1ed83',1,'alicat_basis2::Basis2::Basis2(Bus&lt; Port &gt; &amp;bus, const Config &amp;config={}) noexcept'],['../classalicat__basis2_1_1Basis2.html#a66a87a7ef99eadc99fd460585b67bafc',1,'alicat_basis2::Basis2::Basis2(const Basis2 &amp;)=delete']]],
+  ['basisprotocol1_10',['BasisProtocol1',['../group__alicat__basis2__types.html#gga71fa76cb9d21440a08124bd631770a8cacf2f0d07d14567abf3aa28af99ea61d6',1,'alicat_basis2']]],
+  ['basisprotocol2_11',['BasisProtocol2',['../group__alicat__basis2__types.html#gga71fa76cb9d21440a08124bd631770a8ca2e97e282f4e1323f501b51cacb3c7f9b',1,'alicat_basis2']]],
+  ['batch_5fremaining_12',['batch_remaining',['../structalicat__basis2_1_1Frame.html#a22f5749617611db6ebffc41e718ed01a',1,'alicat_basis2::Frame']]],
+  ['batchremaining_13',['BatchRemaining',['../group__alicat__basis2__types.html#gga38ae23e9840b43186ff08f41cd51c550a90aa1bb91df50e569bcaf72d86567e7a',1,'alicat_basis2']]],
+  ['baud_14',['baud',['../structalicat__basis2_1_1Config.html#a386845add31e1673acbafe89c21f6e5c',1,'alicat_basis2::Config::baud'],['../group__alicat__basis2__types.html#ga19ce4b81994aa3d070b9d4f0b857cd80',1,'alicat_basis2::Baud'],['../structalicat__basis2_1_1Timing.html#aace31d71536e047bae085ec734ceadf4',1,'alicat_basis2::Timing::baud']]],
+  ['begin_15',['Begin',['../classalicat__basis2_1_1Basis2.html#a469fc8a04a1658277febd2a5741630bf',1,'alicat_basis2::Basis2']]],
+  ['buildread_16',['BuildRead',['../group__alicat__basis2__modbus.html#ga049e030273869983432ae65f09daece0',1,'alicat_basis2::modbus']]],
+  ['buildwritemultiple_17',['BuildWriteMultiple',['../group__alicat__basis2__modbus.html#ga5420affe1f2a5187233607f497f0a355',1,'alicat_basis2::modbus']]],
+  ['buildwritesingle_18',['BuildWriteSingle',['../group__alicat__basis2__modbus.html#ga7ed00a6b292d90c2ee3735c0aec26c42',1,'alicat_basis2::modbus']]],
+  ['bus_19',['bus',['../classalicat__basis2_1_1Bus.html',1,'alicat_basis2::Bus&lt; Port &gt;'],['../classalicat__basis2_1_1Bus.html#a8aa9f84c96205f73f8283b3b8b25fec3',1,'alicat_basis2::Bus::Bus()'],['../group__alicat__basis2__types.html#gga0005be8abb7486e5b9214fe21a848840a6e4b38bfd57741ac1597c440a1c98074',1,'alicat_basis2::Bus'],['../classalicat__basis2_1_1Bus.html#af1218a545a1f36aa3a207d00ef947645',1,'alicat_basis2::Bus::Bus()']]],
+  ['busstate_20',['BusState',['../namespacealicat__basis2.html#a3eb8740f09bb574504d614e1d798265c',1,'alicat_basis2']]],
+  ['busy_21',['Busy',['../group__alicat__basis2__types.html#gga0005be8abb7486e5b9214fe21a848840ad8a942ef2b04672adfafef0ad817a407',1,'alicat_basis2']]],
+  ['bytes_22',['Bytes',['../classalicat__basis2_1_1Request.html#ab0801de5a3258e08f3930ee72f9f982e',1,'alicat_basis2::Request']]]
+];
