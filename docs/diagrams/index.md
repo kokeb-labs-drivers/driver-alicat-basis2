@@ -6,14 +6,14 @@ Every figure on this site is drawn by a Python module from facts extracted from 
 not redrawn, when the code changes. CI runs `kokeb-docs figures --check` and fails when a
 committed figure no longer matches the code. Each figure below lists the files it is drawn from.
 
-## Inside the BASIS 2 (B and BC series)
+## Inside the BASIS 2
 
 <!-- figure: chip-blocks -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="chip-blocks.dark.svg">
   <img src="chip-blocks.svg"
-    alt="Block diagram of the BASIS 2 (B and BC series): its function blocks, how they connect and which
-    package pins reach each block.">
+    alt="Block diagram of the BASIS 2: its function blocks, how they connect and which package pins reach
+    each block.">
 </picture>
 <!-- /figure -->
 
@@ -24,15 +24,42 @@ Drawn from:
 - [`docs/hardware.yml`](../hardware.yml)
 - [`inc/alicat_basis2_uart_interface.hpp`](../../inc/alicat_basis2_uart_interface.hpp)
 
-## BASIS 2 (B and BC series): RS-232 point to point
+## What the BASIS 2 does
+
+<!-- figure: chip-capabilities -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="chip-capabilities.dark.svg">
+  <img src="chip-capabilities.svg"
+    alt="Capability map of the BASIS 2: Flow, temperature and total (supported): Polls the whole data frame
+    or single items and decodes each number exactly; Setpoint, ramp and watchdog (supported): Sets the
+    flow of a controller, limits how fast it changes and closes the valve if the line goes quiet; Valve
+    hold and loop gains (supported): Holds the valve at a fixed drive, opens or closes it, and tunes the
+    closed loop; Tare and autotare (supported): Zeroes the flow reading at no flow, and on a controller
+    zeroes it again at a closed setpoint; Gas selection (supported): Selects one of the nine calibrated
+    gases and lists the gases the instrument holds; Totalizer and batch (supported): Counts the gas that
+    has passed, sets what happens at the limit, and dispenses a set volume; Measurement window
+    (supported): Starts a timed measurement, by command or by an event, and reads its averages and
+    ranges; Unit ID, baud and protocol (guarded): Changes the unit ID, address, baud rate or protocol,
+    restores factory settings, and scans a line; Analog setpoint and output (not covered): A 0 to 5 V or
+    4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/hardware.yml`](../hardware.yml)
+
+Drawn from:
+
+- [`docs/hardware.yml`](../hardware.yml)
+- [`inc/alicat_basis2_uart_interface.hpp`](../../inc/alicat_basis2_uart_interface.hpp)
+
+## BASIS 2: RS-232 point to point
 
 <!-- figure: chip-circuit-rs232 -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="chip-circuit-rs232.dark.svg">
   <img src="chip-circuit-rs232.svg"
-    alt="Schematic of the BASIS 2 (B and BC series) rs-232 point to point: the chip with U2 MCU, U3 RS-232
-    level shifter, C1 capacitor 100 nF, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(),
-    Write().">
+    alt="Schematic of the BASIS 2 rs-232 point to point: the chip with U2 MCU + RS-232, J1 12 to 24 V supply;
+    the MCU wires carry the port hooks Read(), Write().">
 </picture>
 <!-- /figure -->
 
@@ -43,15 +70,14 @@ Drawn from:
 - [`docs/hardware.yml`](../hardware.yml)
 - [`inc/alicat_basis2_uart_interface.hpp`](../../inc/alicat_basis2_uart_interface.hpp)
 
-## BASIS 2 (B and BC series): RS-485 multidrop line
+## BASIS 2: RS-485 multidrop line
 
 <!-- figure: chip-circuit-rs485-multidrop -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="chip-circuit-rs485-multidrop.dark.svg">
   <img src="chip-circuit-rs485-multidrop.svg"
-    alt="Schematic of the BASIS 2 (B and BC series) rs-485 multidrop line: the chip with U2 MCU, U3 RS-485
-    transceiver, J1 12 to 24 V supply, C1 capacitor 100 nF; the MCU wires carry the port hooks Read(),
-    Write().">
+    alt="Schematic of the BASIS 2 rs-485 multidrop line: the chip with U2 MCU + RS-485, J1 12 to 24 V supply;
+    the MCU wires carry the port hooks Read(), Write().">
 </picture>
 <!-- /figure -->
 
@@ -62,14 +88,35 @@ Drawn from:
 - [`docs/hardware.yml`](../hardware.yml)
 - [`inc/alicat_basis2_uart_interface.hpp`](../../inc/alicat_basis2_uart_interface.hpp)
 
-## BASIS 2 (B and BC series) package, JST GH 6-pin connector
+## BASIS 2
+
+<!-- figure: chip-hero -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="chip-hero.dark.svg">
+  <img src="chip-hero.svg"
+    alt="Overview of the BASIS 2, a family of gas mass flow meters (B series) and controllers (BC series): it
+    reports the flow, temperature and total of nine gases, and a controller sets the flow with its own
+    valve. A MCU talks to it over RS-232 or RS-485; it drives Valve; it reads back Gas flow, Gas
+    temperature. Headline figures: 12 to 24 V supply on pin 4 only; 1000:1 turndown, 0.1 to 100 % of
+    full scale; 9 gases selectable, stored in the instrument; 176 Hz digital update rate at best.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/hardware.yml`](../hardware.yml)
+
+Drawn from:
+
+- [`docs/hardware.yml`](../hardware.yml)
+- [`inc/alicat_basis2_uart_interface.hpp`](../../inc/alicat_basis2_uart_interface.hpp)
+
+## BASIS 2 package, JST GH 6-pin connector
 
 <!-- figure: chip-outline -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="chip-outline.dark.svg">
   <img src="chip-outline.svg"
-    alt="Outline of the BASIS 2 (B and BC series) in JST GH 6-pin connector drawn to scale from above: body
-    68.6 x 22.2 x 39.4 mm, 6 pins.">
+    alt="Outline of the BASIS 2 in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4
+    mm, 6 pins.">
 </picture>
 <!-- /figure -->
 
@@ -80,14 +127,52 @@ Drawn from:
 - [`docs/hardware.yml`](../hardware.yml)
 - [`inc/alicat_basis2_uart_interface.hpp`](../../inc/alicat_basis2_uart_interface.hpp)
 
-## BASIS 2 (B and BC series) pinout, JST GH 6-pin connector
+## BASIS 2 pinout, JST GH 6-pin connector
 
 <!-- figure: chip-pinout -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="chip-pinout.dark.svg">
   <img src="chip-pinout.svg"
-    alt="Pinout of the BASIS 2 (B and BC series) in JST GH 6-pin connector, top view: 6 pins, each with its
-    name, its electrical type as a colour and the driver hook that uses it.">
+    alt="Pinout of the BASIS 2 in JST GH 6-pin connector, top view: 6 pins, each with its name, its
+    electrical type as a colour and the driver hook that uses it.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/hardware.yml`](../hardware.yml)
+
+Drawn from:
+
+- [`docs/hardware.yml`](../hardware.yml)
+- [`inc/alicat_basis2_uart_interface.hpp`](../../inc/alicat_basis2_uart_interface.hpp)
+
+## Wiring: RS-232 point to point
+
+<!-- figure: chip-wiring-rs232 -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="chip-wiring-rs232.dark.svg">
+  <img src="chip-wiring-rs232.svg"
+    alt="Wiring of the BASIS 2 for the RS-232 point to point: MCU + RS-232 RS-232 TX to RX/B (Write()); MCU +
+    RS-232 RS-232 RX to TX/A (Read()). Supplies, grounds and the support parts are listed under the
+    drawing.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/hardware.yml`](../hardware.yml)
+
+Drawn from:
+
+- [`docs/hardware.yml`](../hardware.yml)
+- [`inc/alicat_basis2_uart_interface.hpp`](../../inc/alicat_basis2_uart_interface.hpp)
+
+## Wiring: RS-485 multidrop line
+
+<!-- figure: chip-wiring-rs485-multidrop -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="chip-wiring-rs485-multidrop.dark.svg">
+  <img src="chip-wiring-rs485-multidrop.svg"
+    alt="Wiring of the BASIS 2 for the RS-485 multidrop line: MCU + RS-485 RS-485 A to TX/A (Read()); MCU +
+    RS-485 RS-485 B to RX/B (Write()). Supplies, grounds and the support parts are listed under the
+    drawing.">
 </picture>
 <!-- /figure -->
 

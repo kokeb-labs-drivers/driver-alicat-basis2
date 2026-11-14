@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1168" viewBox="0 0 1200 1168" role="img" aria-labelledby="chip-capabilities-title chip-capabilities-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-capabilities-title">What the BASIS 2 does</title>
+<desc id="chip-capabilities-desc">Capability map of the BASIS 2: Flow, temperature and total (supported): Polls the whole data frame or single items and decodes each number exactly; Setpoint, ramp and watchdog (supported): Sets the flow of a controller, limits how fast it changes and closes the valve if the line goes quiet; Valve hold and loop gains (supported): Holds the valve at a fixed drive, opens or closes it, and tunes the closed loop; Tare and autotare (supported): Zeroes the flow reading at no flow, and on a controller zeroes it again at a closed setpoint; Gas selection (supported): Selects one of the nine calibrated gases and lists the gases the instrument holds; Totalizer and batch (supported): Counts the gas that has passed, sets what happens at the limit, and dispenses a set volume; Measurement window (supported): Starts a timed measurement, by command or by an event, and reads its averages and ranges; Unit ID, baud and protocol (guarded): Changes the unit ID, address, baud rate or protocol, restores factory settings, and scans a line; Analog setpoint and output (not covered): A 0 to 5 V or 4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver.</desc>
+<rect x="0.5" y="0.5" width="1199" height="1167" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="46.8" font-size="16" font-weight="700" letter-spacing="1.2" fill="#7A360E">CAPABILITIES</text>
+<text x="32" y="85.6" font-size="32" font-weight="700" fill="#0E1726">What the BASIS 2 does</text>
+<text x="32" y="115.4" font-size="18" fill="#566070">One card per function of the chip, with how this driver covers it and the registers behind it.</text>
+<rect x="32" y="131.4" width="1136" height="1" fill="#E2E7EE"/>
+<rect x="32" y="149.4" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="417.3" y="149.4" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="802.7" y="149.4" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="32" y="453.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="417.3" y="453.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="802.7" y="453.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="32" y="757.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="417.3" y="757.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="802.7" y="757.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<circle cx="78" cy="195.4" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M65 188.2 L88.1 188.2" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M84.5 184.5 L88.1 188.2 L84.5 191.8" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M67.9 195.4 L91 195.4" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M87.4 191.8 L91 195.4 L87.4 199" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M65 202.6 L88.1 202.6" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M84.5 199 L88.1 202.6 L84.5 206.2" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="188.4" font-size="20" font-weight="700" fill="#0E1726">Flow, temperature and</text>
+<text x="120" y="214.4" font-size="20" font-weight="700" fill="#0E1726">total</text>
+<text x="50" y="249.8" font-size="17" fill="#2B3442">Polls the whole data frame or single</text>
+<text x="50" y="274.5" font-size="17" fill="#2B3442">items and decodes each number</text>
+<text x="50" y="299.1" font-size="17" fill="#2B3442">exactly</text>
+<rect x="50" y="317.7" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="58" y="335.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="161.4" y="317.7" width="65.2" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="169.4" y="335.8" font-size="16" font-weight="700" fill="#334155">kFlow</text>
+<rect x="234.6" y="317.7" width="134.1" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="242.6" y="335.8" font-size="16" font-weight="700" fill="#334155">kTemperature</text>
+<rect x="50" y="351.7" width="68.2" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="58" y="369.8" font-size="16" font-weight="700" fill="#334155">kTotal</text>
+<rect x="126.2" y="351.7" width="79.3" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="134.2" y="369.8" font-size="16" font-weight="700" fill="#334155">kStatus</text>
+<circle cx="463.3" cy="195.4" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M450.3 183.8 L450.3 207 L476.4 207" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M453.2 204.1 L459 189.6 L467.7 189.6 L473.5 204.1" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="505.3" y="188.4" font-size="20" font-weight="700" fill="#0E1726">Setpoint, ramp and</text>
+<text x="505.3" y="214.4" font-size="20" font-weight="700" fill="#0E1726">watchdog</text>
+<text x="435.3" y="249.8" font-size="17" fill="#2B3442">Sets the flow of a controller, limits</text>
+<text x="435.3" y="274.5" font-size="17" fill="#2B3442">how fast it changes and closes the</text>
+<text x="435.3" y="299.1" font-size="17" fill="#2B3442">valve if the line goes quiet</text>
+<rect x="435.3" y="317.7" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="443.3" y="335.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="546.7" y="317.7" width="95.7" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="554.7" y="335.8" font-size="16" font-weight="700" fill="#334155">kSetpoint</text>
+<rect x="435.3" y="351.7" width="138" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="443.3" y="369.8" font-size="16" font-weight="700" fill="#334155">kSetpointType</text>
+<rect x="581.4" y="351.7" width="73" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="589.4" y="369.8" font-size="16" font-weight="700" fill="#334155">kRamp</text>
+<rect x="435.3" y="385.7" width="111.8" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="443.3" y="403.8" font-size="16" font-weight="700" fill="#334155">kWatchdog</text>
+<circle cx="848.7" cy="195.4" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M835.6 195.4 L844.3 195.4" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M844.3 186.7 L844.3 204.1" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M848.7 186.7 L848.7 204.1" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M848.7 189.6 L860.2 189.6 L860.2 182.4" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M848.7 201.2 L860.2 201.2 L860.2 208.4" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="890.7" y="188.4" font-size="20" font-weight="700" fill="#0E1726">Valve hold and loop</text>
+<text x="890.7" y="214.4" font-size="20" font-weight="700" fill="#0E1726">gains</text>
+<text x="820.7" y="249.8" font-size="17" fill="#2B3442">Holds the valve at a fixed drive, opens</text>
+<text x="820.7" y="274.5" font-size="17" fill="#2B3442">or closes it, and tunes the closed loop</text>
+<rect x="820.7" y="293" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="828.7" y="311.2" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="932" y="293" width="74.6" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="940" y="311.2" font-size="16" font-weight="700" fill="#334155">kGainP</text>
+<rect x="1014.6" y="293" width="68.3" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="1022.6" y="311.2" font-size="16" font-weight="700" fill="#334155">kGainI</text>
+<circle cx="78" cy="499.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M66.4 505.1 A11.6 11.6 0 0 1 89.6 505.1" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M78 505.1 L84.5 496.5" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="78" cy="505.1" r="2.6" fill="#9A4A17"/>
+<path d="M65 510.2 L91 510.2" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="505.3" font-size="20" font-weight="700" fill="#0E1726">Tare and autotare</text>
+<text x="50" y="553.8" font-size="17" fill="#2B3442">Zeroes the flow reading at no flow,</text>
+<text x="50" y="578.4" font-size="17" fill="#2B3442">and on a controller zeroes it again at a</text>
+<text x="50" y="603.1" font-size="17" fill="#2B3442">closed setpoint</text>
+<rect x="50" y="621.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="58" y="639.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="161.4" y="621.6" width="64" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="169.4" y="639.8" font-size="16" font-weight="700" fill="#334155">kTare</text>
+<rect x="233.4" y="621.6" width="135.3" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="241.4" y="639.8" font-size="16" font-weight="700" fill="#334155">kTareSamples</text>
+<rect x="50" y="655.6" width="98.7" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="58" y="673.8" font-size="16" font-weight="700" fill="#334155">kAutotare</text>
+<circle cx="463.3" cy="499.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M451.8 487.8 L463.3 487.8 L474.9 499.3 L463.3 510.9 L451.8 499.3 Z" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="458.3" cy="494.3" r="2.3" fill="#9A4A17"/>
+<text x="505.3" y="505.3" font-size="20" font-weight="700" fill="#0E1726">Gas selection</text>
+<text x="435.3" y="553.8" font-size="17" fill="#2B3442">Selects one of the nine calibrated</text>
+<text x="435.3" y="578.4" font-size="17" fill="#2B3442">gases and lists the gases the</text>
+<text x="435.3" y="603.1" font-size="17" fill="#2B3442">instrument holds</text>
+<rect x="435.3" y="621.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="443.3" y="639.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="546.7" y="621.6" width="57.9" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="554.7" y="639.8" font-size="16" font-weight="700" fill="#334155">kGas</text>
+<rect x="612.6" y="621.6" width="104.5" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="620.6" y="639.8" font-size="16" font-weight="700" fill="#334155">kGasTable</text>
+<circle cx="848.7" cy="499.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M841.4 490.7 L855.9 490.7 L855.9 508 L841.4 508 Z" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M837.1 495 L841.4 495" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M837.1 499.3 L841.4 499.3" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M837.1 503.7 L841.4 503.7" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M855.9 495 L860.2 495" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M855.9 499.3 L860.2 499.3" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M855.9 503.7 L860.2 503.7" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="890.7" y="505.3" font-size="20" font-weight="700" fill="#0E1726">Totalizer and batch</text>
+<text x="820.7" y="553.8" font-size="17" fill="#2B3442">Counts the gas that has passed, sets</text>
+<text x="820.7" y="578.4" font-size="17" fill="#2B3442">what happens at the limit, and</text>
+<text x="820.7" y="603.1" font-size="17" fill="#2B3442">dispenses a set volume</text>
+<rect x="820.7" y="621.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="828.7" y="639.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="932" y="621.6" width="115.3" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="940" y="639.8" font-size="16" font-weight="700" fill="#334155">kTotalReset</text>
+<rect x="820.7" y="655.6" width="108.7" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="828.7" y="673.8" font-size="16" font-weight="700" fill="#334155">kTotalLimit</text>
+<rect x="937.4" y="655.6" width="73.7" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="945.4" y="673.8" font-size="16" font-weight="700" fill="#334155">kBatch</text>
+<rect x="820.7" y="689.6" width="161.2" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="828.7" y="707.8" font-size="16" font-weight="700" fill="#334155">kBatchRemaining</text>
+<circle cx="78" cy="803.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<circle cx="78" cy="803.3" r="13" fill="none" stroke="#9A4A17" stroke-width="2.5"/>
+<path d="M78 796.1 L78 803.3 L83.1 806.2" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="809.3" font-size="20" font-weight="700" fill="#0E1726">Measurement window</text>
+<text x="50" y="857.8" font-size="17" fill="#2B3442">Starts a timed measurement, by</text>
+<text x="50" y="882.4" font-size="17" fill="#2B3442">command or by an event, and reads</text>
+<text x="50" y="907" font-size="17" fill="#2B3442">its averages and ranges</text>
+<rect x="50" y="925.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="58" y="943.7" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="161.4" y="925.6" width="87.1" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="169.4" y="943.7" font-size="16" font-weight="700" fill="#334155">kTrigger</text>
+<rect x="256.5" y="925.6" width="97.2" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="264.5" y="943.7" font-size="16" font-weight="700" fill="#334155">kSamples</text>
+<circle cx="463.3" cy="803.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M454.7 801.9 L472 801.9 L472 814.9 L454.7 814.9 Z" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M458.3 801.9 L458.3 797.5" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M458.3 797.5 A5.1 5.1 0 0 1 468.4 797.5" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M468.4 797.5 L468.4 801.9" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="463.3" cy="808.4" r="2.2" fill="#9A4A17"/>
+<text x="505.3" y="796.3" font-size="20" font-weight="700" fill="#0E1726">Unit ID, baud and</text>
+<text x="505.3" y="822.3" font-size="20" font-weight="700" fill="#0E1726">protocol</text>
+<text x="435.3" y="857.8" font-size="17" fill="#2B3442">Changes the unit ID, address, baud</text>
+<text x="435.3" y="882.4" font-size="17" fill="#2B3442">rate or protocol, restores factory</text>
+<text x="435.3" y="907" font-size="17" fill="#2B3442">settings, and scans a line</text>
+<rect x="435.3" y="925.6" width="87.5" height="26" rx="13" fill="#8A3C0B"/>
+<text x="443.3" y="943.7" font-size="16" font-weight="700" fill="#FFFFFF">Guarded</text>
+<rect x="530.9" y="925.6" width="75.1" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="538.9" y="943.7" font-size="16" font-weight="700" fill="#334155">kUnitId</text>
+<rect x="435.3" y="959.6" width="163.5" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="443.3" y="977.7" font-size="16" font-weight="700" fill="#334155">kModbusAddress</text>
+<rect x="606.9" y="959.6" width="68.2" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="614.9" y="977.7" font-size="16" font-weight="700" fill="#334155">kBaud</text>
+<rect x="435.3" y="993.6" width="85.1" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="443.3" y="1011.7" font-size="16" font-weight="700" fill="#334155">+2 more</text>
+<circle cx="848.7" cy="803.3" r="28" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1.2"/>
+<path d="M835.6 791.7 L835.6 814.9 L861.7 814.9" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M838.5 803.3 L839.5 801.4 L840.5 799.7 L841.4 798.2 L842.4 797 L843.4 796.3 L844.3 796.1 L845.3 796.3 L846.3 797 L847.2 798.2 L848.2 799.7 L849.1 801.4 L850.1 803.3 L851.1 805.2 L852 806.9 L853 808.4 L854 809.6 L854.9 810.3 L855.9 810.5 L856.9 810.3 L857.8 809.6 L858.8 808.4 L859.8 806.9 L860.7 805.2 L861.7 803.3" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="890.7" y="796.3" font-size="20" font-weight="700" fill="#0E1726">Analog setpoint and</text>
+<text x="890.7" y="822.3" font-size="20" font-weight="700" fill="#0E1726">output</text>
+<text x="820.7" y="857.8" font-size="17" fill="#2B3442">A 0 to 5 V or 4 to 20 mA setpoint input</text>
+<text x="820.7" y="882.4" font-size="17" fill="#2B3442">and flow output on pins 1 and 2, wired</text>
+<text x="820.7" y="907" font-size="17" fill="#2B3442">outside the driver</text>
+<rect x="820.7" y="925.6" width="117.9" height="26" rx="13" fill="#334155"/>
+<text x="828.7" y="943.7" font-size="16" font-weight="700" fill="#FFFFFF">Not covered</text>
+<rect x="32" y="1053.6" width="14" height="14" rx="4" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4"/>
+<text x="54" y="1068.2" font-size="16" fill="#566070">Supported: the driver covers it and a host test checks it</text>
+<rect x="32" y="1085.6" width="14" height="14" rx="4" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4"/>
+<text x="54" y="1100.2" font-size="16" fill="#566070">Guarded: covered, behind an explicit acknowledgement because a wrong value can do harm</text>
+<rect x="32" y="1117.6" width="14" height="14" rx="4" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<text x="54" y="1132.2" font-size="16" fill="#566070">Not covered: the chip has it and the driver leaves it alone</text>
+</svg>

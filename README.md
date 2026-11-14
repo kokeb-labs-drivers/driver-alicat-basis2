@@ -1,5 +1,11 @@
 # BASIS 2 Driver
 
+<!-- generated: chip-summary -->
+The **BASIS 2** is a family of gas mass flow meters (B series) and controllers (BC series): it reports the flow,
+temperature and total of nine gases, and a controller sets the flow with its own valve (Introduction, [p.
+3](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=3)).
+<!-- /generated -->
+
 C++20 driver for the Alicat BASIS 2 gas mass flow meters (B series) and controllers (BC series) over a serial line, with
 the ASCII protocol and Modbus RTU behind one API.
 
@@ -10,60 +16,103 @@ the ASCII protocol and Modbus RTU behind one API.
 **Documentation: [`docs/`](docs/index.md)**, with the API reference built by Doxygen ([how](docs/api-reference.md)).
 The site at <https://kokeb-labs-drivers.github.io/driver-alicat-basis2/> opens when the repository is public.
 
-
-The BASIS 2 instruments measure the mass flow of nine gases from 100 SCCM to 100 SLPM, and a controller sets the flow
-with a valve. This driver reads flow, temperature and totals, sets setpoints, ramps and valve holds, scans for
-instruments and recovers a lost one, and guards the commands that can strand an instrument. It runs on any MCU: you
-give it a small class that moves bytes on a serial line and tells the time, and it does the rest. **Not verified on
-hardware yet.**
-
-<!-- figure: driver-layers -->
+<!-- figure: chip-hero -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/driver-layers.dark.svg">
-  <img src="docs/diagrams/driver-layers.svg"
-    alt="Layer diagram: your application calls the Basis2 core, which sends register reads and writes through
-    the UART port contract to the port class you write, which drives the chip; the core and the contract
-    are the same on every MCU.">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-hero.dark.svg">
+  <img src="docs/diagrams/chip-hero.svg"
+    alt="Overview of the BASIS 2, a family of gas mass flow meters (B series) and controllers (BC series): it
+    reports the flow, temperature and total of nine gases, and a controller sets the flow with its own
+    valve. A MCU talks to it over RS-232 or RS-485; it drives Valve; it reads back Gas flow, Gas
+    temperature. Headline figures: 12 to 24 V supply on pin 4 only; 1000:1 turndown, 0.1 to 100 % of
+    full scale; 9 gases selectable, stored in the instrument; 176 Hz digital update rate at best.">
 </picture>
 <!-- /figure -->
 
-## At a glance
+## What it does
 
-| | |
-| --- | --- |
-| **Instrument** | Alicat BASIS 2 B-series meter or BC-series controller, 12 to 24 V on pin 4 only |
-| **Measures** | Mass flow, temperature and total of nine gases; controllers add setpoint, ramp, valve and batch |
-| **Line** | RS-232 or RS-485 by model, 38400 baud 8N1 by default, up to 26 instruments with unit IDs A to Z |
-| **Protocols** | ASCII "BASIS Protocol 2" (default) and Modbus RTU, both complete, one typed API |
-| **Safety** | Six commands that can strand an instrument sit behind confirmation tokens; reads retry, writes never do |
-| **Driver** | Header-only C++20; no heap, exceptions, RTTI or virtual calls; every call returns `Result<T>` |
-| **Runs on** | Any MCU with a UART and a C++20 compiler; the host example runs on any PC ([Platforms](docs/platforms.md)) |
-| **Status** | 0.1.0, not yet verified on hardware: host-tested against an independent model instrument |
-
-<!-- figure: chip-pinout -->
+<!-- figure: chip-capabilities -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-pinout.dark.svg">
-  <img src="docs/diagrams/chip-pinout.svg"
-    alt="Pinout of the BASIS 2 (B and BC series) in JST GH 6-pin connector, top view: 6 pins, each with its
-    name, its electrical type as a colour and the driver hook that uses it.">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-capabilities.dark.svg">
+  <img src="docs/diagrams/chip-capabilities.svg"
+    alt="Capability map of the BASIS 2: Flow, temperature and total (supported): Polls the whole data frame
+    or single items and decodes each number exactly; Setpoint, ramp and watchdog (supported): Sets the
+    flow of a controller, limits how fast it changes and closes the valve if the line goes quiet; Valve
+    hold and loop gains (supported): Holds the valve at a fixed drive, opens or closes it, and tunes the
+    closed loop; Tare and autotare (supported): Zeroes the flow reading at no flow, and on a controller
+    zeroes it again at a closed setpoint; Gas selection (supported): Selects one of the nine calibrated
+    gases and lists the gases the instrument holds; Totalizer and batch (supported): Counts the gas that
+    has passed, sets what happens at the limit, and dispenses a set volume; Measurement window
+    (supported): Starts a timed measurement, by command or by an event, and reads its averages and
+    ranges; Unit ID, baud and protocol (guarded): Changes the unit ID, address, baud rate or protocol,
+    restores factory settings, and scans a line; Analog setpoint and output (not covered): A 0 to 5 V or
+    4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver.">
 </picture>
 <!-- /figure -->
 
-<!-- figure: chip-outline -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-outline.dark.svg">
-  <img src="docs/diagrams/chip-outline.svg"
-    alt="Outline of the BASIS 2 (B and BC series) in JST GH 6-pin connector drawn to scale from above: body
-    68.6 x 22.2 x 39.4 mm, 6 pins.">
-</picture>
-<!-- /figure -->
+## Where it is used
+
+<!-- generated: chip-uses -->
+- Logging flow data to a PC over the serial line
+- Flow control from software, over a digital link or with analog signals
+
+Uses named by the datasheet (Introduction, [p. 3](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=3)).
+<!-- /generated -->
+
+## Inside the module
 
 <!-- figure: chip-blocks -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-blocks.dark.svg">
   <img src="docs/diagrams/chip-blocks.svg"
-    alt="Block diagram of the BASIS 2 (B and BC series): its function blocks, how they connect and which
-    package pins reach each block.">
+    alt="Block diagram of the BASIS 2: its function blocks, how they connect and which package pins reach
+    each block.">
+</picture>
+<!-- /figure -->
+
+## Pins and wiring
+
+<!-- figure: chip-pinout -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-pinout.dark.svg">
+  <img src="docs/diagrams/chip-pinout.svg"
+    alt="Pinout of the BASIS 2 in JST GH 6-pin connector, top view: 6 pins, each with its name, its
+    electrical type as a colour and the driver hook that uses it.">
+</picture>
+<!-- /figure -->
+
+<!-- figure: chip-wiring-rs485-multidrop -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-wiring-rs485-multidrop.dark.svg">
+  <img src="docs/diagrams/chip-wiring-rs485-multidrop.svg"
+    alt="Wiring of the BASIS 2 for the RS-485 multidrop line: MCU + RS-485 RS-485 A to TX/A (Read()); MCU +
+    RS-485 RS-485 B to RX/B (Write()). Supplies, grounds and the support parts are listed under the
+    drawing.">
+</picture>
+<!-- /figure -->
+
+<!-- figure: chip-wiring-rs232 -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-wiring-rs232.dark.svg">
+  <img src="docs/diagrams/chip-wiring-rs232.svg"
+    alt="Wiring of the BASIS 2 for the RS-232 point to point: MCU + RS-232 RS-232 TX to RX/B (Write()); MCU +
+    RS-232 RS-232 RX to TX/A (Read()). Supplies, grounds and the support parts are listed under the
+    drawing.">
+</picture>
+<!-- /figure -->
+
+| MCU | Instrument connector | Notes |
+| --- | --- | --- |
+| UART TX | pin 5 (RX or B) | 38400 baud, 8N1; RS-232 or RS-485 levels by model: a level shifter or a transceiver |
+| UART RX | pin 6 (TX or A) | |
+| 12 to 24 V supply | pin 4 | **Power on pin 4 only** |
+| Ground | pin 3 | One common ground |
+
+<!-- figure: chip-outline -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-outline.dark.svg">
+  <img src="docs/diagrams/chip-outline.svg"
+    alt="Outline of the BASIS 2 in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4
+    mm, 6 pins.">
 </picture>
 <!-- /figure -->
 
@@ -87,6 +136,106 @@ Also sold as:
 
 From [`docs/hardware.yml`](docs/hardware.yml); pins, circuits and the block diagram: [Hardware](docs/hardware.md).
 <!-- /generated -->
+
+## Quick start
+
+**1. Wire it** as in [Pins and wiring](#pins-and-wiring).
+
+**2. Write the port**: a class with `EnsureInitialized()` (bring the UART up), `Write()`, a partial `Read()`,
+`FlushInput()` and `NowMs()`, about 30 lines on most SDKs. [Porting](docs/porting.md) has the contract, RS-485 and a
+complete example.
+
+**3. Read the flow:**
+
+<!-- generated: quickstart-code -->
+```cpp
+#include "alicat_basis2.hpp"
+
+int read_flow(MyPort& port, double& flow) {
+  alicat_basis2::Bus<MyPort> bus(port);
+  alicat_basis2::Basis2<MyPort> meter(bus); // unit ID 'A', 38400 baud, ASCII: the factory settings
+
+  if (auto r = meter.EnsureInitialized(); !r) { // 1. the port comes up; no traffic yet
+    return static_cast<int>(r.error);
+  }
+  if (auto r = meter.Begin();
+      !r) { // 2. learn the instrument: Timeout means check wiring and unit ID
+    return static_cast<int>(r.error);
+  }
+  const auto f = meter.ReadFlow(); // 3. one poll
+  if (!f) {
+    return static_cast<int>(f.error);
+  }
+  flow = f.value.ToDouble(); // in the instrument's flow unit
+  return 0;
+}
+```
+<!-- /generated -->
+
+`EnsureInitialized()` only brings the port up. `Begin()` learns the instrument with read commands. Every other call
+returns an error until both have succeeded, and no call starts the instrument on its own.
+
+## Driver coverage
+
+<!-- generated: chip-coverage -->
+| Capability | What the chip does | Driver API | Registers | Status | Datasheet |
+| --- | --- | --- | --- | --- | --- |
+| [Flow, temperature and total](docs/api-guide.md) | Polls the whole data frame or single items and decodes each number exactly | `ReadFrame`, `ReadData`, `ReadFlow`, `ReadTemperature`, `ReadTotal`, `ReadStatus` | `kFlow`, `kTemperature`, `kTotal`, `kStatus` | Supported | Data Frame Format, [p. 10](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=10) |
+| [Setpoint, ramp and watchdog](docs/safety.md) | Sets the flow of a controller, limits how fast it changes and closes the valve if the line goes quiet (controllers only; the watchdog acts only on Modbus setpoints from an unsaved digital source) | `SetSetpoint`, `SetSetpointSource`, `SetRamp`, `DisableRamp`, `SetWatchdog` | `kSetpoint`, `kSetpointType`, `kRamp`, `kWatchdog` | Supported | Setpoint; Setpoint Source; Maximum Setpoint Ramp Rate, [p. 11](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=11) |
+| [Valve hold and loop gains](docs/safety.md) | Holds the valve at a fixed drive, opens or closes it, and tunes the closed loop (controllers only) | `HoldValve`, `ResumeControl`, `OpenValve`, `CloseValve`, `SetGains` | `kGainP`, `kGainI` | Supported | Hold Valve Position / Resume Flow; Loop Control Gains, [p. 13](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=13) |
+| [Tare and autotare](docs/api-guide.md) | Zeroes the flow reading at no flow, and on a controller zeroes it again at a closed setpoint | `Tare`, `TareDefault`, `SetAutotare` | `kTare`, `kTareSamples`, `kAutotare` | Supported | Taring the Instrument, [p. 14](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=14) |
+| [Gas selection](docs/api-guide.md) | Selects one of the nine calibrated gases and lists the gases the instrument holds | `SetGas`, `ReadGas`, `ReadGasList`, `ReadGasTable` | `kGas`, `kGasTable` | Supported | Active Gas, [p. 15](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=15) |
+| [Totalizer and batch](docs/api-guide.md) | Counts the gas that has passed, sets what happens at the limit, and dispenses a set volume (batch on controllers only) | `ResetTotal`, `SetTotalizerLimit`, `SetBatch`, `DisableBatch`, `ReadBatchRemaining` | `kTotalReset`, `kTotalLimit`, `kBatch`, `kBatchRemaining` | Supported | Totalizer Reset; Totalizer Batch; Totalizer Configuration, [p. 15](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=15) |
+| [Measurement window](docs/api-guide.md) | Starts a timed measurement, by command or by an event, and reads its averages and ranges (controllers only) | `SetMeasurementTrigger`, `StartMeasurement`, `ReadAverages`, `ReadRanges`, `ReadPreviousMeasurement` | `kTrigger`, `kSamples` | Supported | Configure Measurement Triggering; Measurement Averages and Ranges, [p. 13](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=13) |
+| [Unit ID, baud and protocol](docs/safety.md) | Changes the unit ID, address, baud rate or protocol, restores factory settings, and scans a line (each change needs a confirmation token) | `ChangeUnitId`, `SetModbusAddress`, `ChangeBaud`, `SwitchToProtocol1`, `FactoryRestore`, `ScanUnitIds` | `kUnitId`, `kModbusAddress`, `kBaud`, `kProtocol`, `kFactoryRestore` | Guarded | Unit ID, [p. 16](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=16) |
+| [Analog setpoint and output](docs/hardware.md) | A 0 to 5 V or 4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver | - | - | Not covered | Analog Signals, [p. 28](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=28) |
+
+**Supported**: the driver covers it and a host test checks it; **Guarded**: covered, behind an explicit acknowledgement
+because a wrong value can do harm; **Not covered**: the chip has it and the driver leaves it alone.
+
+From [`docs/hardware.yml`](docs/hardware.yml); `kokeb-docs hardware --check` confirms that every API name is in
+`inc/alicat_basis2.hpp`, `inc/alicat_basis2_types.hpp` and every register in `inc/alicat_basis2_registers.hpp`.
+<!-- /generated -->
+
+This driver reads flow, temperature and totals, sets setpoints, ramps and valve holds, scans for instruments and
+recovers a lost one, and guards the commands that can strand an instrument. It runs on any MCU: you give it a small
+class that moves bytes on a serial line and tells the time, and it does the rest. **Not verified on hardware yet.**
+
+| | |
+| --- | --- |
+| **Line** | RS-232 or RS-485 by model, 38400 baud 8N1 by default, up to 26 instruments with unit IDs A to Z |
+| **Protocols** | ASCII "BASIS Protocol 2" (default) and Modbus RTU, both complete, one typed API |
+| **Safety** | Six commands that can strand an instrument sit behind confirmation tokens; reads retry, writes never do |
+| **Driver** | Header-only C++20; no heap, exceptions, RTTI or virtual calls; every call returns `Result<T>` |
+| **Runs on** | Any MCU with a UART and a C++20 compiler; the host example runs on any PC ([Platforms](docs/platforms.md)) |
+| **Status** | 0.1.0, not yet verified on hardware: host-tested against an independent model instrument |
+
+- Reads the full data frame or single items; decodes numbers exactly (`Decimal`), flags and gas; rejects what the
+  grammar does not allow and what cannot be physical.
+- Sets setpoints (checked, read back, rate limited on the saved source), ramps, valve holds, tare, gas, totalizer and
+  batch, averaging and measurement windows.
+- Frames a transaction by the rules of the line: the 3.5 character gap, deadlines from the baud rate, quarantine after a
+  failure so a late reply is never taken for the next answer, stray line detection.
+- Speaks ASCII and Modbus RTU (functions 3, 6 and 16, CRC-16, the register table with firmware gates).
+- Guards the six commands that change the unit ID, the Modbus address, the baud rate, the protocol or the factory
+  settings; recovers a lost instrument by scanning.
+- Returns `Result<T>` with an `Error` from every call: no exceptions, no heap, no RTTI, no virtual calls.
+
+## Documentation
+
+| Page | Read it when you want to |
+| --- | --- |
+| [Quickstart](docs/quickstart.md) | Go from a bare instrument to a flow reading on your MCU |
+| [Hardware](docs/hardware.md) | Wire it: the connector, RS-232 and RS-485, power, LED, size classes |
+| [Safety notes](docs/safety.md) | Know what moves a valve, what the watchdog does not do, and the guarded commands |
+| [Protocols](docs/protocols.md) | See the ASCII and Modbus RTU protocols side by side, with the timing |
+| [Porting](docs/porting.md) | Write the port class for your MCU's SDK, including RS-485 and baud switching |
+| [API guide](docs/api-guide.md) | Use each call: start, read, set, scan, recover, handle errors |
+| [Configuration](docs/configuration.md) | Choose every setting; the required Modbus decimals |
+| [Troubleshooting](docs/troubleshooting.md) | Find the cause of an error or a wrong reading |
+| [Contract](docs/contract.md) | Know exactly what the driver promises, needs and returns |
+| [Datasheet map](docs/datasheet.md) | Find the manual section behind each part of the driver, and the open assumptions |
+| [API reference](docs/api-reference.md) | Look up a class or member (Doxygen; built by CI and locally) |
 
 ## Datasheet
 
@@ -129,64 +278,6 @@ You need git, CMake 3.16+ and a C++20 compiler (GCC 10+, Clang 13+ or MSVC 2022)
 
 To run the whole test suite instead: `cmake -S . -B build -DALICAT_BASIS2_BUILD_TESTS=ON && cmake --build build && ctest
 --test-dir build`.
-
-## Use it on your MCU
-
-**1. Wire it** ([Hardware](docs/hardware.md) has the connector, both circuits and the warnings):
-
-| MCU | Instrument connector | Notes |
-| --- | --- | --- |
-| UART TX | pin 5 (RX or B) | 38400 baud, 8N1; RS-232 or RS-485 levels by model: a level shifter or a transceiver |
-| UART RX | pin 6 (TX or A) | |
-| 12 to 24 V supply | pin 4 | **Power on pin 4 only** |
-| Ground | pin 3 | One common ground |
-
-**2. Write the port**: a class with `EnsureInitialized()` (bring the UART up), `Write()`, a partial `Read()`,
-`FlushInput()` and `NowMs()`, about 30 lines on most SDKs. [Porting](docs/porting.md) has the contract, RS-485 and a
-complete example.
-
-**3. Read the flow:**
-
-<!-- generated: quickstart-code -->
-```cpp
-#include "alicat_basis2.hpp"
-
-int read_flow(MyPort& port, double& flow) {
-  alicat_basis2::Bus<MyPort> bus(port);
-  alicat_basis2::Basis2<MyPort> meter(bus); // unit ID 'A', 38400 baud, ASCII: the factory settings
-
-  if (auto r = meter.EnsureInitialized(); !r) { // 1. the port comes up; no traffic yet
-    return static_cast<int>(r.error);
-  }
-  if (auto r = meter.Begin();
-      !r) { // 2. learn the instrument: Timeout means check wiring and unit ID
-    return static_cast<int>(r.error);
-  }
-  const auto f = meter.ReadFlow(); // 3. one poll
-  if (!f) {
-    return static_cast<int>(f.error);
-  }
-  flow = f.value.ToDouble(); // in the instrument's flow unit
-  return 0;
-}
-```
-<!-- /generated -->
-
-`EnsureInitialized()` only brings the port up. `Begin()` learns the instrument with read commands. Every other call
-returns an error until both have succeeded, and no call starts the instrument on its own.
-
-## What it does
-
-- Reads the full data frame or single items; decodes numbers exactly (`Decimal`), flags and gas; rejects what the
-  grammar does not allow and what cannot be physical.
-- Sets setpoints (checked, read back, rate limited on the saved source), ramps, valve holds, tare, gas, totalizer and
-  batch, averaging and measurement windows.
-- Frames a transaction by the rules of the line: the 3.5 character gap, deadlines from the baud rate, quarantine after a
-  failure so a late reply is never taken for the next answer, stray line detection.
-- Speaks ASCII and Modbus RTU (functions 3, 6 and 16, CRC-16, the register table with firmware gates).
-- Guards the six commands that change the unit ID, the Modbus address, the baud rate, the protocol or the factory
-  settings; recovers a lost instrument by scanning.
-- Returns `Result<T>` with an `Error` from every call: no exceptions, no heap, no RTTI, no virtual calls.
 
 ## Add it to your project
 
@@ -246,22 +337,6 @@ details.
    ```
 
 The target is `alicat_basis2::alicat_basis2` every way, so switching later changes nothing else.
-
-## Documentation
-
-| Page | Read it when you want to |
-| --- | --- |
-| [Quickstart](docs/quickstart.md) | Go from a bare instrument to a flow reading on your MCU |
-| [Hardware](docs/hardware.md) | Wire it: the connector, RS-232 and RS-485, power, LED, size classes |
-| [Safety notes](docs/safety.md) | Know what moves a valve, what the watchdog does not do, and the guarded commands |
-| [Protocols](docs/protocols.md) | See the ASCII and Modbus RTU protocols side by side, with the timing |
-| [Porting](docs/porting.md) | Write the port class for your MCU's SDK, including RS-485 and baud switching |
-| [API guide](docs/api-guide.md) | Use each call: start, read, set, scan, recover, handle errors |
-| [Configuration](docs/configuration.md) | Choose every setting; the required Modbus decimals |
-| [Troubleshooting](docs/troubleshooting.md) | Find the cause of an error or a wrong reading |
-| [Contract](docs/contract.md) | Know exactly what the driver promises, needs and returns |
-| [Datasheet map](docs/datasheet.md) | Find the manual section behind each part of the driver, and the open assumptions |
-| [API reference](docs/api-reference.md) | Look up a class or member (Doxygen; built by CI and locally) |
 
 ## Tests and quality
 

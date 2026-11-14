@@ -11,7 +11,7 @@
 # manual (document `manual`, Rev 4) or the specification sheet (document `specs`, Rev 19). A fact no document states
 # is marked `unverified` with the reason.
 schema: 1
-chip: "BASIS 2 (B and BC series)"
+chip: "BASIS 2"
 
 refs:
   pinout: {doc: manual, section: "Power and Signal Connections, pin table", page: 7}
@@ -25,6 +25,15 @@ refs:
   order: {doc: specs, section: "Technical Data, ranges and options", page: 2}
   electrical: {doc: specs, section: "Technical Data", page: 1}
   blocks: {doc: manual, section: "Introduction", page: 3}
+  power: {doc: manual, section: "Power Connections", page: 6}
+  frame: {doc: manual, section: "Data Frame Format", page: 10}
+  setpoint: {doc: manual, section: "Setpoint; Setpoint Source; Maximum Setpoint Ramp Rate", page: 11}
+  valve: {doc: manual, section: "Hold Valve Position / Resume Flow; Loop Control Gains", page: 13}
+  measure: {doc: manual, section: "Configure Measurement Triggering; Measurement Averages and Ranges", page: 13}
+  taring: {doc: manual, section: "Taring the Instrument", page: 14}
+  gas: {doc: manual, section: "Active Gas", page: 15}
+  totalizer: {doc: manual, section: "Totalizer Reset; Totalizer Batch; Totalizer Configuration", page: 15}
+  unitid: {doc: manual, section: "Unit ID", page: 16}
 
 package:
   type: "JST GH 6-pin connector"
@@ -49,6 +58,80 @@ package:
 
 supply:
   - {name: PWR, min_v: 12, max_v: 24, ref: supply}
+
+# The chip-first README: what the instrument is and does, where it is used, how the driver covers each function.
+# `kokeb-docs figures` draws chip-hero and chip-capabilities from it, `kokeb-docs gen` the README's chip-summary,
+# chip-uses and chip-coverage regions. The line is a variable-length ASCII or Modbus RTU exchange, so there is no
+# `frames` entry.
+overview:
+  summary: >-
+    a family of gas mass flow meters (B series) and controllers (BC series): it reports the flow, temperature and
+    total of nine gases, and a controller sets the flow with its own valve
+  category: Gas mass flow meter and controller
+  ref: blocks
+  applications:
+    - Logging flow data to a PC over the serial line
+    - Flow control from software, over a digital link or with analog signals
+  specs:
+    - {value: "12 to 24 V", label: "supply on pin 4 only", ref: power}
+    - {value: "1000:1", label: "turndown, 0.1 to 100 % of full scale", ref: electrical}
+    - {value: "9 gases", label: "selectable, stored in the instrument", ref: gas}
+    - {value: "176 Hz", label: "digital update rate at best", ref: electrical}
+  system:
+    host: MCU
+    bus: "RS-232 or RS-485"
+    drives:
+      - {label: Valve, detail: "controllers only, normally closed", ref: electrical}
+    senses:
+      - {label: Gas flow, detail: "mass flow, 0.1 to 100 % of full scale", ref: electrical}
+      - {label: Gas temperature, detail: "within 1.5 degrees C", ref: electrical}
+
+# Headers the capability `api` and `registers` names are checked against.
+driver:
+  api: [inc/alicat_basis2.hpp, inc/alicat_basis2_types.hpp]
+  registers: [inc/alicat_basis2_registers.hpp]
+
+capabilities:
+  - {id: flow, title: "Flow, temperature and total", icon: flow, status: supported, ref: frame, docs: api-guide.md,
+     what: "Polls the whole data frame or single items and decodes each number exactly",
+     api: [ReadFrame, ReadData, ReadFlow, ReadTemperature, ReadTotal, ReadStatus],
+     registers: [kFlow, kTemperature, kTotal, kStatus]}
+  - {id: setpoint, title: "Setpoint, ramp and watchdog", icon: ramp, status: supported, ref: setpoint,
+     docs: safety.md,
+     what: "Sets the flow of a controller, limits how fast it changes and closes the valve if the line goes quiet",
+     note: "controllers only; the watchdog acts only on Modbus setpoints from an unsaved digital source",
+     api: [SetSetpoint, SetSetpointSource, SetRamp, DisableRamp, SetWatchdog],
+     registers: [kSetpoint, kSetpointType, kRamp, kWatchdog]}
+  - {id: valve, title: Valve hold and loop gains, icon: gate, status: supported, ref: valve, docs: safety.md,
+     what: "Holds the valve at a fixed drive, opens or closes it, and tunes the closed loop",
+     note: "controllers only",
+     api: [HoldValve, ResumeControl, OpenValve, CloseValve, SetGains],
+     registers: [kGainP, kGainI]}
+  - {id: tare, title: Tare and autotare, icon: gauge, status: supported, ref: taring, docs: api-guide.md,
+     what: "Zeroes the flow reading at no flow, and on a controller zeroes it again at a closed setpoint",
+     api: [Tare, TareDefault, SetAutotare],
+     registers: [kTare, kTareSamples, kAutotare]}
+  - {id: gas, title: Gas selection, icon: tag, status: supported, ref: gas, docs: api-guide.md,
+     what: "Selects one of the nine calibrated gases and lists the gases the instrument holds",
+     api: [SetGas, ReadGas, ReadGasList, ReadGasTable],
+     registers: [kGas, kGasTable]}
+  - {id: totalizer, title: Totalizer and batch, icon: memory, status: supported, ref: totalizer, docs: api-guide.md,
+     what: "Counts the gas that has passed, sets what happens at the limit, and dispenses a set volume",
+     note: "batch on controllers only",
+     api: [ResetTotal, SetTotalizerLimit, SetBatch, DisableBatch, ReadBatchRemaining],
+     registers: [kTotalReset, kTotalLimit, kBatch, kBatchRemaining]}
+  - {id: window, title: Measurement window, icon: clock, status: supported, ref: measure, docs: api-guide.md,
+     what: "Starts a timed measurement, by command or by an event, and reads its averages and ranges",
+     note: "controllers only",
+     api: [SetMeasurementTrigger, StartMeasurement, ReadAverages, ReadRanges, ReadPreviousMeasurement],
+     registers: [kTrigger, kSamples]}
+  - {id: identity, title: "Unit ID, baud and protocol", icon: lock, status: guarded, ref: unitid, docs: safety.md,
+     what: "Changes the unit ID, address, baud rate or protocol, restores factory settings, and scans a line",
+     note: "each change needs a confirmation token",
+     api: [ChangeUnitId, SetModbusAddress, ChangeBaud, SwitchToProtocol1, FactoryRestore, ScanUnitIds],
+     registers: [kUnitId, kModbusAddress, kBaud, kProtocol, kFactoryRestore]}
+  - {id: analog, title: Analog setpoint and output, icon: analog, status: not-covered, ref: analog, docs: hardware.md,
+     what: "A 0 to 5 V or 4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver"}
 
 hooks:
   - {id: write, call: "Write()", kind: uart, source: inc/alicat_basis2_uart_interface.hpp, symbol: Write}
@@ -97,69 +180,51 @@ circuits:
   - id: rs485-multidrop
     title: RS-485 multidrop line
     description: >-
-      Up to 26 instruments with unit IDs A to Z on one pair. The MCU's UART goes through a half-duplex transceiver
-      whose A and B lines meet pins 6 and 5 of each instrument; the grounds are common on pin 3. The transceiver
-      (its supply and ground pins are not drawn), the 120 ohm terminations at both ends of the line (not drawn) and
-      the 100 nF decoupling are general practice, not manual values. Only pin 4 carries power.
+      Up to 26 instruments with unit IDs A to Z on one pair. The MCU's UART reaches the pair through a half-duplex
+      transceiver, drawn with the MCU, whose A and B lines meet pins 6 and 5 of each instrument; the grounds are
+      common on pin 3. The transceiver (its supply, ground and direction pins are not drawn) and the 120 ohm
+      terminations at both ends of the line (not drawn) are general practice, not manual values. Only pin 4 carries
+      power.
     ref: pinout
     parts:
       - {id: U1, kind: chip}
       - id: U2
         kind: mcu
-        label: MCU
+        label: MCU + RS-485
         pins:
-          - {name: TX, label: UART TX}
-          - {name: RX, label: UART RX}
-          - {name: DE, label: GPIO (driver enable)}
-          - VDD
+          - {name: A, label: RS-485 A}
+          - {name: B, label: RS-485 B}
           - GND
-      - id: U3
-        kind: ic
-        label: RS-485 transceiver
-        pins: [DI, RO, DE, A, B]
-        unverified: "general practice: the manual describes no transceiver"
+        unverified: "the transceiver is general practice: the manual describes none"
       - {id: J1, kind: connector, label: "12 to 24 V supply", ref: supply, pins: ["24V", GND]}
-      - {id: C1, kind: capacitor, value: 100 nF, unverified: "decoupling: general practice"}
     nets:
-      - {name: "+3V3", kind: supply, nodes: [U2.VDD, C1.1]}
       - {name: "+24V", kind: supply, nodes: [U1.PWR, J1.24V]}
-      - {name: GND, kind: ground, nodes: [U2.GND, U1.GND, C1.2, J1.GND]}
-      - {name: "MCU TX", nodes: [U2.TX, U3.DI]}
-      - {name: "MCU RX", nodes: [U2.RX, U3.RO]}
-      - {name: "Direction", nodes: [U2.DE, U3.DE]}
-      - {name: "Line A", nodes: [U3.A, U1.TX/A]}
-      - {name: "Line B", nodes: [U3.B, U1.RX/B]}
+      - {name: GND, kind: ground, nodes: [U2.GND, U1.GND, J1.GND]}
+      - {name: "Line A", nodes: [U2.A, U1.TX/A]}
+      - {name: "Line B", nodes: [U2.B, U1.RX/B]}
     unused: [U1.A-SET, U1.A-OUT]
   - id: rs232
     title: RS-232 point to point
     description: >-
-      One instrument on an RS-232 port. The instrument's levels are RS-232, so a TTL UART needs a level shifter. The
-      shifter is general practice: the manual gives no TTL option. The MCU's TX goes to pin 5 (the instrument
-      receives) and the MCU's RX to pin 6. This is unverified: the manual's pin table lists "Rx" and "Tx" without saying whose side they name.
+      One instrument on an RS-232 port. The instrument's levels are RS-232, so a TTL UART needs a level shifter,
+      drawn with the MCU. The shifter is general practice: the manual gives no TTL option. The MCU's TX goes to pin 5
+      (the instrument receives) and the MCU's RX to pin 6. This is unverified: the manual's pin table lists "Rx" and
+      "Tx" without saying whose side they name.
     ref: pinout
     parts:
       - {id: U1, kind: chip}
       - id: U2
         kind: mcu
-        label: MCU
+        label: MCU + RS-232
         pins:
-          - {name: TX, label: UART TX}
-          - {name: RX, label: UART RX}
-          - VDD
+          - {name: TX, label: RS-232 TX}
+          - {name: RX, label: RS-232 RX}
           - GND
-      - id: U3
-        kind: ic
-        label: RS-232 level shifter
-        pins: [TIN, ROUT, T1OUT, R1IN]
-        unverified: "general practice: the manual describes no level shifter"
-      - {id: C1, kind: capacitor, value: 100 nF, unverified: "decoupling: general practice"}
+        unverified: "the level shifter is general practice: the manual describes none"
       - {id: J1, kind: connector, label: "12 to 24 V supply", ref: supply, pins: ["24V", GND]}
     nets:
-      - {name: "+3V3", kind: supply, nodes: [U2.VDD, C1.1]}
       - {name: "+24V", kind: supply, nodes: [U1.PWR, J1.24V]}
-      - {name: GND, kind: ground, nodes: [U2.GND, U1.GND, C1.2, J1.GND]}
-      - {name: "MCU TX", nodes: [U2.TX, U3.TIN]}
-      - {name: "MCU RX", nodes: [U2.RX, U3.ROUT]}
-      - {name: "To pin 5", nodes: [U3.T1OUT, U1.RX/B]}
-      - {name: "From pin 6", nodes: [U3.R1IN, U1.TX/A]}
+      - {name: GND, kind: ground, nodes: [U2.GND, U1.GND, J1.GND]}
+      - {name: "MCU TX", nodes: [U2.TX, U1.RX/B]}
+      - {name: "MCU RX", nodes: [U2.RX, U1.TX/A]}
     unused: [U1.A-SET, U1.A-OUT]

@@ -1,8 +1,8 @@
 {
   "chip-blocks": {
-    "title": "Inside the BASIS 2 (B and BC series)",
-    "alt": "Block diagram of the BASIS 2 (B and BC series): its function blocks, how they connect and which package pins reach each block.",
-    "description": "The BASIS 2 (B and BC series)'s function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.",
+    "title": "Inside the BASIS 2",
+    "alt": "Block diagram of the BASIS 2: its function blocks, how they connect and which package pins reach each block.",
+    "description": "The BASIS 2's function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.",
     "profile": "detail",
     "width": 1200,
     "source": "docs/hardware.yml",
@@ -11,9 +11,33 @@
       "inc/alicat_basis2_uart_interface.hpp"
     ]
   },
+  "chip-capabilities": {
+    "title": "What the BASIS 2 does",
+    "alt": "Capability map of the BASIS 2: Flow, temperature and total (supported): Polls the whole data frame or single items and decodes each number exactly; Setpoint, ramp and watchdog (supported): Sets the flow of a controller, limits how fast it changes and closes the valve if the line goes quiet; Valve hold and loop gains (supported): Holds the valve at a fixed drive, opens or closes it, and tunes the closed loop; Tare and autotare (supported): Zeroes the flow reading at no flow, and on a controller zeroes it again at a closed setpoint; Gas selection (supported): Selects one of the nine calibrated gases and lists the gases the instrument holds; Totalizer and batch (supported): Counts the gas that has passed, sets what happens at the limit, and dispenses a set volume; Measurement window (supported): Starts a timed measurement, by command or by an event, and reads its averages and ranges; Unit ID, baud and protocol (guarded): Changes the unit ID, address, baud rate or protocol, restores factory settings, and scans a line; Analog setpoint and output (not covered): A 0 to 5 V or 4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver.",
+    "description": "Each card is one function of the BASIS 2: an icon, its name and what it does for the application. The filled pill says how this driver covers it (legend below); the outlined pills are the chip registers behind it. The coverage table in the README gives the driver calls and the datasheet section of each card.",
+    "profile": "overview",
+    "width": 1200,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/alicat_basis2_uart_interface.hpp"
+    ]
+  },
   "chip-circuit-rs232": {
-    "title": "BASIS 2 (B and BC series): RS-232 point to point",
-    "alt": "Schematic of the BASIS 2 (B and BC series) rs-232 point to point: the chip with U2 MCU, U3 RS-232 level shifter, C1 capacitor 100 nF, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write().",
+    "title": "BASIS 2: RS-232 point to point",
+    "alt": "Schematic of the BASIS 2 rs-232 point to point: the chip with U2 MCU + RS-232, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write().",
+    "description": "A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.",
+    "profile": "detail",
+    "width": 1024,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/alicat_basis2_uart_interface.hpp"
+    ]
+  },
+  "chip-circuit-rs485-multidrop": {
+    "title": "BASIS 2: RS-485 multidrop line",
+    "alt": "Schematic of the BASIS 2 rs-485 multidrop line: the chip with U2 MCU + RS-485, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write().",
     "description": "A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.",
     "profile": "detail",
     "width": 1016,
@@ -23,12 +47,12 @@
       "inc/alicat_basis2_uart_interface.hpp"
     ]
   },
-  "chip-circuit-rs485-multidrop": {
-    "title": "BASIS 2 (B and BC series): RS-485 multidrop line",
-    "alt": "Schematic of the BASIS 2 (B and BC series) rs-485 multidrop line: the chip with U2 MCU, U3 RS-485 transceiver, J1 12 to 24 V supply, C1 capacitor 100 nF; the MCU wires carry the port hooks Read(), Write().",
-    "description": "A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.",
-    "profile": "detail",
-    "width": 1088,
+  "chip-hero": {
+    "title": "BASIS 2",
+    "alt": "Overview of the BASIS 2, a family of gas mass flow meters (B series) and controllers (BC series): it reports the flow, temperature and total of nine gases, and a controller sets the flow with its own valve. A MCU talks to it over RS-232 or RS-485; it drives Valve; it reads back Gas flow, Gas temperature. Headline figures: 12 to 24 V supply on pin 4 only; 1000:1 turndown, 0.1 to 100 % of full scale; 9 gases selectable, stored in the instrument; 176 Hz digital update rate at best.",
+    "description": "The BASIS 2 in the middle, drawn as its JST GH 6-pin connector package. On the left the MCU that runs the driver, joined to it by RS-232 or RS-485. To the right, what the chip drives, in the order the power flows. Below it, what the chip reads back. The tiles at the bottom are the headline numbers, each with the datasheet section and page it comes from.",
+    "profile": "overview",
+    "width": 1200,
     "source": "docs/hardware.yml",
     "sources": [
       "docs/hardware.yml",
@@ -36,9 +60,9 @@
     ]
   },
   "chip-outline": {
-    "title": "BASIS 2 (B and BC series) package, JST GH 6-pin connector",
-    "alt": "Outline of the BASIS 2 (B and BC series) in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4 mm, 6 pins.",
-    "description": "The BASIS 2 (B and BC series) package seen from the top and, when the height is known, from the side, drawn to scale: 68.6 x 22.2 x 39.4 mm. The arrows carry the datasheet's dimensions, the dot marks pin 1 and the pads are numbered counter-clockwise from it, coloured by the pin's electrical type (legend below). Pads sit centred on each side, evenly spaced; the datasheet's land pattern is the reference for a board.",
+    "title": "BASIS 2 package, JST GH 6-pin connector",
+    "alt": "Outline of the BASIS 2 in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4 mm, 6 pins.",
+    "description": "The BASIS 2 package seen from the top and, when the height is known, from the side, drawn to scale: 68.6 x 22.2 x 39.4 mm. The arrows carry the datasheet's dimensions, the dot marks pin 1 and the pads are numbered counter-clockwise from it, coloured by the pin's electrical type (legend below). Pads sit centred on each side, evenly spaced; the datasheet's land pattern is the reference for a board.",
     "profile": "detail",
     "width": 770,
     "source": "docs/hardware.yml",
@@ -48,11 +72,35 @@
     ]
   },
   "chip-pinout": {
-    "title": "BASIS 2 (B and BC series) pinout, JST GH 6-pin connector",
-    "alt": "Pinout of the BASIS 2 (B and BC series) in JST GH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it.",
-    "description": "The BASIS 2 (B and BC series) seen from the top, in its JST GH 6-pin connector package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver.",
+    "title": "BASIS 2 pinout, JST GH 6-pin connector",
+    "alt": "Pinout of the BASIS 2 in JST GH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it.",
+    "description": "The BASIS 2 seen from the top, in its JST GH 6-pin connector package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver.",
     "profile": "detail",
     "width": 760,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/alicat_basis2_uart_interface.hpp"
+    ]
+  },
+  "chip-wiring-rs232": {
+    "title": "Wiring: RS-232 point to point",
+    "alt": "Wiring of the BASIS 2 for the RS-232 point to point: MCU + RS-232 RS-232 TX to RX/B (Write()); MCU + RS-232 RS-232 RX to TX/A (Read()). Supplies, grounds and the support parts are listed under the drawing.",
+    "description": "The MCU + RS-232 on the left, the BASIS 2 in the middle. Each wire is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hook that uses it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
+    "profile": "overview",
+    "width": 1200,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/alicat_basis2_uart_interface.hpp"
+    ]
+  },
+  "chip-wiring-rs485-multidrop": {
+    "title": "Wiring: RS-485 multidrop line",
+    "alt": "Wiring of the BASIS 2 for the RS-485 multidrop line: MCU + RS-485 RS-485 A to TX/A (Read()); MCU + RS-485 RS-485 B to RX/B (Write()). Supplies, grounds and the support parts are listed under the drawing.",
+    "description": "The MCU + RS-485 on the left, the BASIS 2 in the middle. Each wire is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hook that uses it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
+    "profile": "overview",
+    "width": 1200,
     "source": "docs/hardware.yml",
     "sources": [
       "docs/hardware.yml",
