@@ -84,9 +84,10 @@ Uses named by the datasheet (Introduction, [p. 3](https://documents.alicat.com/m
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-wiring-rs485-multidrop.dark.svg">
   <img src="docs/diagrams/chip-wiring-rs485-multidrop.svg"
-    alt="Wiring of the BASIS 2 for the RS-485 multidrop line: MCU + RS-485 RS-485 A to TX/A (Read()); MCU +
-    RS-485 RS-485 B to RX/B (Write()). Supplies, grounds and the support parts are listed under the
-    drawing.">
+    alt="Wiring of the BASIS 2 for the RS-485 multidrop line: MCU UART TX to RS-485 transceiver DI (Write());
+    MCU UART RX to RS-485 transceiver RO (Read()); MCU GPIO (direction) to RS-485 transceiver DE, RE
+    (Write()); RS-485 transceiver A to TX/A (Write() and Read()); RS-485 transceiver B to RX/B (Write()
+    and Read()). Supplies, grounds and the support parts are listed under the drawing.">
 </picture>
 <!-- /figure -->
 
@@ -94,9 +95,10 @@ Uses named by the datasheet (Introduction, [p. 3](https://documents.alicat.com/m
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/chip-wiring-rs232.dark.svg">
   <img src="docs/diagrams/chip-wiring-rs232.svg"
-    alt="Wiring of the BASIS 2 for the RS-232 point to point: MCU + RS-232 RS-232 TX to RX/B (Write()); MCU +
-    RS-232 RS-232 RX to TX/A (Read()). Supplies, grounds and the support parts are listed under the
-    drawing.">
+    alt="Wiring of the BASIS 2 for the RS-232 point to point: MCU UART TX to RS-232 level shifter T1IN
+    (Write()); MCU UART RX to RS-232 level shifter R1OUT (Read()); RS-232 level shifter T1OUT to RX/B
+    (Write()); RS-232 level shifter R1IN to TX/A (Read()). Supplies, grounds and the support parts are
+    listed under the drawing.">
 </picture>
 <!-- /figure -->
 

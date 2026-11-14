@@ -25,10 +25,10 @@
   },
   "chip-circuit-rs232": {
     "title": "BASIS 2: RS-232 point to point",
-    "alt": "Schematic of the BASIS 2 rs-232 point to point: the chip with U2 MCU + RS-232, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write().",
+    "alt": "Schematic of the BASIS 2 rs-232 point to point: the chip with U2 MCU, U3 RS-232 level shifter, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write().",
     "description": "A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.",
     "profile": "detail",
-    "width": 1024,
+    "width": 880,
     "source": "docs/hardware.yml",
     "sources": [
       "docs/hardware.yml",
@@ -37,10 +37,10 @@
   },
   "chip-circuit-rs485-multidrop": {
     "title": "BASIS 2: RS-485 multidrop line",
-    "alt": "Schematic of the BASIS 2 rs-485 multidrop line: the chip with U2 MCU + RS-485, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write().",
+    "alt": "Schematic of the BASIS 2 rs-485 multidrop line: the chip with U2 MCU, U3 RS-485 transceiver, J1 12 to 24 V supply; the MCU wires carry the port hooks Write().",
     "description": "A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.",
     "profile": "detail",
-    "width": 1016,
+    "width": 928,
     "source": "docs/hardware.yml",
     "sources": [
       "docs/hardware.yml",
@@ -85,8 +85,8 @@
   },
   "chip-wiring-rs232": {
     "title": "Wiring: RS-232 point to point",
-    "alt": "Wiring of the BASIS 2 for the RS-232 point to point: MCU + RS-232 RS-232 TX to RX/B (Write()); MCU + RS-232 RS-232 RX to TX/A (Read()). Supplies, grounds and the support parts are listed under the drawing.",
-    "description": "The MCU + RS-232 on the left, the BASIS 2 in the middle. Each wire is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hook that uses it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
+    "alt": "Wiring of the BASIS 2 for the RS-232 point to point: MCU UART TX to RS-232 level shifter T1IN (Write()); MCU UART RX to RS-232 level shifter R1OUT (Read()); RS-232 level shifter T1OUT to RX/B (Write()); RS-232 level shifter R1IN to TX/A (Read()). Supplies, grounds and the support parts are listed under the drawing.",
+    "description": "The MCU on the left, the BASIS 2 on the right of the parts between them (RS-232 level shifter). Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
     "profile": "overview",
     "width": 1200,
     "source": "docs/hardware.yml",
@@ -97,8 +97,8 @@
   },
   "chip-wiring-rs485-multidrop": {
     "title": "Wiring: RS-485 multidrop line",
-    "alt": "Wiring of the BASIS 2 for the RS-485 multidrop line: MCU + RS-485 RS-485 A to TX/A (Read()); MCU + RS-485 RS-485 B to RX/B (Write()). Supplies, grounds and the support parts are listed under the drawing.",
-    "description": "The MCU + RS-485 on the left, the BASIS 2 in the middle. Each wire is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hook that uses it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
+    "alt": "Wiring of the BASIS 2 for the RS-485 multidrop line: MCU UART TX to RS-485 transceiver DI (Write()); MCU UART RX to RS-485 transceiver RO (Read()); MCU GPIO (direction) to RS-485 transceiver DE, RE (Write()); RS-485 transceiver A to TX/A (Write() and Read()); RS-485 transceiver B to RX/B (Write() and Read()). Supplies, grounds and the support parts are listed under the drawing.",
+    "description": "The MCU on the left, the BASIS 2 on the right of the parts between them (RS-485 transceiver). Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
     "profile": "overview",
     "width": 1200,
     "source": "docs/hardware.yml",

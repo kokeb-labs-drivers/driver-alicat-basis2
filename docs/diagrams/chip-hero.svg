@@ -29,8 +29,9 @@
 <rect x="608" y="634.4" width="272" height="153.9" rx="12" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
 <rect x="896" y="634.4" width="272" height="153.9" rx="12" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
 <text x="574" y="256.4" font-size="30" font-weight="700" text-anchor="middle" fill="#0E1726">BASIS 2</text>
-<text x="574" y="286.4" font-size="17" text-anchor="middle" fill="#566070">JST GH 6-pin connector</text>
-<text x="574" y="310.4" font-size="16" text-anchor="middle" fill="#566070">6 pins</text>
+<text x="574" y="286.4" font-size="17" text-anchor="middle" fill="#566070">JST GH 6-pin</text>
+<text x="574" y="308.5" font-size="17" text-anchor="middle" fill="#566070">connector</text>
+<text x="574" y="332.5" font-size="16" text-anchor="middle" fill="#566070">6 pins</text>
 <text x="56" y="240.4" font-size="20" font-weight="700" fill="#1E429F">MCU</text>
 <text x="56" y="271" font-size="17" fill="#2B3442">your firmware and</text>
 <text x="56" y="295.7" font-size="17" fill="#2B3442">this driver</text>

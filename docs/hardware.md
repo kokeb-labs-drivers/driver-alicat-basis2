@@ -122,8 +122,8 @@ horizontally with the flow arrow parallel to the ground, on two M3 x 0.5 holes 6
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-circuit-rs485-multidrop.dark.svg">
   <img src="diagrams/chip-circuit-rs485-multidrop.svg"
-    alt="Schematic of the BASIS 2 rs-485 multidrop line: the chip with U2 MCU + RS-485, J1 12 to 24 V supply;
-    the MCU wires carry the port hooks Read(), Write().">
+    alt="Schematic of the BASIS 2 rs-485 multidrop line: the chip with U2 MCU, U3 RS-485 transceiver, J1 12
+    to 24 V supply; the MCU wires carry the port hooks Write().">
 </picture>
 <!-- /figure -->
 
@@ -138,8 +138,8 @@ termination; a 120 ohm resistor at each end of a long line is general practice. 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-circuit-rs232.dark.svg">
   <img src="diagrams/chip-circuit-rs232.svg"
-    alt="Schematic of the BASIS 2 rs-232 point to point: the chip with U2 MCU + RS-232, J1 12 to 24 V supply;
-    the MCU wires carry the port hooks Read(), Write().">
+    alt="Schematic of the BASIS 2 rs-232 point to point: the chip with U2 MCU, U3 RS-232 level shifter, J1 12
+    to 24 V supply; the MCU wires carry the port hooks Read(), Write().">
 </picture>
 <!-- /figure -->
 
