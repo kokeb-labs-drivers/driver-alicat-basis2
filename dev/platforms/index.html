@@ -1095,15 +1095,15 @@ optional pieces around it, and only <code>examples/&lt;platform&gt;/</code> hold
 <tbody>
 <tr>
 <td>Host (Linux, macOS, Windows)</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/51b9d0c9550598f48d555cef74ea02a8f2eebf93/examples/host/host_alicat_basis2_port.hpp"><code>examples/host/host_alicat_basis2_port.hpp</code></a> (simulated instrument)</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/51b9d0c9550598f48d555cef74ea02a8f2eebf93/examples/host/README.md"><code>examples/host/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/examples/host/host_alicat_basis2_port.hpp"><code>examples/host/host_alicat_basis2_port.hpp</code></a> (simulated instrument)</td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/examples/host/README.md"><code>examples/host/</code></a></td>
 <td>Plain CMake</td>
 <td>yes, run as a test</td>
 </tr>
 <tr>
 <td>ESP32 (ESP-IDF), UART with RS-485 half duplex</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/51b9d0c9550598f48d555cef74ea02a8f2eebf93/examples/esp32/main/esp32_alicat_basis2_port.hpp"><code>examples/esp32/main/esp32_alicat_basis2_port.hpp</code></a></td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/51b9d0c9550598f48d555cef74ea02a8f2eebf93/examples/esp32/README.md"><code>examples/esp32/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/examples/esp32/main/esp32_alicat_basis2_port.hpp"><code>examples/esp32/main/esp32_alicat_basis2_port.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/examples/esp32/README.md"><code>examples/esp32/</code></a></td>
 <td>Root <code>CMakeLists.txt</code> under <code>ESP_PLATFORM</code> (component)</td>
 <td>yes</td>
 </tr>
@@ -1122,7 +1122,7 @@ repository as a component (a repository scaffolded without the ESP32 platform ad
 template when it needs it). Zephyr modules, Arduino library manifests and PlatformIO manifests are added only when a
 product needs them, and an example is added only together with a CI job that builds it.</p>
 <h2 id="add-a-platform">Add a platform<a class="headerlink" href="#add-a-platform" title="Permanent link">&para;</a></h2>
-<p>The <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/51b9d0c9550598f48d555cef74ea02a8f2eebf93/.claude/skills/add-port/SKILL.md"><code>add-port</code> skill</a> has
+<p>The <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/.claude/skills/add-port/SKILL.md"><code>add-port</code> skill</a> has
 the details per MCU. In short:</p>
 <ol>
 <li>Create <code>examples/&lt;platform&gt;/</code> with the port (<code>&lt;platform&gt;_alicat_basis2_port.hpp</code>), a small example program and a
