@@ -18,7 +18,7 @@ import sys
 
 # Words that are not driver symbols: standard names and prose that looks like a name.
 # The repository knowledge pages the template manages (its drift check keeps them identical to the template's).
-TEMPLATE_PAGES = frozenset({"knowledge-index.md", "mechanization-policy.md", "recurring-defects.md"})
+TEMPLATE_PAGES = frozenset({"agent-context.md", "knowledge-index.md", "mechanization-policy.md", "recurring-defects.md"})
 IGNORED = frozenset({"std", "uint8_t", "uint16_t", "uint32_t", "int64_t", "size_t", "Host", "Repository"})
 
 

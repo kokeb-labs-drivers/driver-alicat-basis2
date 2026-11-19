@@ -29,7 +29,7 @@ What happens in each layer when you read a flow.
 | Layer | Files | Owns |
 | --- | --- | --- |
 | Instrument | [`inc/alicat_basis2.hpp`](../inc/alicat_basis2.hpp), [`src/alicat_basis2.ipp`](../src/alicat_basis2.ipp) | `Basis2<Port>`: one instrument; the typed API, learning, verification, guarded commands, scans |
-| Bus | [`inc/alicat_basis2_uart_interface.hpp`](../inc/alicat_basis2_uart_interface.hpp), [`src/alicat_basis2_bus.ipp`](../src/alicat_basis2_bus.ipp) | `Bus<Port>`: one serial line, one transaction at a time, timing, quarantine, stray bytes |
+| Bus | [`inc/alicat_basis2_uart_interface.hpp`](../inc/alicat_basis2_uart_interface.hpp), [`src/alicat_basis2_uart_interface.ipp`](../src/alicat_basis2_uart_interface.ipp) | `Bus<Port>`: one serial line, one transaction at a time, timing, quarantine, stray bytes |
 | Codecs | [`inc/alicat_basis2_ascii.hpp`](../inc/alicat_basis2_ascii.hpp), [`inc/alicat_basis2_modbus.hpp`](../inc/alicat_basis2_modbus.hpp), [`inc/alicat_basis2_request.hpp`](../inc/alicat_basis2_request.hpp) | Request factories, reply grammars, CRC-16, the independent wire validators |
 | Types and registers | [`inc/alicat_basis2_types.hpp`](../inc/alicat_basis2_types.hpp), [`inc/alicat_basis2_registers.hpp`](../inc/alicat_basis2_registers.hpp) | `Error`, `Result`, `Config`, `Decimal`, `Frame`, the Modbus register table |
 | Port contract | [`inc/alicat_basis2_uart_interface.hpp`](../inc/alicat_basis2_uart_interface.hpp) | The CRTP base and the `UartPort` concept |
@@ -109,7 +109,7 @@ builder therefore cannot put an unlisted command on the wire.
 | --- | --- |
 | The public API | [`inc/alicat_basis2.hpp`](../inc/alicat_basis2.hpp) |
 | How a call is implemented | [`src/alicat_basis2.ipp`](../src/alicat_basis2.ipp) |
-| The transaction machine | [`src/alicat_basis2_bus.ipp`](../src/alicat_basis2_bus.ipp) |
+| The transaction machine | [`src/alicat_basis2_uart_interface.ipp`](../src/alicat_basis2_uart_interface.ipp) |
 | ASCII commands and grammar | [`inc/alicat_basis2_ascii.hpp`](../inc/alicat_basis2_ascii.hpp) |
 | Modbus registers and framing | [`inc/alicat_basis2_registers.hpp`](../inc/alicat_basis2_registers.hpp), [`inc/alicat_basis2_modbus.hpp`](../inc/alicat_basis2_modbus.hpp) |
 

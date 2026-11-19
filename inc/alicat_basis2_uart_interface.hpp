@@ -329,6 +329,6 @@ private:
 } // namespace alicat_basis2
 
 // codeql::misra_deviation_next_line(MD-CPP-009)
-#include "../src/alicat_basis2_bus.ipp"
+#include "../src/alicat_basis2_uart_interface.ipp"
 
 #endif // ALICAT_BASIS2_UART_INTERFACE_HPP

@@ -1,12 +1,12 @@
 /**
- * @file alicat_basis2_bus.ipp
+ * @file alicat_basis2_uart_interface.ipp
  * @brief The transaction machine of `Bus<Port>`, included by `alicat_basis2_uart_interface.hpp`.
  * @copyright Copyright (c) 2026 The driver-alicat-basis2 authors. SPDX-License-Identifier: MIT
  *
  * Section numbers refer to the operating manual DOC-MANUAL-BASIS2 Rev 4 (printed pages "M p.N").
  */
-#ifndef ALICAT_BASIS2_BUS_IPP
-#define ALICAT_BASIS2_BUS_IPP
+#ifndef ALICAT_BASIS2_UART_INTERFACE_IPP
+#define ALICAT_BASIS2_UART_INTERFACE_IPP
 
 namespace alicat_basis2 {
 
@@ -491,4 +491,4 @@ Result<Reply> Bus<Port>::Execute(const Request& request, const Timing& timing) n
 
 } // namespace alicat_basis2
 
-#endif // ALICAT_BASIS2_BUS_IPP
+#endif // ALICAT_BASIS2_UART_INTERFACE_IPP
