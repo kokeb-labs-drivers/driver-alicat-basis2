@@ -1,0 +1,4 @@
+header_only:
+  alicat_basis2_ascii: constants and inline or constexpr functions only, nothing to compile separately
+  alicat_basis2_modbus: constants and inline or constexpr functions only, nothing to compile separately
+  alicat_basis2_request: constants and inline or constexpr functions only, nothing to compile separately
