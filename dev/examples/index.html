@@ -1134,8 +1134,8 @@
 <p>One folder per platform under <code>examples/</code>, each with its own port, built by CI on every pull request. The driver
 itself has no platform code; <a href="../platforms/">Platforms</a> lists what exists.</p>
 <h2 id="host">Host<a class="headerlink" href="#host" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/host/README.md"><code>examples/host/</code></a> runs the driver on any PC against a simulated BASIS 2 instrument,
-through the host port <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/host/host_alicat_basis2_port.hpp"><code>host_alicat_basis2_port.hpp</code></a>. No hardware:</p>
+<p><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/examples/host/README.md"><code>examples/host/</code></a> runs the driver on any PC against a simulated BASIS 2 instrument,
+through the host port <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/examples/host/host_alicat_basis2_port.hpp"><code>host_alicat_basis2_port.hpp</code></a>. No hardware:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cmake<span class="w"> </span>-S<span class="w"> </span>examples/host<span class="w"> </span>-B<span class="w"> </span>build-example<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cmake<span class="w"> </span>--build<span class="w"> </span>build-example<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./build-example/alicat_basis2_host_example
 </span></code></pre></div>
 <p>It runs five scenarios, each a snippet below: read the flow ten times, ramp a controller with the unsaved source and
@@ -1263,8 +1263,8 @@ warnings as errors and run it (CTest <code>alicat_basis2_host_example</code>).</
 </span></code></pre></div>
 <h2 id="esp32">ESP32<a class="headerlink" href="#esp32" title="Permanent link">&para;</a></h2>
 <p>ESP-IDF applications that run the driver on an ESP32-C6, with pins chosen in menuconfig; the wiring is in the
-<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/esp32/README.md">example folder's README</a> and the port in
-<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/esp32/main/esp32_alicat_basis2_port.hpp"><code>esp32_alicat_basis2_port.hpp</code></a>. The project points
+<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/examples/esp32/README.md">example folder's README</a> and the port in
+<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/examples/esp32/main/esp32_alicat_basis2_port.hpp"><code>esp32_alicat_basis2_port.hpp</code></a>. The project points
 <code>EXTRA_COMPONENT_DIRS</code> at the repository root, which is the driver's ESP-IDF component.</p>
 <h3 id="the-apps">The apps<a class="headerlink" href="#the-apps" title="Permanent link">&para;</a></h3>
 <!-- generated: examples -->
@@ -1281,13 +1281,13 @@ warnings as errors and run it (CTest <code>alicat_basis2_host_example</code>).</
 <tr>
 <td><code>alicat_basis2_minimal_example</code> <span class="twemoji" title="featured"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span></td>
 <td>One instrument at its factory settings on UART1 at 38400 baud: poll the flow once a second</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/esp32/main/alicat_basis2_minimal_example.cpp"><code>alicat_basis2_minimal_example.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/examples/esp32/main/alicat_basis2_minimal_example.cpp"><code>alicat_basis2_minimal_example.cpp</code></a></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><code>alicat_basis2_full_example</code></td>
 <td>RS-485 half duplex: scan the line, identify, set a setpoint on the unsaved source, measure, map the flags</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/esp32/main/alicat_basis2_full_example.cpp"><code>alicat_basis2_full_example.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/examples/esp32/main/alicat_basis2_full_example.cpp"><code>alicat_basis2_full_example.cpp</code></a></td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -1296,7 +1296,7 @@ warnings as errors and run it (CTest <code>alicat_basis2_host_example</code>).</
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./scripts/build_app.sh<span class="w"> </span>alicat_basis2_minimal_example<span class="w"> </span>Release
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>./scripts/flash_app.sh<span class="w"> </span>flash_monitor<span class="w"> </span>alicat_basis2_minimal_example<span class="w"> </span>Release
 </span></code></pre></div>
-<p>Source of this table: <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/esp32/app_config.yml"><code>examples/esp32/app_config.yml</code></a>.</p>
+<p>Source of this table: <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/examples/esp32/app_config.yml"><code>examples/esp32/app_config.yml</code></a>.</p>
 <!-- /generated -->
 
 <h3 id="set-up-once">Set up once<a class="headerlink" href="#set-up-once" title="Permanent link">&para;</a></h3>
@@ -1305,7 +1305,7 @@ warnings as errors and run it (CTest <code>alicat_basis2_host_example</code>).</
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>.<span class="w"> </span><span class="nv">$IDF_PATH</span>/export.sh<span class="w">                                 </span><span class="c1"># ESP-IDF v5.5</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>./scripts/build_app.sh<span class="w"> </span>list<span class="w">                           </span><span class="c1"># every app and build type</span>
 </span></code></pre></div>
-<p>The scripts read <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/esp32/app_config.yml"><code>app_config.yml</code></a> (the same file this page's table comes
+<p>The scripts read <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/examples/esp32/app_config.yml"><code>app_config.yml</code></a> (the same file this page's table comes
 from) and build each app as its own firmware image.</p>
 <h3 id="what-to-read-in-an-example">What to read in an example<a class="headerlink" href="#what-to-read-in-an-example" title="Permanent link">&para;</a></h3>
 <table>
@@ -1334,7 +1334,7 @@ from) and build each app as its own firmware image.</p>
 </tr>
 <tr>
 <td>Use the driver's menuconfig values</td>
-<td><code>alicat_basis2_kconfig.hpp</code> and <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/_config/Kconfig"><code>_config/Kconfig</code></a></td>
+<td><code>alicat_basis2_kconfig.hpp</code> and <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/_config/Kconfig"><code>_config/Kconfig</code></a></td>
 </tr>
 </tbody>
 </table>

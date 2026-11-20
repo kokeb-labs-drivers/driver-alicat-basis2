@@ -1211,7 +1211,7 @@ injection, four fuzz targets with checked invariants, compiled documentation, an
 builds, static analysis and measured quality gates, on every pull request.</p>
 <h2 id="host-tests">Host tests<a class="headerlink" href="#host-tests" title="Permanent link">&para;</a></h2>
 <p>The tests build the real driver against a model of a BASIS 2 instrument. The model
-(<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/mock_basis2.hpp"><code>tests/mock_basis2.hpp</code></a>) is written from the manual, not from the driver: it has its own
+(<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/mock_basis2.hpp"><code>tests/mock_basis2.hpp</code></a>) is written from the manual, not from the driver: it has its own
 ASCII grammar with plain strings and its own Modbus register file with plain integers, and shares no encoder,
 tokenizer or table with the code under test. A wrong constant in the driver therefore cannot hide behind the same
 wrong constant in the model (handbook KB-TST-030). The wire has a virtual clock in microseconds, ten bits per
@@ -1236,75 +1236,75 @@ firmware's flags, <code>-fno-exceptions -fno-rtti</code>, and warnings as errors
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_grammar.cpp"><code>tests/test_grammar.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_grammar.cpp"><code>tests/test_grammar.cpp</code></a></td>
 <td>The request factories, the independent wire validators and the golden strings of every command</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_decode.cpp"><code>tests/test_decode.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_decode.cpp"><code>tests/test_decode.cpp</code></a></td>
 <td>The reply parsers: frames, <code>DV</code>, gas list, text replies, numbers, flags, malformed and hostile input</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_api_ascii.cpp"><code>tests/test_api_ascii.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_api_ascii.cpp"><code>tests/test_api_ascii.cpp</code></a></td>
 <td>The typed API over ASCII: start-up, reads, setpoints, ramp, hold, tare, gas, totalizer, scans, recovery</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_api_modbus.cpp"><code>tests/test_api_modbus.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_api_modbus.cpp"><code>tests/test_api_modbus.cpp</code></a></td>
 <td>The same over Modbus RTU, with the decimals, the firmware gates and the register table</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_modbus_codec.cpp"><code>tests/test_modbus_codec.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_modbus_codec.cpp"><code>tests/test_modbus_codec.cpp</code></a></td>
 <td>CRC-16, frame building, the legality check, reply lengths and exception frames</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_wire.cpp"><code>tests/test_wire.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_wire.cpp"><code>tests/test_wire.cpp</code></a></td>
 <td>The transaction machine: the gap, the deadlines, chunked and late replies, quarantine, stray bytes, clock wrap, hold-offs</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_guarded.cpp"><code>tests/test_guarded.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_guarded.cpp"><code>tests/test_guarded.cpp</code></a></td>
 <td>The six guarded commands, every confirmation outcome, <code>StateUnknown</code> and <code>Recover()</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_safety_kills.cpp"><code>tests/test_safety_kills.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_safety_kills.cpp"><code>tests/test_safety_kills.cpp</code></a></td>
 <td>Behaviours a mutation run found unguarded: no write repeat, slow-command wait, gas verification, <code>Recover()</code> refusals, the unknown-source rate limit, a switch-off in doubt (unit ID, baud, address, factory restore), the saved-setpoint limit after a lost reply, character and length boundaries, the forged-request refusal</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/check_doc_symbols.py"><code>tests/check_doc_symbols.py</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/check_doc_symbols.py"><code>tests/check_doc_symbols.py</code></a></td>
 <td>Every API name a page cites in backticks exists in <code>inc/</code> or <code>src/</code> (CTest <code>alicat_basis2_doc_symbols</code>)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_errors.cpp"><code>tests/test_errors.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_errors.cpp"><code>tests/test_errors.cpp</code></a></td>
 <td>The base <code>Error</code> values are 0 to 9; every chip-specific value is returned by some call and has a name</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_version.cpp"><code>tests/test_version.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_version.cpp"><code>tests/test_version.cpp</code></a></td>
 <td>The version getters follow the generated header (also against a 9.8.7 probe)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_kconfig.cpp"><code>tests/test_kconfig.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_kconfig.cpp"><code>tests/test_kconfig.cpp</code></a></td>
 <td><code>KconfigDefaults()</code> with and without <code>CONFIG_</code> values</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/compile_fail/guarded_without_token.cpp"><code>tests/compile_fail/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/compile_fail/guarded_without_token.cpp"><code>tests/compile_fail/</code></a></td>
 <td>Code that must not compile, each for its <code>EXPECT:</code> diagnostic: a guarded call without its token, a request built by hand, a hook with the wrong signature, a port without <code>NowMs()</code>, a configuration that is invalid in a constant expression</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/fuzz/fuzz_common.hpp"><code>tests/fuzz/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/fuzz/fuzz_common.hpp"><code>tests/fuzz/</code></a></td>
 <td>The four fuzz targets; CTest replays their corpus (<code>alicat_basis2_fuzz_*_corpus</code>)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/check_version_copy.cmake"><code>tests/check_version_copy.cmake</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/check_version_copy.cmake"><code>tests/check_version_copy.cmake</code></a></td>
 <td><code>_config/Doxyfile</code> carries the CMake version</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/host/README.md"><code>examples/host/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/examples/host/README.md"><code>examples/host/</code></a></td>
 <td>The host example, built with the test flags and run (<code>alicat_basis2_host_example</code>)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/check_install.cmake"><code>tests/check_install.cmake</code></a></td>
-<td>Installs into a scratch prefix and builds <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/install_consumer/main.cpp"><code>tests/install_consumer/</code></a> against it</td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/check_install.cmake"><code>tests/check_install.cmake</code></a></td>
+<td>Installs into a scratch prefix and builds <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/install_consumer/main.cpp"><code>tests/install_consumer/</code></a> against it</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/check_doxygen.cmake"><code>tests/check_doxygen.cmake</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/check_doxygen.cmake"><code>tests/check_doxygen.cmake</code></a></td>
 <td>Doxygen with <code>_config/Doxyfile</code> and warnings as errors, when <code>doxygen</code> is installed</td>
 </tr>
 </tbody>
@@ -1318,7 +1318,7 @@ port that fails to write, flush or initialise. The tests fail every transfer in 
 the right error, leaves the bus usable, and never sends an unlisted command.</p>
 <h2 id="fuzz-tests">Fuzz tests<a class="headerlink" href="#fuzz-tests" title="Permanent link">&para;</a></h2>
 <p>Everything the driver reads comes from the instrument, so the data read is what a noisy cable, a wrong baud rate or a
-second instrument controls. There are four libFuzzer targets in <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/fuzz/fuzz_common.hpp"><code>tests/fuzz/</code></a>, each with
+second instrument controls. There are four libFuzzer targets in <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/fuzz/fuzz_common.hpp"><code>tests/fuzz/</code></a>, each with
 a seed corpus, replayed by CTest on every host build so a regression shows up without a fuzzing run:</p>
 <table>
 <thead>
@@ -1348,7 +1348,7 @@ a seed corpus, replayed by CTest on every host build so a regression shows up wi
 </table>
 <p>A wrapper port records every byte written and every clock read, and after every call the harness checks the
 invariants marked "fuzz" below. A violation aborts the run. The others are proven by directed tests
-(<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_wire.cpp"><code>test_wire.cpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/test_decode.cpp"><code>test_decode.cpp</code></a>) with a virtual clock: a
+(<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_wire.cpp"><code>test_wire.cpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/test_decode.cpp"><code>test_decode.cpp</code></a>) with a virtual clock: a
 reply that arrives late, a clock that wraps, a decode that round-trips.</p>
 <table>
 <thead>
@@ -1449,7 +1449,7 @@ reply that arrives late, a clock that wraps, a decode that round-trips.</p>
 <h2 id="quality-gates">Quality gates<a class="headerlink" href="#quality-gates" title="Permanent link">&para;</a></h2>
 <p>The <code>Host quality</code> job measures the library code, <code>inc/</code> and <code>src/</code> only (tests and examples are left out), and
 fails when a value is over the limits of this repository's assurance level, <code>high</code> (set in
-<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/.kokeb/handbook.yml"><code>.kokeb/handbook.yml</code></a>, defined by the handbook's ADR-0020):</p>
+<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/.kokeb/handbook.yml"><code>.kokeb/handbook.yml</code></a>, defined by the handbook's ADR-0020):</p>
 <table>
 <thead>
 <tr>
@@ -1515,10 +1515,10 @@ fails when a value is over the limits of this repository's assurance level, <cod
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build-san<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ctest<span class="w"> </span>--test-dir<span class="w"> </span>build-san<span class="w"> </span>--output-on-failure
 </span></code></pre></div>
 <p>The fuzz gate runs locally as shown in <a href="#fuzz-tests">Fuzz tests</a>.</p>
-<p>clang-tidy 20 (<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/_config/.clang-tidy"><code>_config/.clang-tidy</code></a>: bugprone, CERT, clang-analyzer,
+<p>clang-tidy 20 (<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/_config/.clang-tidy"><code>_config/.clang-tidy</code></a>: bugprone, CERT, clang-analyzer,
 cppcoreguidelines, modernize, performance, portability and readability, each disabled check with its reason) and
 cppcheck (strict) run in the <code>C++ lint</code> and <code>Repository checks</code> jobs and fail on any finding.</p>
-<p>The <code>MISRA</code> job (<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/.github/workflows/ci-misra.yml"><code>ci-misra.yml</code></a>) runs the shared <code>ru-misra</code> workflow of
+<p>The <code>MISRA</code> job (<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/.github/workflows/ci-misra.yml"><code>ci-misra.yml</code></a>) runs the shared <code>ru-misra</code> workflow of
 ci-tools at level <code>high</code>: it traces a host build and the Cortex-M build (<code>alicat_basis2_optimised_build</code>) of every
 translation unit, checks them against MISRA C++:2023 and the handbook's C++20 profile (the CodeQL coding-standards
 and profile packs, plus the validated clang-tidy and cppcheck checks), and reports each finding against the
@@ -1568,12 +1568,12 @@ relaxation.</p>
 <code>macro-usage</code>, the C-array and designated-initialiser checks for the test registry, and <code>pro-type-vararg</code> for the
 report printing) stay as they were.</p>
 <h2 id="documentation-snippets">Documentation snippets<a class="headerlink" href="#documentation-snippets" title="Permanent link">&para;</a></h2>
-<p>Every C++ block on this site is included from <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, which the host build
+<p>Every C++ block on this site is included from <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, which the host build
 compiles (target <code>alicat_basis2_doc_snippets</code>) with the driver instantiated over the documented port. A change to
 the API that breaks a page breaks the build first. The README's example is a generated copy of the same file;
 <code>kokeb-docs check</code> fails when it drifts.</p>
 <h2 id="ci-workflows">CI workflows<a class="headerlink" href="#ci-workflows" title="Permanent link">&para;</a></h2>
-<p>Everything runs from <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/.github/workflows/ci.yml"><code>ci.yml</code></a>, which calls one workflow file per check and ends in
+<p>Everything runs from <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/.github/workflows/ci.yml"><code>ci.yml</code></a>, which calls one workflow file per check and ends in
 the <code>CI gate</code> job, the single required check (<code>CI gate / gate</code>).</p>
 <table>
 <thead>

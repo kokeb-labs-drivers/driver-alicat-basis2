@@ -1107,7 +1107,7 @@ What happens in each layer when you read a flow.</p>
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>Top to bottom, each arrow is a call. Your application calls one object, whose public calls are listed from the umbrella header in inc/. The core turns each call into register reads and writes and hands them to the port contract (the CRTP base in inc/*_interface.hpp), which forwards them, at compile time, to the hooks of the port class you write; your port moves the bytes on the bus. The notes on the right say which layers stay the same on every MCU and which one you write. A library without a port contract has only the first two layers.</p>
-<p>Drawn from: <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a> <code>public calls</code>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a> <code>UartInterface</code>; figure module <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a>.</p>
+<p>Drawn from: <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a> <code>public calls</code>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a> <code>UartInterface</code>; figure module <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a>.</p>
 </details>
 <h2 id="layers">Layers<a class="headerlink" href="#layers" title="Permanent link">&para;</a></h2>
 <table>
@@ -1121,27 +1121,27 @@ What happens in each layer when you read a flow.</p>
 <tbody>
 <tr>
 <td>Instrument</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/src/alicat_basis2.ipp"><code>src/alicat_basis2.ipp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/src/alicat_basis2.ipp"><code>src/alicat_basis2.ipp</code></a></td>
 <td><code>Basis2&lt;Port&gt;</code>: one instrument; the typed API, learning, verification, guarded commands, scans</td>
 </tr>
 <tr>
 <td>Bus</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/src/alicat_basis2_uart_interface.ipp"><code>src/alicat_basis2_uart_interface.ipp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/src/alicat_basis2_uart_interface.ipp"><code>src/alicat_basis2_uart_interface.ipp</code></a></td>
 <td><code>Bus&lt;Port&gt;</code>: one serial line, one transaction at a time, timing, quarantine, stray bytes</td>
 </tr>
 <tr>
 <td>Codecs</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_ascii.hpp"><code>inc/alicat_basis2_ascii.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_modbus.hpp"><code>inc/alicat_basis2_modbus.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_request.hpp"><code>inc/alicat_basis2_request.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_ascii.hpp"><code>inc/alicat_basis2_ascii.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_modbus.hpp"><code>inc/alicat_basis2_modbus.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_request.hpp"><code>inc/alicat_basis2_request.hpp</code></a></td>
 <td>Request factories, reply grammars, CRC-16, the independent wire validators</td>
 </tr>
 <tr>
 <td>Types and registers</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_types.hpp"><code>inc/alicat_basis2_types.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_registers.hpp"><code>inc/alicat_basis2_registers.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_types.hpp"><code>inc/alicat_basis2_types.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_registers.hpp"><code>inc/alicat_basis2_registers.hpp</code></a></td>
 <td><code>Error</code>, <code>Result</code>, <code>Config</code>, <code>Decimal</code>, <code>Frame</code>, the Modbus register table</td>
 </tr>
 <tr>
 <td>Port contract</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></td>
 <td>The CRTP base and the <code>UartPort</code> concept</td>
 </tr>
 <tr>
@@ -1151,7 +1151,7 @@ What happens in each layer when you read a flow.</p>
 </tr>
 <tr>
 <td>Kconfig layer</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_kconfig.hpp"><code>inc/alicat_basis2_kconfig.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_kconfig.hpp"><code>inc/alicat_basis2_kconfig.hpp</code></a></td>
 <td>Optional: a <code>Config</code> from ESP-IDF menuconfig</td>
 </tr>
 </tbody>
@@ -1159,23 +1159,16 @@ What happens in each layer when you read a flow.</p>
 <p><code>Bus</code> knows the line, not the instrument; <code>Basis2</code> knows the instrument, not the timing. Several <code>Basis2</code> objects share
 one <code>Bus</code> when instruments share a line, and the bus lets one transaction run at a time.</p>
 <h2 id="one-call-through-the-layers">One call through the layers<a class="headerlink" href="#one-call-through-the-layers" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>sequenceDiagram
-    participant App as Your code
-    participant B2 as Basis2
-    participant Bus as Bus
-    participant Port as Your port
-    App-&gt;&gt;B2: ReadFlow()
-    B2-&gt;&gt;B2: ascii::Make(Poll) builds and checks the bytes
-    B2-&gt;&gt;Bus: Execute(request, timing)
-    Note over Bus: wait t3.5 of silence
-    Bus-&gt;&gt;Port: FlushInput(), Write("A\r")
-    loop until a CR or the deadline
-        Bus-&gt;&gt;Port: Read(buffer)
-    end
-    Port--&gt;&gt;Bus: "A +012.30 +024.8 ... Air\r"
-    Bus--&gt;&gt;B2: Reply
-    Note over B2: strict grammar, unit ID, range
-    B2--&gt;&gt;App: Result of Decimal</code></pre>
+<figure class="kb-figure">
+<img src="../diagrams/one-call-through-the-layers.svg#only-light" alt="One ReadFlow call: the device class builds the request, the bus layer waits for silence, writes it through your port and reads until a carriage return, and the reply is checked and decoded into a flow value." width="753" height="727" loading="lazy"><img src="../diagrams/one-call-through-the-layers.dark.svg#only-dark" alt="One ReadFlow call: the device class builds the request, the bus layer waits for silence, writes it through your port and reads until a carriage return, and the reply is checked and decoded into a flow value." width="753" height="727" loading="lazy">
+<figcaption>One call through the layers</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>Participants, left to right: Your code, Basis2, Bus and Your port. The steps run from top to bottom. Your code sends ReadFlow() to Basis2. Basis2 does ascii::Make(Poll) builds and checks the bytes itself. Basis2 sends Execute(request, timing) to Bus. A note over Bus says: wait t3.5 of silence. Bus sends FlushInput(), Write("A\r") to Your port. A note over Bus and Your port says: Repeat until a CR or the deadline. Bus sends Read(buffer) to Your port. A note over Bus and Your port says: End of the repeated steps. Your port returns "A +012.30 +024.8 ... Air\r" to Bus. Bus returns Reply to Basis2. A note over Basis2 says: strict grammar, unit ID, range. Basis2 returns Result of Decimal to Your code.</p>
+<p>Drawn from: <a href="../model/one-call-through-the-layers.seq.yml"><code>docs/model/one-call-through-the-layers.seq.yml</code></a>.</p>
+</details>
 <h2 id="the-transaction-machine">The transaction machine<a class="headerlink" href="#the-transaction-machine" title="Permanent link">&para;</a></h2>
 <p>A transaction is submitted, advanced by <code>Poll()</code> and taken. <code>Execute()</code> does the three steps and waits with <code>DelayMs()</code>
 when the port has it, or spins on <code>NowMs()</code>. The states are <code>Idle</code>, <code>Gap</code>, <code>AwaitReply</code> and <code>Settling</code>.</p>
@@ -1225,23 +1218,23 @@ builder therefore cannot put an unlisted command on the wire.</p>
 <tbody>
 <tr>
 <td>The public API</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a></td>
 </tr>
 <tr>
 <td>How a call is implemented</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/src/alicat_basis2.ipp"><code>src/alicat_basis2.ipp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/src/alicat_basis2.ipp"><code>src/alicat_basis2.ipp</code></a></td>
 </tr>
 <tr>
 <td>The transaction machine</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/src/alicat_basis2_uart_interface.ipp"><code>src/alicat_basis2_uart_interface.ipp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/src/alicat_basis2_uart_interface.ipp"><code>src/alicat_basis2_uart_interface.ipp</code></a></td>
 </tr>
 <tr>
 <td>ASCII commands and grammar</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_ascii.hpp"><code>inc/alicat_basis2_ascii.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_ascii.hpp"><code>inc/alicat_basis2_ascii.hpp</code></a></td>
 </tr>
 <tr>
 <td>Modbus registers and framing</td>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_registers.hpp"><code>inc/alicat_basis2_registers.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_modbus.hpp"><code>inc/alicat_basis2_modbus.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_registers.hpp"><code>inc/alicat_basis2_registers.hpp</code></a>, <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_modbus.hpp"><code>inc/alicat_basis2_modbus.hpp</code></a></td>
 </tr>
 </tbody>
 </table>
