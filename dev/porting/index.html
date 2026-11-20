@@ -1298,7 +1298,7 @@
 <!-- /generated -->
 
 <p>The driver never calls your SDK. It calls hooks on a class you derive from <code>alicat_basis2::UartInterface&lt;Self&gt;</code> (in
-<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>). The base uses CRTP and declares no
+<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>). The base uses CRTP and declares no
 hook itself; the driver template is constrained by the <code>alicat_basis2::UartPort</code> concept, so calls are resolved at
 compile time (no virtual functions, nothing to allocate) and a missing or misdeclared hook is a compile error at the
 point of use.</p>
@@ -1403,7 +1403,7 @@ point of use.</p>
 </ul>
 <h2 id="bus-requirements">Bus requirements<a class="headerlink" href="#bus-requirements" title="Permanent link">&para;</a></h2>
 <p>The driver states what the instrument needs from the line as <code>constexpr</code> values in
-<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a> (handbook KB-CPP-123). Check your port
+<a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a> (handbook KB-CPP-123). Check your port
 settings against them with <code>static_assert</code>, as both example ports do:</p>
 <table>
 <thead>
@@ -1535,14 +1535,14 @@ hold-off) and drops its result when nobody took it, so a switch-off is never hel
 <p>Every port lives with its example, in <code>examples/&lt;platform&gt;/</code>; the driver has none. <a href="../platforms/">Platforms</a> lists
 them and how to add one.</p>
 <ul>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/examples/host/host_alicat_basis2_port.hpp"><code>examples/host/host_alicat_basis2_port.hpp</code></a>: any PC, against a
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/host/host_alicat_basis2_port.hpp"><code>examples/host/host_alicat_basis2_port.hpp</code></a>: any PC, against a
   simulated instrument. Start from it for a host build or a test bench.</li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/examples/esp32/main/esp32_alicat_basis2_port.hpp"><code>examples/esp32/main/esp32_alicat_basis2_port.hpp</code></a>: ESP-IDF, with
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/esp32/main/esp32_alicat_basis2_port.hpp"><code>examples/esp32/main/esp32_alicat_basis2_port.hpp</code></a>: ESP-IDF, with
   every hook and an RS-485 mode. Start from it for any ESP-IDF target.</li>
 </ul>
 <h2 id="check-your-port">Check your port<a class="headerlink" href="#check-your-port" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Build it: the ports on this page are compiled by the host CI from <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, with
+<li>Build it: the ports on this page are compiled by the host CI from <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, with
    the driver instantiated over them.</li>
 <li>Call <code>EnsureInitialized()</code> and <code>Begin()</code>: <code>Ok</code> proves that writes and reads work and that the unit ID and baud
    rate are right.</li>

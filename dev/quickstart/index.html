@@ -1178,14 +1178,14 @@ small port class, call three driver functions.</p>
 <!-- /generated -->
 
 <h2 id="try-it-on-your-pc">Try it on your PC<a class="headerlink" href="#try-it-on-your-pc" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/examples/host/README.md"><code>examples/host/</code></a> runs the real driver against a simulated instrument, through a host
+<p><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/host/README.md"><code>examples/host/</code></a> runs the real driver against a simulated instrument, through a host
 port. From the repository root, with CMake and a C++20 compiler:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cmake<span class="w"> </span>-S<span class="w"> </span>examples/host<span class="w"> </span>-B<span class="w"> </span>build-example
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build-example
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>./build-example/alicat_basis2_host_example
 </span></code></pre></div>
 <p>The program runs five short scenarios (read the flow, ramp a controller, tare and totalize, scan the line, read over
-Modbus) and exits with 0 when every call succeeded. The calls in <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/63dd69f22c833022e637a3ca090c5ba1e9e59579/examples/host/main.cpp"><code>main.cpp</code></a> are the ones
+Modbus) and exits with 0 when every call succeeded. The calls in <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/4234a1b69507a6a7a86b63e07121139ef33bf77e/examples/host/main.cpp"><code>main.cpp</code></a> are the ones
 below; only the port differs on an MCU. CI builds and runs this example on every pull request.</p>
 <h2 id="1-wire-it">1. Wire it<a class="headerlink" href="#1-wire-it" title="Permanent link">&para;</a></h2>
 <table>
