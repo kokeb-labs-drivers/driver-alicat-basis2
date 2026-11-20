@@ -116,3 +116,21 @@ Drawn from:
 
 - `public calls` in [`inc/alicat_basis2.hpp`](../../inc/alicat_basis2.hpp)
 - `UartInterface` in [`inc/alicat_basis2_uart_interface.hpp`](../../inc/alicat_basis2_uart_interface.hpp)
+
+## One call through the layers
+
+<!-- figure: one-call-through-the-layers -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="one-call-through-the-layers.dark.svg">
+  <img src="one-call-through-the-layers.svg"
+    alt="One ReadFlow call: the device class builds the request, the bus layer waits for silence, writes it
+    through your port and reads until a carriage return, and the reply is checked and decoded into a
+    flow value.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/one-call-through-the-layers.seq.yml`](../model/one-call-through-the-layers.seq.yml)
+
+Drawn from:
+
+- [`docs/model/one-call-through-the-layers.seq.yml`](../model/one-call-through-the-layers.seq.yml)

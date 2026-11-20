@@ -70,5 +70,22 @@
       "inc/alicat_basis2.hpp:public calls",
       "inc/alicat_basis2_uart_interface.hpp:UartInterface"
     ]
+  },
+  "one-call-through-the-layers": {
+    "title": "One call through the layers",
+    "alt": "One ReadFlow call: the device class builds the request, the bus layer waits for silence, writes it through your port and reads until a carriage return, and the reply is checked and decoded into a flow value.",
+    "description": "Participants, left to right: Your code, Basis2, Bus and Your port. The steps run from top to bottom. Your code sends ReadFlow() to Basis2. Basis2 does ascii::Make(Poll) builds and checks the bytes itself. Basis2 sends Execute(request, timing) to Bus. A note over Bus says: wait t3.5 of silence. Bus sends FlushInput(), Write(\"A\\r\") to Your port. A note over Bus and Your port says: Repeat until a CR or the deadline. Bus sends Read(buffer) to Your port. A note over Bus and Your port says: End of the repeated steps. Your port returns \"A +012.30 +024.8 ... Air\\r\" to Bus. Bus returns Reply to Basis2. A note over Basis2 says: strict grammar, unit ID, range. Basis2 returns Result of Decimal to Your code.",
+    "profile": "detail",
+    "width": 753,
+    "source": "docs/model/one-call-through-the-layers.seq.yml",
+    "sources": [
+      "docs/model/one-call-through-the-layers.seq.yml"
+    ],
+    "kind": "seq",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": false,
+    "font": ""
   }
 }

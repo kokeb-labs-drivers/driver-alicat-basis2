@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="753" height="727" viewBox="0 0 753 727" role="img" aria-labelledby="one-call-through-the-layers-title one-call-through-the-layers-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="one-call-through-the-layers-title">One call through the layers</title>
+<desc id="one-call-through-the-layers-desc">One ReadFlow call: the device class builds the request, the bus layer waits for silence, writes it through your port and reads until a carriage return, and the reply is checked and decoded into a flow value.</desc>
+<defs><marker id="one-call-through-the-layers-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6C7889"/></marker></defs>
+<rect x="0.5" y="0.5" width="752" height="726" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="54.8" font-size="26" font-weight="700" fill="#E8EDF3">One call through the layers</text>
+<rect x="32" y="70.8" width="689" height="1" fill="#252F3C"/>
+<path d="M104.6 144.8 L104.6 730.8" fill="none" stroke="#6C7889" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M274.6 144.8 L274.6 730.8" fill="none" stroke="#6C7889" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M452.3 144.8 L452.3 730.8" fill="none" stroke="#6C7889" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M648.4 144.8 L648.4 730.8" fill="none" stroke="#6C7889" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M108.6 180.8 L270.6 180.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M278.6 216.8 L300.6 216.8 Q308.6 216.8 308.6 224.8 L308.6 224.8 Q308.6 232.8 300.6 232.8 L278.6 232.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M278.6 268.8 L448.3 268.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M456.3 364.8 L644.4 364.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M456.3 460.8 L644.4 460.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M644.4 556.8 L456.3 556.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M448.3 600.8 L278.6 600.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M270.6 696.8 L108.6 696.8" fill="none" stroke="#6C7889" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<rect x="39.6" y="88.8" width="130" height="52" rx="10" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="39.6" y="96.8" width="4" height="36" rx="2" fill="#F0ABFC"/>
+<rect x="209.6" y="88.8" width="130" height="52" rx="10" fill="#11281A" stroke="#4ADE80" stroke-width="1.4"/>
+<rect x="209.6" y="96.8" width="4" height="36" rx="2" fill="#4ADE80"/>
+<rect x="387.3" y="88.8" width="130" height="52" rx="10" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="387.3" y="96.8" width="4" height="36" rx="2" fill="#60A5FA"/>
+<rect x="583.4" y="88.8" width="130" height="52" rx="10" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="583.4" y="96.8" width="4" height="36" rx="2" fill="#2BB3A3"/>
+<rect x="382.3" y="296.8" width="336.1" height="41" rx="10" fill="#2C2310" stroke="#6A5220" stroke-width="1"/>
+<rect x="382.3" y="392.8" width="336.1" height="41" rx="10" fill="#2C2310" stroke="#6A5220" stroke-width="1"/>
+<rect x="382.3" y="488.8" width="336.1" height="41" rx="10" fill="#2C2310" stroke="#6A5220" stroke-width="1"/>
+<rect x="204.6" y="628.8" width="317.8" height="41" rx="10" fill="#2C2310" stroke="#6A5220" stroke-width="1"/>
+<text x="107.6" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#F5D0FE">Your code</text>
+<text x="277.6" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#BBF7D0">Basis2</text>
+<text x="455.3" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#BFDBFE">Bus</text>
+<text x="651.4" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#A7F3E6">Your port</text>
+<rect x="149" y="156.8" width="81.1" height="20" rx="10" fill="#0E131A"/>
+<text x="189.6" y="171.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">ReadFlow()</text>
+<rect x="312.6" y="214.8" width="286" height="20" rx="10" fill="#0E131A"/>
+<text x="455.5" y="229.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">ascii::Make(Poll) builds and checks the bytes</text>
+<rect x="282.6" y="244.8" width="161.8" height="20" rx="10" fill="#0E131A"/>
+<text x="363.4" y="259.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Execute(request, timing)</text>
+<text x="396.3" y="321.9" font-size="13" fill="#FDE68A">wait t3.5 of silence</text>
+<rect x="467.5" y="340.8" width="165.7" height="20" rx="10" fill="#0E131A"/>
+<text x="550.4" y="355.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">FlushInput(), Write("A\r")</text>
+<text x="396.3" y="417.9" font-size="13" fill="#FDE68A">Repeat until a CR or the deadline</text>
+<rect x="505.5" y="436.8" width="89.7" height="20" rx="10" fill="#0E131A"/>
+<text x="550.4" y="451.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Read(buffer)</text>
+<text x="396.3" y="513.9" font-size="13" fill="#FDE68A">End of the repeated steps</text>
+<rect x="460.3" y="532.8" width="180.1" height="20" rx="10" fill="#0E131A"/>
+<text x="550.4" y="547.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">"A +012.30 +024.8 ... Air\r"</text>
+<rect x="340.4" y="576.8" width="46.1" height="20" rx="10" fill="#0E131A"/>
+<text x="363.4" y="591.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Reply</text>
+<text x="218.6" y="653.8" font-size="13" fill="#FDE68A">strict grammar, unit ID, range</text>
+<rect x="130.6" y="672.8" width="118" height="20" rx="10" fill="#0E131A"/>
+<text x="189.6" y="687.1" font-size="12" font-weight="500" text-anchor="middle" fill="#9AA6B5">Result of Decimal</text>
+</svg>

@@ -41,25 +41,15 @@ one `Bus` when instruments share a line, and the bus lets one transaction run at
 
 ## One call through the layers
 
-```mermaid
-sequenceDiagram
-    participant App as Your code
-    participant B2 as Basis2
-    participant Bus as Bus
-    participant Port as Your port
-    App->>B2: ReadFlow()
-    B2->>B2: ascii::Make(Poll) builds and checks the bytes
-    B2->>Bus: Execute(request, timing)
-    Note over Bus: wait t3.5 of silence
-    Bus->>Port: FlushInput(), Write("A\r")
-    loop until a CR or the deadline
-        Bus->>Port: Read(buffer)
-    end
-    Port-->>Bus: "A +012.30 +024.8 ... Air\r"
-    Bus-->>B2: Reply
-    Note over B2: strict grammar, unit ID, range
-    B2-->>App: Result of Decimal
-```
+<!-- figure: one-call-through-the-layers -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/one-call-through-the-layers.dark.svg">
+  <img src="diagrams/one-call-through-the-layers.svg"
+    alt="One ReadFlow call: the device class builds the request, the bus layer waits for silence, writes it
+    through your port and reads until a carriage return, and the reply is checked and decoded into a
+    flow value.">
+</picture>
+<!-- /figure -->
 
 ## The transaction machine
 

@@ -1,0 +1,31 @@
+---
+# Model of the figure 'one-call-through-the-layers'. Edit this file; `kokeb-docs figures` draws it. Never edit the SVGs.
+kind: seq
+id: one-call-through-the-layers
+title: "One call through the layers"
+alt: >-
+  One ReadFlow call: the device class builds the request, the bus layer waits for silence, writes it through your
+  port and reads until a carriage return, and the reply is checked and decoded into a flow value.
+reads: >-
+  Participants, left to right: Your code, Basis2, Bus and Your port. The steps run from top to bottom. Your code sends ReadFlow() to Basis2. Basis2 does ascii::Make(Poll) builds and checks the bytes itself. Basis2 sends Execute(request, timing) to Bus. A note over Bus says: wait t3.5 of silence. Bus sends FlushInput(), Write("A\r") to Your port. A note over Bus and Your port says: Repeat until a CR or the deadline. Bus sends Read(buffer) to Your port. A note over Bus and Your port says: End of the repeated steps. Your port returns "A +012.30 +024.8 ... Air\r" to Bus. Bus returns Reply to Basis2. A note over Basis2 says: strict grammar, unit ID, range. Basis2 returns Result of Decimal to Your code.
+print: landscape
+sources:
+  - docs/model/one-call-through-the-layers.seq.yml
+participants:
+  - {id: app, label: "Your code", tone: magenta}
+  - {id: b2, label: "Basis2", tone: green}
+  - {id: bus, label: "Bus", tone: blue}
+  - {id: port, label: "Your port", tone: teal}
+steps:
+  - {from: app, to: b2, label: "ReadFlow()"}
+  - {from: b2, to: b2, label: "ascii::Make(Poll) builds and checks the bytes"}
+  - {from: b2, to: bus, label: "Execute(request, timing)"}
+  - {note: "wait t3.5 of silence", over: [bus, port]}
+  - {from: bus, to: port, label: "FlushInput(), Write(\"A\\r\")"}
+  - {note: "Repeat until a CR or the deadline", over: [bus, port]}
+  - {from: bus, to: port, label: "Read(buffer)"}
+  - {note: "End of the repeated steps", over: [bus, port]}
+  - {from: port, to: bus, label: "\"A +012.30 +024.8 ... Air\\r\"", return: true}
+  - {from: bus, to: b2, label: "Reply", return: true}
+  - {note: "strict grammar, unit ID, range", over: [b2, bus]}
+  - {from: b2, to: app, label: "Result of Decimal", return: true}
