@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="888" viewBox="0 0 1200 888" role="img" aria-labelledby="chip-wiring-rs485-multidrop-title chip-wiring-rs485-multidrop-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-wiring-rs485-multidrop-title">Wiring: RS-485 multidrop line</title>
+<desc id="chip-wiring-rs485-multidrop-desc">Wiring of the BASIS 2 for the RS-485 multidrop line: MCU UART TX to RS-485 transceiver DI (Write()); MCU UART RX to RS-485 transceiver RO (Read()); MCU GPIO (direction) to RS-485 transceiver DE, RE (Write()); RS-485 transceiver A to TX/A (Write() and Read()); RS-485 transceiver B to RX/B (Write() and Read()). Supplies, grounds and the support parts are listed under the drawing.</desc>
+<rect x="0.5" y="0.5" width="1199" height="887" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="46.8" font-size="16" font-weight="700" letter-spacing="1.2" fill="#F8D27A">PINS AND WIRING</text>
+<text x="32" y="85.6" font-size="32" font-weight="700" fill="#E8EDF3">Wiring: RS-485 multidrop line</text>
+<text x="32" y="115.4" font-size="18" fill="#9AA6B5">What you connect by hand, with the driver hook on each MCU wire. The full schematic, with every part and value, is on the</text>
+<text x="32" y="141.5" font-size="18" fill="#9AA6B5">Hardware page. Datasheet: Power and Signal Connections, pin table, p. 7.</text>
+<rect x="32" y="157.5" width="1136" height="1" fill="#252F3C"/>
+<path d="M382.4 331.9 L502.4 331.9" fill="none" stroke="#D2DAE4" stroke-width="2.2"/>
+<path d="M382.4 417.5 L502.4 417.5" fill="none" stroke="#D2DAE4" stroke-width="2.2"/>
+<path d="M382.4 503.1 L502.4 503.1" fill="none" stroke="#D2DAE4" stroke-width="2.2"/>
+<path d="M652.4 331.9 L778.6 331.9" fill="none" stroke="#60A5FA" stroke-width="2.2"/>
+<path d="M652.4 417.5 L778.6 417.5" fill="none" stroke="#60A5FA" stroke-width="2.2"/>
+<rect x="792.6" y="175.5" width="240" height="396.4" rx="10" fill="#18202B" stroke="#D2DAE4" stroke-width="2.2"/>
+<rect x="167.4" y="175.5" width="215" height="396.4" rx="12" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="502.4" y="289.1" width="150" height="256.8" rx="12" fill="#221A3A" stroke="#A78BFA" stroke-width="1.4"/>
+<rect x="32" y="599.9" width="1136" height="79" rx="12" fill="#321820" stroke="#6E3141" stroke-width="1"/>
+<rect x="32" y="692.9" width="1136" height="79" rx="12" fill="#1B232E" stroke="#3A4656" stroke-width="1"/>
+<text x="912.6" y="210.5" font-size="20" font-weight="700" text-anchor="middle" fill="#E8EDF3">BASIS 2</text>
+<text x="912.6" y="232.9" font-size="16" text-anchor="middle" fill="#9AA6B5">U1</text>
+<text x="185.4" y="210.5" font-size="20" font-weight="700" fill="#BFDBFE">MCU</text>
+<text x="185.4" y="232.9" font-size="16" fill="#BFDBFE">U2</text>
+<text x="502.4" y="258.3" font-size="16" font-weight="700" fill="#DDD6FE">RS-485</text>
+<text x="502.4" y="279.1" font-size="16" font-weight="700" fill="#DDD6FE">transceiver</text>
+<text x="364.4" y="337.7" font-size="16" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#BFDBFE">UART TX</text>
+<text x="520.4" y="337.7" font-size="16" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#DDD6FE">DI</text>
+<text x="442.4" y="321.9" font-size="16" font-weight="600" text-anchor="middle" fill="#D2DAE4">TXD</text>
+<text x="442.4" y="354.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#9AA6B5">Write()</text>
+<text x="364.4" y="423.3" font-size="16" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#BFDBFE">UART RX</text>
+<text x="520.4" y="423.3" font-size="16" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#DDD6FE">RO</text>
+<text x="442.4" y="407.5" font-size="16" font-weight="600" text-anchor="middle" fill="#D2DAE4">RXD</text>
+<text x="442.4" y="440.3" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#9AA6B5">Read()</text>
+<text x="364.4" y="508.9" font-size="16" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#BFDBFE">GPIO (direction)</text>
+<text x="520.4" y="508.9" font-size="16" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#DDD6FE">DE, RE</text>
+<text x="442.4" y="493.1" font-size="16" font-weight="600" text-anchor="middle" fill="#D2DAE4">Direction</text>
+<text x="442.4" y="525.9" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#9AA6B5">Write()</text>
+<text x="634.4" y="337.7" font-size="16" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#DDD6FE">A</text>
+<text x="814.6" y="337.7" font-size="16" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">TX/A</text>
+<rect x="778.6" y="325.9" width="14" height="12" rx="2" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<text x="715.5" y="321.9" font-size="16" font-weight="600" text-anchor="middle" fill="#D2DAE4">Line A  pin 6</text>
+<text x="715.5" y="354.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#9AA6B5">Write()</text>
+<text x="715.5" y="376.3" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#9AA6B5">Read()</text>
+<text x="634.4" y="423.3" font-size="16" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#DDD6FE">B</text>
+<text x="814.6" y="423.3" font-size="16" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">RX/B</text>
+<rect x="778.6" y="411.5" width="14" height="12" rx="2" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<text x="715.5" y="407.5" font-size="16" font-weight="600" text-anchor="middle" fill="#D2DAE4">Line B  pin 5</text>
+<text x="715.5" y="440.3" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#9AA6B5">Write()</text>
+<text x="715.5" y="461.9" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#9AA6B5">Read()</text>
+<text x="50" y="634.9" font-size="20" font-weight="700" fill="#FECDD3">Supplies and ground</text>
+<text x="50" y="658.3" font-size="17" fill="#FECDD3">+24V: PWR; also J1.24V · +3V3 (no BASIS 2 pin): U2.VDD, U3.VCC · GND: GND; also U2.GND, U3.GND, J1.GND</text>
+<text x="50" y="727.9" font-size="20" font-weight="700" fill="#E2E8F0">Also on the board</text>
+<text x="50" y="751.4" font-size="17" fill="#E2E8F0">Not wired in this circuit (2): A-OUT, A-SET.</text>
+<text x="32" y="797.4" font-size="16" fill="#9AA6B5">* Not confirmed in the datasheet: net +3V3: the transceiver runs from the MCU's supply: general practice; U3: the transceiver is general</text>
+<text x="32" y="820.4" font-size="16" fill="#9AA6B5">practice: the manual describes none.</text>
+<rect x="32" y="837.6" width="14" height="14" rx="4" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<text x="54" y="852.2" font-size="16" fill="#9AA6B5">bus</text>
+</svg>

@@ -1,0 +1,29 @@
+---
+kind: topology
+id: rs485-topology
+title: Several BASIS 2 on one RS-485 line
+kicker: Several devices
+alt: >-
+  An RS-485 line on which an MCU and up to 26 BASIS 2 instruments share the B (+) and A (-) wires, each answering
+  to its own unit ID in ASCII or its own Modbus address in Modbus RTU.
+reads: >-
+  The MCU on top and the BASIS 2 instruments under it connect to the rails B (+) and A (-) on the right, on pins 5
+  and 6 of each connector; the dashed card stands for the instruments in between. Each instrument needs a unique
+  unit ID, A to Z, for ASCII and a unique Modbus address, 1 to 247, for Modbus RTU.
+style: bus
+refs:
+  pinout: {doc: manual, section: "Power and Signal Connections, pin table", page: 7}
+  serial: {doc: manual, section: "Alicat ASCII Serial Communication, Establishing Communication", page: 10}
+  unitid: {doc: manual, section: "Unit ID", page: 16}
+  modbusaddr: {doc: manual, section: "Modbus-RTU, Modbus Address", page: 18}
+host: {label: MCU, detail: UART and RS-485 transceiver, ref: pinout}
+nodes:
+  - {label: BASIS 2, address: "unit ID A, Modbus 1", ref: unitid}
+  - {more: true, label: "…", detail: unit IDs B to Y}
+  - {label: BASIS 2, address: "unit ID Z, Modbus 247", ref: modbusaddr}
+shared: ["B (+)", "A (-)"]
+facts:
+  - {text: "Up to 26 instruments on one COM port", ref: serial}
+  - {text: "Unit IDs A to Z, one per instrument; A is the default", ref: unitid}
+  - {text: "Modbus addresses 1 to 247, one per instrument", ref: modbusaddr}
+  - {text: "RS-485 B (+) on pin 5, A (-) on pin 6", ref: pinout}

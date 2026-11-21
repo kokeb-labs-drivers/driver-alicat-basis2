@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="591" viewBox="0 0 640 591" role="img" aria-labelledby="ascii-transaction-title ascii-transaction-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" class="fk">
+<title id="ascii-transaction-title">ASCII poll of the data frame</title>
+<desc id="ascii-transaction-desc">One ASCII poll of a BASIS 2: the host sends the unit ID and a carriage return, the line stays idle for the serial idle timeout, and the instrument answers with one line of the data frame ended by a carriage return.</desc>
+<style>
+.fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-rail:#7C8798;--fk-slate-soft:#CBD5E1;--fk-slate-strong:#64748B;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;--fk-teal-strong:#0B7A72;--fk-teal-text:#0B5F59;--fk-teal-tint:#E6F6F4;}
+@media (prefers-color-scheme:dark){.fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-rail:#6C7889;--fk-slate-soft:#3A4656;--fk-slate-strong:#94A3B8;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;--fk-teal-strong:#2BB3A3;--fk-teal-text:#A7F3E6;--fk-teal-tint:#0F2A28;}}
+:root[data-theme="dark"] .fk,[data-md-color-scheme="slate"] .fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-rail:#6C7889;--fk-slate-soft:#3A4656;--fk-slate-strong:#94A3B8;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;--fk-teal-strong:#2BB3A3;--fk-teal-text:#A7F3E6;--fk-teal-tint:#0F2A28;}
+:root[data-theme="light"] .fk,[data-md-color-scheme="default"] .fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-rail:#7C8798;--fk-slate-soft:#CBD5E1;--fk-slate-strong:#64748B;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;--fk-teal-strong:#0B7A72;--fk-teal-text:#0B5F59;--fk-teal-tint:#E6F6F4;}
+.fk-f-blue-strong{fill:var(--fk-blue-strong)}.fk-s-blue-strong{stroke:var(--fk-blue-strong)}
+.fk-f-blue-text{fill:var(--fk-blue-text)}.fk-s-blue-text{stroke:var(--fk-blue-text)}
+.fk-f-blue-tint{fill:var(--fk-blue-tint)}.fk-s-blue-tint{stroke:var(--fk-blue-tint)}
+.fk-f-brand-text{fill:var(--fk-brand-text)}.fk-s-brand-text{stroke:var(--fk-brand-text)}
+.fk-f-canvas{fill:var(--fk-canvas)}.fk-s-canvas{stroke:var(--fk-canvas)}
+.fk-f-frame{fill:var(--fk-frame)}.fk-s-frame{stroke:var(--fk-frame)}
+.fk-f-hair{fill:var(--fk-hair)}.fk-s-hair{stroke:var(--fk-hair)}
+.fk-f-ink{fill:var(--fk-ink)}.fk-s-ink{stroke:var(--fk-ink)}
+.fk-f-ink2{fill:var(--fk-ink2)}.fk-s-ink2{stroke:var(--fk-ink2)}
+.fk-f-muted{fill:var(--fk-muted)}.fk-s-muted{stroke:var(--fk-muted)}
+.fk-f-rail{fill:var(--fk-rail)}.fk-s-rail{stroke:var(--fk-rail)}
+.fk-f-slate-soft{fill:var(--fk-slate-soft)}.fk-s-slate-soft{stroke:var(--fk-slate-soft)}
+.fk-f-slate-strong{fill:var(--fk-slate-strong)}.fk-s-slate-strong{stroke:var(--fk-slate-strong)}
+.fk-f-slate-text{fill:var(--fk-slate-text)}.fk-s-slate-text{stroke:var(--fk-slate-text)}
+.fk-f-slate-tint{fill:var(--fk-slate-tint)}.fk-s-slate-tint{stroke:var(--fk-slate-tint)}
+.fk-f-teal-strong{fill:var(--fk-teal-strong)}.fk-s-teal-strong{stroke:var(--fk-teal-strong)}
+.fk-f-teal-text{fill:var(--fk-teal-text)}.fk-s-teal-text{stroke:var(--fk-teal-text)}
+.fk-f-teal-tint{fill:var(--fk-teal-tint)}.fk-s-teal-tint{stroke:var(--fk-teal-tint)}
+@media (forced-colors:active){.fk text{fill:CanvasText}.fk rect,.fk circle{fill:Canvas;stroke:CanvasText}.fk path{stroke:CanvasText}.fk marker path{fill:CanvasText;stroke:none}}
+</style>
+<defs><marker id="ascii-transaction-arrow-ink2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="fk-f-ink2"/></marker></defs>
+<rect x="0.5" y="0.5" width="639" height="590" rx="16" class="fk-f-canvas fk-s-frame"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" class="fk-f-brand-text">ON THE BUS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" class="fk-f-ink">ASCII poll of the data frame</text>
+<text x="32" y="102.7" font-size="15" class="fk-f-muted">Datasheet: Alicat ASCII Serial Communication, p. 10; Query Full Data Frame,</text>
+<text x="32" y="124.5" font-size="15" class="fk-f-muted">p. 11.</text>
+<rect x="32" y="140.4" width="576" height="1" class="fk-f-hair"/>
+<path d="M230.8 218.6 L230.8 270.9" fill="none" stroke-width="1" stroke-dasharray="3 3" class="fk-s-rail"/>
+<path d="M287.9 218.6 L287.9 270.9" fill="none" stroke-width="1" stroke-dasharray="3 3" class="fk-s-rail"/>
+<path d="M88 200.6 L88 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M116.6 200.6 L116.6 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M145.1 200.6 L145.1 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M173.7 200.6 L173.7 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M202.2 200.6 L202.2 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M230.8 200.6 L230.8 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M259.3 200.6 L259.3 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M287.9 200.6 L287.9 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M316.4 200.6 L316.4 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M345 200.6 L345 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M373.6 200.6 L373.6 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M402.1 200.6 L402.1 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M430.7 200.6 L430.7 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M459.2 200.6 L459.2 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M487.8 200.6 L487.8 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M516.3 200.6 L516.3 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M544.9 200.6 L544.9 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M573.4 200.6 L573.4 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M602 200.6 L602 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 364.9 L608 364.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 437.8 L608 437.8" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M117.6 191.6 L117.6 186.6 L229.8 186.6 L229.8 191.6" fill="none" stroke-width="1.4" class="fk-s-slate-strong"/>
+<path d="M288.9 191.6 L288.9 186.6 L572.4 186.6 L572.4 191.6" fill="none" stroke-width="1.4" class="fk-s-slate-strong"/>
+<path d="M88 205.6 L116.6 205.6" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M116.6 205.6 L116.6 218.6" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M230.8 205.6 L602 205.6" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M231.8 266.9 L286.9 266.9" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ascii-transaction-arrow-ink2)" marker-start="url(#ascii-transaction-arrow-ink2)" class="fk-s-ink2"/>
+<path d="M88 287.9 L287.9 287.9" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M287.9 287.9 L287.9 300.9" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M430.7 287.9 L459.2 287.9" fill="none" stroke-width="1.6" class="fk-s-ink2"/>
+<path d="M430.7 313.9 L459.2 313.9" fill="none" stroke-width="1.6" class="fk-s-ink2"/>
+<path d="M573.4 287.9 L602 287.9" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M116.6 218.6 L121.6 205.6 L168.7 205.6 L173.7 218.6 L168.7 231.6 L121.6 231.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M173.7 218.6 L178.7 205.6 L225.8 205.6 L230.8 218.6 L225.8 231.6 L178.7 231.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M287.9 300.9 L292.9 287.9 L340 287.9 L345 300.9 L340 313.9 L292.9 313.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<path d="M345 300.9 L350 287.9 L425.7 287.9 L430.7 300.9 L425.7 313.9 L350 313.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<path d="M459.2 300.9 L464.2 287.9 L511.3 287.9 L516.3 300.9 L511.3 313.9 L464.2 313.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<path d="M516.3 300.9 L521.3 287.9 L568.4 287.9 L573.4 300.9 L568.4 313.9 L521.3 313.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<rect x="32" y="451.8" width="576" height="108.6" rx="10" stroke-width="1" class="fk-f-slate-tint fk-s-slate-soft"/>
+<text x="173.7" y="175.8" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-slate-text">poll command</text>
+<text x="430.7" y="175.8" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-slate-text">reply: one line</text>
+<text x="32" y="224.1" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">TX</text>
+<text x="145.1" y="223.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">A</text>
+<text x="202.2" y="223.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">CR</text>
+<text x="259.3" y="253.9" font-size="14" font-weight="700" text-anchor="middle" class="fk-f-ink">tIDLE</text>
+<text x="32" y="306.2" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">RX</text>
+<text x="316.4" y="305.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">A</text>
+<text x="387.8" y="305.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">+24.57</text>
+<text x="487.8" y="305.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">N2</text>
+<text x="544.9" y="305.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">CR</text>
+<rect x="440.9" y="283.9" width="8" height="34" rx="0" class="fk-f-canvas"/>
+<path d="M437.9 316.9 L443.9 284.9" fill="none" stroke-width="1.4" class="fk-s-ink2"/>
+<path d="M445.9 316.9 L451.9 284.9" fill="none" stroke-width="1.4" class="fk-s-ink2"/>
+<text x="32" y="349.3" font-size="17" font-weight="700" class="fk-f-ink">Values</text>
+<text x="32" y="385.7" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">tIDLE</text>
+<text x="608" y="385.7" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">min 3.5 byte times</text>
+<text x="32" y="405.9" font-size="15" class="fk-f-ink2">Serial idle timeout after the carriage return, before the instrument acts</text>
+<text x="32" y="426.1" font-size="14" class="fk-f-muted">Datasheet Alicat ASCII Serial Communication, p. 10</text>
+<text x="46" y="480.2" font-size="17" font-weight="700" class="fk-f-slate-text">Notes</text>
+<text x="46" y="500.7" font-size="15" class="fk-f-slate-text">Every command and every reply ends with a carriage return (13, 0x0D).</text>
+<text x="46" y="522.4" font-size="15" class="fk-f-slate-text">Polling with only the unit ID returns the whole data frame. Do not start a</text>
+<text x="46" y="544.2" font-size="15" class="fk-f-slate-text">new command before the reply's carriage return has arrived.</text>
+</svg>

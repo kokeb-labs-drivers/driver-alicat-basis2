@@ -1,0 +1,29 @@
+---
+kind: timing
+id: uart-timing
+title: UART character
+kicker: On the bus
+alt: >-
+  One serial character of the BASIS 2 at its factory settings: a start bit, eight data bits least significant first
+  and one stop bit with no parity, at 38400 bit/s unless the baud rate was changed.
+reads: >-
+  The lane is TX, left to right in time, and the RX line carries the same format in the other direction. The line
+  idles high, the start bit pulls it low for one bit time, the data bits D0 to D7 follow and the stop bit returns it
+  high. The table gives the default bit rate and the range of rates the instrument can be set to.
+bus: uart
+refs:
+  serial: {doc: manual, section: "Alicat ASCII Serial Communication, Establishing Communication", page: 10}
+  baud: {doc: manual, section: "Serial Baud Rate", page: 17}
+signals:
+  - {id: tx, label: TX, wave: "110========11", data: [D0, D1, D2, D3, D4, D5, D6, D7]}
+groups:
+  - {from: 2, to: 3, label: start}
+  - {from: 3, to: 11, label: "8 data bits, no parity", ref: serial}
+  - {from: 11, to: 12, label: stop}
+params:
+  - {id: baud, symbol: baud, label: Bit rate at the factory setting, typ: 38400, unit: bit/s, ref: serial}
+  - {id: baud-range, symbol: baud, label: "Bit rates the NCB command sets (4800, 9600, 19200, 38400, 57600, 115200)",
+     min: 4800, max: 115200, unit: bit/s, ref: baud}
+  - {id: stop, symbol: stop, label: Stop bits, typ: 1, unit: bit, ref: serial}
+notes:
+  - {text: "Default settings: 38400 baud, 8 data bits, no parity, 1 stop bit, unit ID A.", ref: serial}

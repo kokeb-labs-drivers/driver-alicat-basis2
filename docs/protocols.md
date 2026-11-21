@@ -10,6 +10,7 @@ both completely behind one API: `Config::protocol` selects one for each `Basis2`
 
     - Default serial settings and the link layer: Alicat ASCII Serial Communication, Establishing Communication, [p. 10](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=10)
     - Data frame: Data Frame Format, [p. 10](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=10)
+    - Query the full data frame: Query Full Data Frame, [p. 11](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=11)
     - Query specific data: Query Specific Data, [p. 11](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=11)
     - Active gas: Active Gas, [p. 15](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=15)
     - Modbus RTU framing, address and baud: Modbus-RTU; Communicating Via Modbus-RTU; Changing the Baud Rate, [p. 18](https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=18)

@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="770" height="1246" viewBox="0 0 770 1246" role="img" aria-labelledby="chip-outline-title chip-outline-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
-<title id="chip-outline-title">BASIS 2 (B and BC series) package, JST GH 6-pin connector</title>
-<desc id="chip-outline-desc">Outline of the BASIS 2 (B and BC series) in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4 mm, 6 pins.</desc>
+<title id="chip-outline-title">BASIS 2 package, JST GH 6-pin connector</title>
+<desc id="chip-outline-desc">Outline of the BASIS 2 in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4 mm, 6 pins.</desc>
 <rect x="0.5" y="0.5" width="769" height="1245" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
 <text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#7A360E">HARDWARE</text>
-<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">BASIS 2 (B and BC series) package, JST GH 6-pin connector</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">BASIS 2 package, JST GH 6-pin connector</text>
 <text x="32" y="103.8" font-size="15" fill="#566070">Package body from above, to scale, pin 1 marked; arrows give the datasheet's dimensions.</text>
 <text x="32" y="125.5" font-size="15" fill="#566070">The pads are centred on each side, evenly spaced: the land pattern is in the datasheet.</text>
 <text x="32" y="147.3" font-size="15" fill="#566070">Datasheet: Dimensions, p. 3.</text>
@@ -39,6 +39,7 @@
 <text x="87.2" y="500.4" font-size="11.5" font-weight="700" text-anchor="middle" fill="#9F1239">4</text>
 <text x="87.2" y="534.4" font-size="11.5" font-weight="700" text-anchor="middle" fill="#1E429F">5</text>
 <text x="87.2" y="568.4" font-size="11.5" font-weight="700" text-anchor="middle" fill="#1E429F">6</text>
+<text x="188.8" y="471.3" font-size="20" font-weight="700" text-anchor="middle" fill="#0E1726">BASIS 2</text>
 <text x="333.4" y="483.8" font-size="12.5" font-weight="600" fill="#2B3442">68.6 mm</text>
 <text x="188.8" y="821.3" font-size="12.5" font-weight="600" text-anchor="middle" fill="#2B3442">22.2 mm</text>
 <text x="319.4" y="1022.6" font-size="12.5" font-weight="600" fill="#2B3442">39.4 mm</text>
