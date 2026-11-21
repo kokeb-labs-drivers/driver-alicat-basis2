@@ -1,0 +1,33 @@
+---
+kind: timing
+id: ascii-transaction
+title: ASCII poll of the data frame
+kicker: On the bus
+alt: >-
+  One ASCII poll of a BASIS 2: the host sends the unit ID and a carriage return, the line stays idle for the serial
+  idle timeout, and the instrument answers with one line of the data frame ended by a carriage return.
+reads: >-
+  The TX lane is what the host sends and the RX lane what the instrument answers, left to right in time. On TX the
+  unit ID A and a carriage return poll the whole data frame; after the idle timeout the instrument sends on RX its
+  unit ID, the temperature, flow and the other fields (some are left out) and the gas, then a carriage return. The
+  table gives the idle timeout in byte times.
+bus: transaction
+refs:
+  ascii: {doc: manual, section: "Alicat ASCII Serial Communication", page: 10}
+  frame: {doc: manual, section: "Data Frame Format", page: 10}
+  query: {doc: manual, section: "Query Full Data Frame", page: 11}
+signals:
+  - {id: tx, label: TX, wave: "1=.=.1............", data: [A, CR]}
+  - {id: rx, label: RX, wave: "1......=.=..|=.=.1", data: [A, "+24.57", N2, CR], tone: teal}
+groups:
+  - {from: 1, to: 5, label: poll command}
+  - {from: 7, to: 17, label: "reply: one line"}
+params:
+  - {id: idle, symbol: tIDLE, label: "Serial idle timeout after the carriage return, before the instrument acts",
+     min: 3.5, unit: byte times, ref: ascii}
+marks:
+  - {param: idle, signal: tx, from: 5, to: 7}
+notes:
+  - {text: "Every command and every reply ends with a carriage return (13, 0x0D).", ref: ascii}
+  - {text: "Polling with only the unit ID returns the whole data frame.", ref: query}
+  - {text: "Do not start a new command before the reply's carriage return has arrived.", ref: ascii}

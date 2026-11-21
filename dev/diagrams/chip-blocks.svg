@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="587" viewBox="0 0 1200 587" role="img" aria-labelledby="chip-blocks-title chip-blocks-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
-<title id="chip-blocks-title">Inside the BASIS 2 (B and BC series)</title>
-<desc id="chip-blocks-desc">Block diagram of the BASIS 2 (B and BC series): its function blocks, how they connect and which package pins reach each block.</desc>
+<title id="chip-blocks-title">Inside the BASIS 2</title>
+<desc id="chip-blocks-desc">Block diagram of the BASIS 2: its function blocks, how they connect and which package pins reach each block.</desc>
 <defs><marker id="fk-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8893A2"/></marker></defs>
 <rect x="0.5" y="0.5" width="1199" height="586" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
 <text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#7A360E">HARDWARE</text>
-<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">Inside the BASIS 2 (B and BC series)</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">Inside the BASIS 2</text>
 <text x="32" y="103.8" font-size="15" fill="#566070">Function blocks and their links, from the datasheet's block diagram (Introduction, p. 3). Pins on the edge carry their package number.</text>
 <rect x="32" y="119.8" width="1136" height="1" fill="#E2E7EE"/>
 <rect x="136" y="137.8" width="952" height="344" rx="14" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1.2"/>
@@ -36,8 +36,8 @@
 <rect x="129" y="394.8" width="14" height="14" rx="3" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
 <rect x="1081" y="370.8" width="14" height="14" rx="3" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
 <rect x="1081" y="394.8" width="14" height="14" rx="3" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
-<text x="152" y="162.8" font-size="13" font-weight="700" fill="#334155">BASIS 2 (B AND BC SERIES)</text>
-<text x="347.6" y="162.8" font-size="12" fill="#334155">JST GH 6-pin connector</text>
+<text x="152" y="162.8" font-size="13" font-weight="700" fill="#334155">BASIS 2</text>
+<text x="217.3" y="162.8" font-size="12" fill="#334155">JST GH 6-pin connector</text>
 <text x="196" y="228.6" font-size="15" font-weight="700" fill="#1E429F">Serial interface</text>
 <text x="196" y="253.4" font-size="13" fill="#2B3442">ASCII and Modbus RTU,</text>
 <text x="196" y="272.2" font-size="13" fill="#2B3442">38400 8N1</text>

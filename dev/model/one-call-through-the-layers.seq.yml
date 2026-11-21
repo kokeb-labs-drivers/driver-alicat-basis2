@@ -7,7 +7,13 @@ alt: >-
   One ReadFlow call: the device class builds the request, the bus layer waits for silence, writes it through your
   port and reads until a carriage return, and the reply is checked and decoded into a flow value.
 reads: >-
-  Participants, left to right: Your code, Basis2, Bus and Your port. The steps run from top to bottom. Your code sends ReadFlow() to Basis2. Basis2 does ascii::Make(Poll) builds and checks the bytes itself. Basis2 sends Execute(request, timing) to Bus. A note over Bus says: wait t3.5 of silence. Bus sends FlushInput(), Write("A\r") to Your port. A note over Bus and Your port says: Repeat until a CR or the deadline. Bus sends Read(buffer) to Your port. A note over Bus and Your port says: End of the repeated steps. Your port returns "A +012.30 +024.8 ... Air\r" to Bus. Bus returns Reply to Basis2. A note over Basis2 says: strict grammar, unit ID, range. Basis2 returns Result of Decimal to Your code.
+  Participants, left to right: Your code, Basis2, Bus and Your port. The steps run from top to bottom. Your code sends
+  ReadFlow() to Basis2. Basis2 does ascii::Make(Poll) builds and checks the bytes itself. Basis2 sends Execute(request,
+  timing) to Bus. A note over Bus says: wait t3.5 of silence. Bus sends FlushInput(), Write("A\r") to Your port. A note
+  over Bus and Your port says: Repeat until a CR or the deadline. Bus sends Read(buffer) to Your port. A note over Bus
+  and Your port says: End of the repeated steps. Your port returns "A +012.30 +024.8 ... Air\r" to Bus. Bus returns
+  Reply to Basis2. A note over Basis2 says: strict grammar, unit ID, range. Basis2 returns Result of Decimal to Your
+  code.
 print: landscape
 sources:
   - docs/model/one-call-through-the-layers.seq.yml

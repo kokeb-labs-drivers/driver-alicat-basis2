@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="664" viewBox="0 0 640 664" role="img" aria-labelledby="uart-timing-title uart-timing-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" class="fk">
+<title id="uart-timing-title">UART character</title>
+<desc id="uart-timing-desc">One serial character of the BASIS 2 at its factory settings: a start bit, eight data bits least significant first and one stop bit with no parity, at 38400 bit/s unless the baud rate was changed.</desc>
+<style>
+.fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-slate-soft:#CBD5E1;--fk-slate-strong:#64748B;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;}
+@media (prefers-color-scheme:dark){.fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-slate-soft:#3A4656;--fk-slate-strong:#94A3B8;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;}}
+:root[data-theme="dark"] .fk,[data-md-color-scheme="slate"] .fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-slate-soft:#3A4656;--fk-slate-strong:#94A3B8;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;}
+:root[data-theme="light"] .fk,[data-md-color-scheme="default"] .fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-slate-soft:#CBD5E1;--fk-slate-strong:#64748B;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;}
+.fk-f-blue-strong{fill:var(--fk-blue-strong)}.fk-s-blue-strong{stroke:var(--fk-blue-strong)}
+.fk-f-blue-text{fill:var(--fk-blue-text)}.fk-s-blue-text{stroke:var(--fk-blue-text)}
+.fk-f-blue-tint{fill:var(--fk-blue-tint)}.fk-s-blue-tint{stroke:var(--fk-blue-tint)}
+.fk-f-brand-text{fill:var(--fk-brand-text)}.fk-s-brand-text{stroke:var(--fk-brand-text)}
+.fk-f-canvas{fill:var(--fk-canvas)}.fk-s-canvas{stroke:var(--fk-canvas)}
+.fk-f-frame{fill:var(--fk-frame)}.fk-s-frame{stroke:var(--fk-frame)}
+.fk-f-hair{fill:var(--fk-hair)}.fk-s-hair{stroke:var(--fk-hair)}
+.fk-f-ink{fill:var(--fk-ink)}.fk-s-ink{stroke:var(--fk-ink)}
+.fk-f-ink2{fill:var(--fk-ink2)}.fk-s-ink2{stroke:var(--fk-ink2)}
+.fk-f-muted{fill:var(--fk-muted)}.fk-s-muted{stroke:var(--fk-muted)}
+.fk-f-slate-soft{fill:var(--fk-slate-soft)}.fk-s-slate-soft{stroke:var(--fk-slate-soft)}
+.fk-f-slate-strong{fill:var(--fk-slate-strong)}.fk-s-slate-strong{stroke:var(--fk-slate-strong)}
+.fk-f-slate-text{fill:var(--fk-slate-text)}.fk-s-slate-text{stroke:var(--fk-slate-text)}
+.fk-f-slate-tint{fill:var(--fk-slate-tint)}.fk-s-slate-tint{stroke:var(--fk-slate-tint)}
+@media (forced-colors:active){.fk text{fill:CanvasText}.fk rect,.fk circle{fill:Canvas;stroke:CanvasText}.fk path{stroke:CanvasText}.fk marker path{fill:CanvasText;stroke:none}}
+</style>
+<rect x="0.5" y="0.5" width="639" height="663" rx="16" class="fk-f-canvas fk-s-frame"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" class="fk-f-brand-text">ON THE BUS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" class="fk-f-ink">UART character</text>
+<text x="32" y="102.7" font-size="15" class="fk-f-muted">Datasheet: Alicat ASCII Serial Communication, Establishing Communication,</text>
+<text x="32" y="124.5" font-size="15" class="fk-f-muted">p. 10; Serial Baud Rate, p. 17.</text>
+<rect x="32" y="140.4" width="576" height="1" class="fk-f-hair"/>
+<path d="M88 232.8 L88 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M127.5 232.8 L127.5 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M167.1 232.8 L167.1 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M206.6 232.8 L206.6 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M246.2 232.8 L246.2 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M285.7 232.8 L285.7 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M325.2 232.8 L325.2 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M364.8 232.8 L364.8 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M404.3 232.8 L404.3 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M443.8 232.8 L443.8 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M483.4 232.8 L483.4 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M522.9 232.8 L522.9 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M562.5 232.8 L562.5 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M602 232.8 L602 268.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 314.9 L608 314.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 387.8 L608 387.8" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 481.7 L608 481.7" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 554.5 L608 554.5" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M168.1 223.8 L168.1 218.8 L205.6 218.8 L205.6 223.8" fill="none" stroke-width="1.4" class="fk-s-slate-strong"/>
+<path d="M207.6 191.6 L207.6 186.6 L521.9 186.6 L521.9 191.6" fill="none" stroke-width="1.4" class="fk-s-slate-strong"/>
+<path d="M523.9 223.8 L523.9 218.8 L561.5 218.8 L561.5 223.8" fill="none" stroke-width="1.4" class="fk-s-slate-strong"/>
+<path d="M88 237.8 L127.5 237.8 L167.1 237.8 L167.1 237.8 L167.1 263.9 L206.6 263.9" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M206.6 263.9 L206.6 250.8" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M522.9 237.8 L562.5 237.8 L602 237.8" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M206.6 250.8 L211.6 237.8 L241.2 237.8 L246.2 250.8 L241.2 263.9 L211.6 263.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M246.2 250.8 L251.2 237.8 L280.7 237.8 L285.7 250.8 L280.7 263.9 L251.2 263.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M285.7 250.8 L290.7 237.8 L320.2 237.8 L325.2 250.8 L320.2 263.9 L290.7 263.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M325.2 250.8 L330.2 237.8 L359.8 237.8 L364.8 250.8 L359.8 263.9 L330.2 263.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M364.8 250.8 L369.8 237.8 L399.3 237.8 L404.3 250.8 L399.3 263.9 L369.8 263.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M404.3 250.8 L409.3 237.8 L438.8 237.8 L443.8 250.8 L438.8 263.9 L409.3 263.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M443.8 250.8 L448.8 237.8 L478.4 237.8 L483.4 250.8 L478.4 263.9 L448.8 263.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M483.4 250.8 L488.4 237.8 L517.9 237.8 L522.9 250.8 L517.9 263.9 L488.4 263.9 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<rect x="32" y="568.5" width="576" height="65.1" rx="10" stroke-width="1" class="fk-f-slate-tint fk-s-slate-soft"/>
+<text x="186.8" y="207.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-slate-text">start</text>
+<text x="364.8" y="175.8" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-slate-text">8 data bits, no parity</text>
+<text x="542.7" y="207.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-slate-text">stop</text>
+<text x="32" y="256.2" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">TX</text>
+<text x="226.4" y="255.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">D0</text>
+<text x="265.9" y="255.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">D1</text>
+<text x="305.5" y="255.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">D2</text>
+<text x="345" y="255.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">D3</text>
+<text x="384.5" y="255.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">D4</text>
+<text x="424.1" y="255.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">D5</text>
+<text x="463.6" y="255.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">D6</text>
+<text x="503.2" y="255.9" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">D7</text>
+<text x="32" y="299.3" font-size="17" font-weight="700" class="fk-f-ink">Timing values</text>
+<text x="32" y="335.7" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">baud</text>
+<text x="608" y="335.7" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">typ 38400 bit/s</text>
+<text x="32" y="355.9" font-size="15" class="fk-f-ink2">Bit rate at the factory setting</text>
+<text x="32" y="376.1" font-size="14" class="fk-f-muted">Datasheet Alicat ASCII Serial Communication, Establishing Communication, p. 10</text>
+<text x="32" y="408.5" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">baud</text>
+<text x="608" y="408.5" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">min 4800 · max 115200 bit/s</text>
+<text x="32" y="428.8" font-size="15" class="fk-f-ink2">Bit rates the NCB command sets (4800, 9600, 19200, 38400, 57600,</text>
+<text x="32" y="449.8" font-size="15" class="fk-f-ink2">115200)</text>
+<text x="32" y="469.9" font-size="14" class="fk-f-muted">Datasheet Serial Baud Rate, p. 17</text>
+<text x="32" y="502.4" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">stop</text>
+<text x="608" y="502.4" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">typ 1 bit</text>
+<text x="32" y="522.7" font-size="15" class="fk-f-ink2">Stop bits</text>
+<text x="32" y="542.8" font-size="14" class="fk-f-muted">Datasheet Alicat ASCII Serial Communication, Establishing Communication, p. 10</text>
+<text x="46" y="597" font-size="17" font-weight="700" class="fk-f-slate-text">Notes</text>
+<text x="46" y="617.4" font-size="15" class="fk-f-slate-text">Default settings: 38400 baud, 8 data bits, no parity, 1 stop bit, unit ID A.</text>
+</svg>

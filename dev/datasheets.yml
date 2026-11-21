@@ -96,19 +96,25 @@ topics:
     section: Power and Signal Connections (pin table)
     page: 7
     driver: "`UartPort::Write`, `UartPort::Read`"
-    docs: [hardware, porting, quickstart]
+    docs: [hardware, porting, quickstart, bus]
   - topic: Default serial settings and the link layer
     doc: manual
     section: Alicat ASCII Serial Communication, Establishing Communication
     page: 10
     driver: "`Bus`, `Config::baud`, `Config::unit_id`, `ascii::Make`"
-    docs: [architecture, protocols, contract]
+    docs: [architecture, protocols, contract, bus]
   - topic: Data frame
     doc: manual
     section: Data Frame Format
     page: 10
     driver: "`Frame`, `Decimal`, `StatusFlags`, `Basis2::ReadFrame()`"
-    docs: [protocols, api-guide]
+    docs: [protocols, api-guide, bus]
+  - topic: Query the full data frame
+    doc: manual
+    section: Query Full Data Frame
+    page: 11
+    driver: "`Basis2::ReadFrame()`"
+    docs: [bus, protocols]
   - topic: Query specific data
     doc: manual
     section: Query Specific Data
@@ -168,19 +174,25 @@ topics:
     section: Unit ID
     page: 16
     driver: "`ChangeUnitId()`, `FactoryRestore()`"
-    docs: [safety, api-guide, troubleshooting]
+    docs: [safety, api-guide, troubleshooting, bus]
   - topic: Modbus address, baud rate, command protocol
     doc: manual
     section: Modbus Address; Serial Baud Rate; Command Protocol
     page: 17
     driver: "`SetModbusAddress()`, `ChangeBaud()`, `SwitchToProtocol1()`, `FactoryRestore()`"
-    docs: [safety, api-guide, troubleshooting]
+    docs: [safety, api-guide, troubleshooting, bus]
   - topic: Modbus RTU framing, address and baud
     doc: manual
     section: Modbus-RTU; Communicating Via Modbus-RTU; Changing the Baud Rate
     page: 18
     driver: "`modbus::Build*()`, `modbus::ParseResponse()`, `Config::modbus_address`"
     docs: [protocols, architecture]
+  - topic: Modbus address on the line
+    doc: manual
+    section: Modbus-RTU, Modbus Address
+    page: 18
+    driver: "`Config::modbus_address`, `SetModbusAddress()`"
+    docs: [bus]
   - topic: Modbus setpoint, watchdog and tare
     doc: manual
     section: Setpoint Type; Changing the Setpoint; Communication Watchdog; Taring the Instrument

@@ -102,72 +102,6 @@
   <meta property="og:description" content="C++20 driver for the Alicat BASIS 2 gas mass flow meters and controllers (B and BC series) over serial, with the ASCII protocol and Modbus RTU.">
   <meta property="og:url" content="https://kokeb-labs-drivers.github.io/driver-alicat-basis2/latest/diagrams/">
   <meta name="twitter:card" content="summary">
-  <script>
-(function () {
-  if (typeof mermaid != "undefined" && !(mermaid instanceof Element)) return;
-  var SRC = "https://unpkg.com/mermaid@11.17.2/dist/mermaid.min.js",
-      SRI = "sha384-EOXBFmc3gx5mb+vn0vPvvGqACToJD24hhacX5Yx+8NUUQrHIle/Qi5Bg9o3zKwW2", config = {}, real, loading;
-  var waiting = [], io = null, ahead = false, ENGAGE = ["scroll", "keydown", "pointerdown", "touchstart"];
-  var stub = {
-    initialize: function (c) { config = c || {}; if (real) real.initialize(config); },
-    render: function (id, text) {
-      var el = null, pres = document.querySelectorAll("pre.mermaid:not([data-kb-mermaid])");
-      for (var i = 0; i < pres.length && !el; i++) if (pres[i].textContent === text) el = pres[i];
-      if (el) el.setAttribute("data-kb-mermaid", "");
-      return near(el).then(load).then(function (m) { return m.render(id, text); });
-    }
-  };
-  function load() {
-    return loading || (loading = new Promise(function (resolve, reject) {
-      var s = document.createElement("script");
-      s.src = SRC;
-      s.integrity = SRI;
-      s.crossOrigin = "anonymous";
-      s.onload = function () {
-        real = window.mermaid;
-        window.mermaid = stub;
-        real.initialize(config);
-        resolve(real);
-      };
-      s.onerror = function () { loading = null; reject(new Error("Mermaid did not load")); };
-      document.head.appendChild(s);
-    }));
-  }
-  // One observer for the diagrams still waiting: on the screen only until the reader engages, then a screen ahead.
-  function watch() {
-    if (io) io.disconnect();
-    io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) release(function (w) { return w.el === e.target; });
-      });
-    }, { rootMargin: ahead ? "100% 0px" : "0px" });
-    waiting.forEach(function (w) { io.observe(w.el); });
-  }
-  function release(which) {
-    waiting = waiting.filter(function (w) {
-      if (!which(w)) return true;
-      io.unobserve(w.el);
-      w.go();
-      return false;
-    });
-  }
-  function near(el) {
-    if (real || !el || !("IntersectionObserver" in window)) return Promise.resolve();
-    return new Promise(function (resolve) {
-      waiting.push({ el: el, go: resolve });
-      if (io) io.observe(el); else watch();
-    });
-  }
-  function engaged() {
-    ENGAGE.forEach(function (t) { window.removeEventListener(t, engaged, true); });
-    ahead = true;
-    if (io) watch();
-  }
-  ENGAGE.forEach(function (t) { window.addEventListener(t, engaged, { capture: true, passive: true }); });
-  window.addEventListener("beforeprint", function () { if (io) release(function () { return true; }); });
-  window.mermaid = stub;
-})();
-</script>
 
   </head>
   
@@ -505,6 +439,8 @@
   
     
     
+      
+        
       
         
       
@@ -946,10 +882,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inside-the-basis-2-b-and-bc-series" class="md-nav__link">
+  <a href="#ascii-poll-of-the-data-frame" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inside the BASIS 2 (B and BC series)
+        ASCII poll of the data frame
       
     </span>
   </a>
@@ -957,10 +893,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basis-2-b-and-bc-series-rs-232-point-to-point" class="md-nav__link">
+  <a href="#inside-the-basis-2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BASIS 2 (B and BC series): RS-232 point to point
+        Inside the BASIS 2
       
     </span>
   </a>
@@ -968,10 +904,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basis-2-b-and-bc-series-rs-485-multidrop-line" class="md-nav__link">
+  <a href="#what-the-basis-2-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BASIS 2 (B and BC series): RS-485 multidrop line
+        What the BASIS 2 does
       
     </span>
   </a>
@@ -979,10 +915,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basis-2-b-and-bc-series-package-jst-gh-6-pin-connector" class="md-nav__link">
+  <a href="#basis-2-rs-232-point-to-point" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BASIS 2 (B and BC series) package, JST GH 6-pin connector
+        BASIS 2: RS-232 point to point
       
     </span>
   </a>
@@ -990,10 +926,65 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basis-2-b-and-bc-series-pinout-jst-gh-6-pin-connector" class="md-nav__link">
+  <a href="#basis-2-rs-485-multidrop-line" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BASIS 2 (B and BC series) pinout, JST GH 6-pin connector
+        BASIS 2: RS-485 multidrop line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basis-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BASIS 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basis-2-package-jst-gh-6-pin-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BASIS 2 package, JST GH 6-pin connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basis-2-pinout-jst-gh-6-pin-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BASIS 2 pinout, JST GH 6-pin connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-rs-232-point-to-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiring: RS-232 point to point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-rs-485-multidrop-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiring: RS-485 multidrop line
       
     </span>
   </a>
@@ -1016,6 +1007,28 @@
     <span class="md-ellipsis">
       
         One call through the layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#several-basis-2-on-one-rs-485-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Several BASIS 2 on one RS-485 line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uart-character" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UART character
       
     </span>
   </a>
@@ -1053,90 +1066,174 @@
 <p>Every figure on this site is drawn by a Python module from facts extracted from the code, so it is rebuilt,
 not redrawn, when the code changes. CI runs <code>kokeb-docs figures --check</code> and fails when a
 committed figure no longer matches the code. Each figure below lists the files it is drawn from.</p>
-<h2 id="inside-the-basis-2-b-and-bc-series">Inside the BASIS 2 (B and BC series)<a class="headerlink" href="#inside-the-basis-2-b-and-bc-series" title="Permanent link">&para;</a></h2>
+<h2 id="ascii-poll-of-the-data-frame">ASCII poll of the data frame<a class="headerlink" href="#ascii-poll-of-the-data-frame" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-blocks.svg#only-light" alt="Block diagram of the BASIS 2 (B and BC series): its function blocks, how they connect and which package pins reach each block." width="1200" height="587"><img src="chip-blocks.dark.svg#only-dark" alt="Block diagram of the BASIS 2 (B and BC series): its function blocks, how they connect and which package pins reach each block." width="1200" height="587">
-<figcaption>Inside the BASIS 2 (B and BC series)</figcaption>
+<img src="ascii-transaction.svg#only-light" alt="One ASCII poll of a BASIS 2: the host sends the unit ID and a carriage return, the line stays idle for the serial idle timeout, and the instrument answers with one line of the data frame ended by a carriage return." width="640" height="591"><img src="ascii-transaction.dark.svg#only-dark" alt="One ASCII poll of a BASIS 2: the host sends the unit ID and a carriage return, the line stays idle for the serial idle timeout, and the instrument answers with one line of the data frame ended by a carriage return." width="640" height="591">
+<figcaption>ASCII poll of the data frame</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
-<p>The BASIS 2 (B and BC series)'s function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+<p>The TX lane is what the host sends and the RX lane what the instrument answers, left to right in time. On TX the unit ID A and a carriage return poll the whole data frame; after the idle timeout the instrument sends on RX its unit ID, the temperature, flow and the other fields (some are left out) and the gas, then a carriage return. The table gives the idle timeout in byte times.</p>
+<p>Drawn from: <a href="../model/ascii-transaction.timing.yml"><code>docs/model/ascii-transaction.timing.yml</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../model/ascii-transaction.timing.yml"><code>docs/model/ascii-transaction.timing.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../model/ascii-transaction.timing.yml"><code>docs/model/ascii-transaction.timing.yml</code></a></li>
+</ul>
+<h2 id="inside-the-basis-2">Inside the BASIS 2<a class="headerlink" href="#inside-the-basis-2" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="chip-blocks.svg#only-light" alt="Block diagram of the BASIS 2: its function blocks, how they connect and which package pins reach each block." width="1200" height="587" loading="lazy"><img src="chip-blocks.dark.svg#only-dark" alt="Block diagram of the BASIS 2: its function blocks, how they connect and which package pins reach each block." width="1200" height="587" loading="lazy">
+<figcaption>Inside the BASIS 2</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The BASIS 2's function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
 </ul>
-<h2 id="basis-2-b-and-bc-series-rs-232-point-to-point">BASIS 2 (B and BC series): RS-232 point to point<a class="headerlink" href="#basis-2-b-and-bc-series-rs-232-point-to-point" title="Permanent link">&para;</a></h2>
+<h2 id="what-the-basis-2-does">What the BASIS 2 does<a class="headerlink" href="#what-the-basis-2-does" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-circuit-rs232.svg#only-light" alt="Schematic of the BASIS 2 (B and BC series) rs-232 point to point: the chip with U2 MCU, U3 RS-232 level shifter, C1 capacitor 100 nF, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write()." width="1016" height="810" loading="lazy"><img src="chip-circuit-rs232.dark.svg#only-dark" alt="Schematic of the BASIS 2 (B and BC series) rs-232 point to point: the chip with U2 MCU, U3 RS-232 level shifter, C1 capacitor 100 nF, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write()." width="1016" height="810" loading="lazy">
-<figcaption>BASIS 2 (B and BC series): RS-232 point to point</figcaption>
+<img src="chip-capabilities.svg#only-light" alt="Capability map of the BASIS 2: Flow, temperature and total (supported): Polls the whole data frame or single items and decodes each number exactly; Setpoint, ramp and watchdog (supported): Sets the flow of a controller, limits how fast it changes and closes the valve if the line goes quiet; Valve hold and loop gains (supported): Holds the valve at a fixed drive, opens or closes it, and tunes the closed loop; Tare and autotare (supported): Zeroes the flow reading at no flow, and on a controller zeroes it again at a closed setpoint; Gas selection (supported): Selects one of the nine calibrated gases and lists the gases the instrument holds; Totalizer and batch (supported): Counts the gas that has passed, sets what happens at the limit, and dispenses a set volume; Measurement window (supported): Starts a timed measurement, by command or by an event, and reads its averages and ranges; Unit ID, baud and protocol (guarded): Changes the unit ID, address, baud rate or protocol, restores factory settings, and scans a line; Analog setpoint and output (not covered): A 0 to 5 V or 4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver." width="1200" height="1168" loading="lazy"><img src="chip-capabilities.dark.svg#only-dark" alt="Capability map of the BASIS 2: Flow, temperature and total (supported): Polls the whole data frame or single items and decodes each number exactly; Setpoint, ramp and watchdog (supported): Sets the flow of a controller, limits how fast it changes and closes the valve if the line goes quiet; Valve hold and loop gains (supported): Holds the valve at a fixed drive, opens or closes it, and tunes the closed loop; Tare and autotare (supported): Zeroes the flow reading at no flow, and on a controller zeroes it again at a closed setpoint; Gas selection (supported): Selects one of the nine calibrated gases and lists the gases the instrument holds; Totalizer and batch (supported): Counts the gas that has passed, sets what happens at the limit, and dispenses a set volume; Measurement window (supported): Starts a timed measurement, by command or by an event, and reads its averages and ranges; Unit ID, baud and protocol (guarded): Changes the unit ID, address, baud rate or protocol, restores factory settings, and scans a line; Analog setpoint and output (not covered): A 0 to 5 V or 4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver." width="1200" height="1168" loading="lazy">
+<figcaption>What the BASIS 2 does</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>Each card is one function of the BASIS 2: an icon, its name and what it does for the application. The filled pill says how this driver covers it (legend below); the outlined pills are the chip registers behind it. The coverage table in the README gives the driver calls and the datasheet section of each card.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+</ul>
+<h2 id="basis-2-rs-232-point-to-point">BASIS 2: RS-232 point to point<a class="headerlink" href="#basis-2-rs-232-point-to-point" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="chip-circuit-rs232.svg#only-light" alt="Schematic of the BASIS 2 rs-232 point to point: the chip with U2 MCU, U3 RS-232 level shifter, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write()." width="880" height="739" loading="lazy"><img src="chip-circuit-rs232.dark.svg#only-dark" alt="Schematic of the BASIS 2 rs-232 point to point: the chip with U2 MCU, U3 RS-232 level shifter, J1 12 to 24 V supply; the MCU wires carry the port hooks Read(), Write()." width="880" height="739" loading="lazy">
+<figcaption>BASIS 2: RS-232 point to point</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
 </ul>
-<h2 id="basis-2-b-and-bc-series-rs-485-multidrop-line">BASIS 2 (B and BC series): RS-485 multidrop line<a class="headerlink" href="#basis-2-b-and-bc-series-rs-485-multidrop-line" title="Permanent link">&para;</a></h2>
+<h2 id="basis-2-rs-485-multidrop-line">BASIS 2: RS-485 multidrop line<a class="headerlink" href="#basis-2-rs-485-multidrop-line" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-circuit-rs485-multidrop.svg#only-light" alt="Schematic of the BASIS 2 (B and BC series) rs-485 multidrop line: the chip with U2 MCU, U3 RS-485 transceiver, J1 12 to 24 V supply, C1 capacitor 100 nF; the MCU wires carry the port hooks Read(), Write()." width="1088" height="834" loading="lazy"><img src="chip-circuit-rs485-multidrop.dark.svg#only-dark" alt="Schematic of the BASIS 2 (B and BC series) rs-485 multidrop line: the chip with U2 MCU, U3 RS-485 transceiver, J1 12 to 24 V supply, C1 capacitor 100 nF; the MCU wires carry the port hooks Read(), Write()." width="1088" height="834" loading="lazy">
-<figcaption>BASIS 2 (B and BC series): RS-485 multidrop line</figcaption>
+<img src="chip-circuit-rs485-multidrop.svg#only-light" alt="Schematic of the BASIS 2 rs-485 multidrop line: the chip with U2 MCU, U3 RS-485 transceiver, J1 12 to 24 V supply; the MCU wires carry the port hooks Write()." width="928" height="809" loading="lazy"><img src="chip-circuit-rs485-multidrop.dark.svg#only-dark" alt="Schematic of the BASIS 2 rs-485 multidrop line: the chip with U2 MCU, U3 RS-485 transceiver, J1 12 to 24 V supply; the MCU wires carry the port hooks Write()." width="928" height="809" loading="lazy">
+<figcaption>BASIS 2: RS-485 multidrop line</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
 </ul>
-<h2 id="basis-2-b-and-bc-series-package-jst-gh-6-pin-connector">BASIS 2 (B and BC series) package, JST GH 6-pin connector<a class="headerlink" href="#basis-2-b-and-bc-series-package-jst-gh-6-pin-connector" title="Permanent link">&para;</a></h2>
+<h2 id="basis-2">BASIS 2<a class="headerlink" href="#basis-2" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-outline.svg#only-light" alt="Outline of the BASIS 2 (B and BC series) in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4 mm, 6 pins." width="770" height="1246" loading="lazy"><img src="chip-outline.dark.svg#only-dark" alt="Outline of the BASIS 2 (B and BC series) in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4 mm, 6 pins." width="770" height="1246" loading="lazy">
-<figcaption>BASIS 2 (B and BC series) package, JST GH 6-pin connector</figcaption>
+<img src="chip-hero.svg#only-light" alt="Overview of the BASIS 2, a family of gas mass flow meters (B series) and controllers (BC series): it reports the flow, temperature and total of nine gases, and a controller sets the flow with its own valve. A MCU talks to it over RS-232 or RS-485; it drives Valve; it reads back Gas flow, Gas temperature. Headline figures: 12 to 24 V supply on pin 4 only; 1000:1 turndown, 0.1 to 100 % of full scale; 9 gases selectable, stored in the instrument; 176 Hz digital update rate at best." width="1200" height="840" loading="lazy"><img src="chip-hero.dark.svg#only-dark" alt="Overview of the BASIS 2, a family of gas mass flow meters (B series) and controllers (BC series): it reports the flow, temperature and total of nine gases, and a controller sets the flow with its own valve. A MCU talks to it over RS-232 or RS-485; it drives Valve; it reads back Gas flow, Gas temperature. Headline figures: 12 to 24 V supply on pin 4 only; 1000:1 turndown, 0.1 to 100 % of full scale; 9 gases selectable, stored in the instrument; 176 Hz digital update rate at best." width="1200" height="840" loading="lazy">
+<figcaption>BASIS 2</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
-<p>The BASIS 2 (B and BC series) package seen from the top and, when the height is known, from the side, drawn to scale: 68.6 x 22.2 x 39.4 mm. The arrows carry the datasheet's dimensions, the dot marks pin 1 and the pads are numbered counter-clockwise from it, coloured by the pin's electrical type (legend below). Pads sit centred on each side, evenly spaced; the datasheet's land pattern is the reference for a board.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+<p>The BASIS 2 in the middle, drawn as its JST GH 6-pin connector package. On the left the MCU that runs the driver, joined to it by RS-232 or RS-485. To the right, what the chip drives, in the order the power flows. Below it, what the chip reads back. The tiles at the bottom are the headline numbers, each with the datasheet section and page it comes from.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
 </ul>
-<h2 id="basis-2-b-and-bc-series-pinout-jst-gh-6-pin-connector">BASIS 2 (B and BC series) pinout, JST GH 6-pin connector<a class="headerlink" href="#basis-2-b-and-bc-series-pinout-jst-gh-6-pin-connector" title="Permanent link">&para;</a></h2>
+<h2 id="basis-2-package-jst-gh-6-pin-connector">BASIS 2 package, JST GH 6-pin connector<a class="headerlink" href="#basis-2-package-jst-gh-6-pin-connector" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
-<img src="chip-pinout.svg#only-light" alt="Pinout of the BASIS 2 (B and BC series) in JST GH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="760" height="533" loading="lazy"><img src="chip-pinout.dark.svg#only-dark" alt="Pinout of the BASIS 2 (B and BC series) in JST GH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="760" height="533" loading="lazy">
-<figcaption>BASIS 2 (B and BC series) pinout, JST GH 6-pin connector</figcaption>
+<img src="chip-outline.svg#only-light" alt="Outline of the BASIS 2 in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4 mm, 6 pins." width="770" height="1246" loading="lazy"><img src="chip-outline.dark.svg#only-dark" alt="Outline of the BASIS 2 in JST GH 6-pin connector drawn to scale from above: body 68.6 x 22.2 x 39.4 mm, 6 pins." width="770" height="1246" loading="lazy">
+<figcaption>BASIS 2 package, JST GH 6-pin connector</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
-<p>The BASIS 2 (B and BC series) seen from the top, in its JST GH 6-pin connector package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+<p>The BASIS 2 package seen from the top and, when the height is known, from the side, drawn to scale: 68.6 x 22.2 x 39.4 mm. The arrows carry the datasheet's dimensions, the dot marks pin 1 and the pads are numbered counter-clockwise from it, coloured by the pin's electrical type (legend below). Pads sit centred on each side, evenly spaced; the datasheet's land pattern is the reference for a board.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
 </details>
 <p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
 <p>Drawn from:</p>
 <ul>
 <li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+</ul>
+<h2 id="basis-2-pinout-jst-gh-6-pin-connector">BASIS 2 pinout, JST GH 6-pin connector<a class="headerlink" href="#basis-2-pinout-jst-gh-6-pin-connector" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="chip-pinout.svg#only-light" alt="Pinout of the BASIS 2 in JST GH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="760" height="533" loading="lazy"><img src="chip-pinout.dark.svg#only-dark" alt="Pinout of the BASIS 2 in JST GH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="760" height="533" loading="lazy">
+<figcaption>BASIS 2 pinout, JST GH 6-pin connector</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The BASIS 2 seen from the top, in its JST GH 6-pin connector package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+</ul>
+<h2 id="wiring-rs-232-point-to-point">Wiring: RS-232 point to point<a class="headerlink" href="#wiring-rs-232-point-to-point" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="chip-wiring-rs232.svg#only-light" alt="Wiring of the BASIS 2 for the RS-232 point to point: MCU UART TX to RS-232 level shifter T1IN (Write()); MCU UART RX to RS-232 level shifter R1OUT (Read()); RS-232 level shifter T1OUT to RX/B (Write()); RS-232 level shifter R1IN to TX/A (Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="738" loading="lazy"><img src="chip-wiring-rs232.dark.svg#only-dark" alt="Wiring of the BASIS 2 for the RS-232 point to point: MCU UART TX to RS-232 level shifter T1IN (Write()); MCU UART RX to RS-232 level shifter R1OUT (Read()); RS-232 level shifter T1OUT to RX/B (Write()); RS-232 level shifter R1IN to TX/A (Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="738" loading="lazy">
+<figcaption>Wiring: RS-232 point to point</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The MCU on the left, the BASIS 2 on the right of the parts between them (RS-232 level shifter). Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+</ul>
+<h2 id="wiring-rs-485-multidrop-line">Wiring: RS-485 multidrop line<a class="headerlink" href="#wiring-rs-485-multidrop-line" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="chip-wiring-rs485-multidrop.svg#only-light" alt="Wiring of the BASIS 2 for the RS-485 multidrop line: MCU UART TX to RS-485 transceiver DI (Write()); MCU UART RX to RS-485 transceiver RO (Read()); MCU GPIO (direction) to RS-485 transceiver DE, RE (Write()); RS-485 transceiver A to TX/A (Write() and Read()); RS-485 transceiver B to RX/B (Write() and Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="888" loading="lazy"><img src="chip-wiring-rs485-multidrop.dark.svg#only-dark" alt="Wiring of the BASIS 2 for the RS-485 multidrop line: MCU UART TX to RS-485 transceiver DI (Write()); MCU UART RX to RS-485 transceiver RO (Read()); MCU GPIO (direction) to RS-485 transceiver DE, RE (Write()); RS-485 transceiver A to TX/A (Write() and Read()); RS-485 transceiver B to RX/B (Write() and Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="888" loading="lazy">
+<figcaption>Wiring: RS-485 multidrop line</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The MCU on the left, the BASIS 2 on the right of the parts between them (RS-485 transceiver). Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../hardware.yml"><code>docs/hardware.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../hardware.yml"><code>docs/hardware.yml</code></a></li>
+<li><a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
 </ul>
 <h2 id="the-layers-one-of-them-yours">The layers, one of them yours<a class="headerlink" href="#the-layers-one-of-them-yours" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
@@ -1147,13 +1244,13 @@ committed figure no longer matches the code. Each figure below lists the files i
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>Top to bottom, each arrow is a call. Your application calls one object, whose public calls are listed from the umbrella header in inc/. The core turns each call into register reads and writes and hands them to the port contract (the CRTP base in inc/*_interface.hpp), which forwards them, at compile time, to the hooks of the port class you write; your port moves the bytes on the bus. The notes on the right say which layers stay the same on every MCU and which one you write. A library without a port contract has only the first two layers.</p>
-<p>Drawn from: <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a> <code>public calls</code>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a> <code>UartInterface</code>; figure module <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a>.</p>
+<p>Drawn from: <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a> <code>public calls</code>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a> <code>UartInterface</code>; figure module <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a>.</p>
 </details>
-<p>Figure module: <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a></p>
+<p>Figure module: <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/docs/diagrams/figures/driver-layers.py"><code>docs/diagrams/figures/driver-layers.py</code></a></p>
 <p>Drawn from:</p>
 <ul>
-<li><code>public calls</code> in <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a></li>
-<li><code>UartInterface</code> in <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/8cef421a38a8581d9e3ea2e7cf57455ad61c0922/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
+<li><code>public calls</code> in <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2.hpp"><code>inc/alicat_basis2.hpp</code></a></li>
+<li><code>UartInterface</code> in <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a></li>
 </ul>
 <h2 id="one-call-through-the-layers">One call through the layers<a class="headerlink" href="#one-call-through-the-layers" title="Permanent link">&para;</a></h2>
 <figure class="kb-figure">
@@ -1170,6 +1267,38 @@ committed figure no longer matches the code. Each figure below lists the files i
 <p>Drawn from:</p>
 <ul>
 <li><a href="../model/one-call-through-the-layers.seq.yml"><code>docs/model/one-call-through-the-layers.seq.yml</code></a></li>
+</ul>
+<h2 id="several-basis-2-on-one-rs-485-line">Several BASIS 2 on one RS-485 line<a class="headerlink" href="#several-basis-2-on-one-rs-485-line" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="rs485-topology.svg#only-light" alt="An RS-485 line on which an MCU and up to 26 BASIS 2 instruments share the B (+) and A (-) wires, each answering to its own unit ID in ASCII or its own Modbus address in Modbus RTU." width="640" height="785" loading="lazy"><img src="rs485-topology.dark.svg#only-dark" alt="An RS-485 line on which an MCU and up to 26 BASIS 2 instruments share the B (+) and A (-) wires, each answering to its own unit ID in ASCII or its own Modbus address in Modbus RTU." width="640" height="785" loading="lazy">
+<figcaption>Several BASIS 2 on one RS-485 line</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The MCU on top and the BASIS 2 instruments under it connect to the rails B (+) and A (-) on the right, on pins 5 and 6 of each connector; the dashed card stands for the instruments in between. Each instrument needs a unique unit ID, A to Z, for ASCII and a unique Modbus address, 1 to 247, for Modbus RTU.</p>
+<p>Drawn from: <a href="../model/rs485-topology.topology.yml"><code>docs/model/rs485-topology.topology.yml</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../model/rs485-topology.topology.yml"><code>docs/model/rs485-topology.topology.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../model/rs485-topology.topology.yml"><code>docs/model/rs485-topology.topology.yml</code></a></li>
+</ul>
+<h2 id="uart-character">UART character<a class="headerlink" href="#uart-character" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="uart-timing.svg#only-light" alt="One serial character of the BASIS 2 at its factory settings: a start bit, eight data bits least significant first and one stop bit with no parity, at 38400 bit/s unless the baud rate was changed." width="640" height="664" loading="lazy"><img src="uart-timing.dark.svg#only-dark" alt="One serial character of the BASIS 2 at its factory settings: a start bit, eight data bits least significant first and one stop bit with no parity, at 38400 bit/s unless the baud rate was changed." width="640" height="664" loading="lazy">
+<figcaption>UART character</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The lane is TX, left to right in time, and the RX line carries the same format in the other direction. The line idles high, the start bit pulls it low for one bit time, the data bits D0 to D7 follow and the stop bit returns it high. The table gives the default bit rate and the range of rates the instrument can be set to.</p>
+<p>Drawn from: <a href="../model/uart-timing.timing.yml"><code>docs/model/uart-timing.timing.yml</code></a>.</p>
+</details>
+<p>Hardware description: <a href="../model/uart-timing.timing.yml"><code>docs/model/uart-timing.timing.yml</code></a></p>
+<p>Drawn from:</p>
+<ul>
+<li><a href="../model/uart-timing.timing.yml"><code>docs/model/uart-timing.timing.yml</code></a></li>
 </ul>
 
 

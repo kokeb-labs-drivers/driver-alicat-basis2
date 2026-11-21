@@ -100,72 +100,6 @@
   <meta property="og:description" content="C++20 driver for the Alicat BASIS 2 gas mass flow meters and controllers (B and BC series) over serial, with the ASCII protocol and Modbus RTU.">
   <meta property="og:url" content="https://kokeb-labs-drivers.github.io/driver-alicat-basis2/latest/">
   <meta name="twitter:card" content="summary">
-  <script>
-(function () {
-  if (typeof mermaid != "undefined" && !(mermaid instanceof Element)) return;
-  var SRC = "https://unpkg.com/mermaid@11.17.2/dist/mermaid.min.js",
-      SRI = "sha384-EOXBFmc3gx5mb+vn0vPvvGqACToJD24hhacX5Yx+8NUUQrHIle/Qi5Bg9o3zKwW2", config = {}, real, loading;
-  var waiting = [], io = null, ahead = false, ENGAGE = ["scroll", "keydown", "pointerdown", "touchstart"];
-  var stub = {
-    initialize: function (c) { config = c || {}; if (real) real.initialize(config); },
-    render: function (id, text) {
-      var el = null, pres = document.querySelectorAll("pre.mermaid:not([data-kb-mermaid])");
-      for (var i = 0; i < pres.length && !el; i++) if (pres[i].textContent === text) el = pres[i];
-      if (el) el.setAttribute("data-kb-mermaid", "");
-      return near(el).then(load).then(function (m) { return m.render(id, text); });
-    }
-  };
-  function load() {
-    return loading || (loading = new Promise(function (resolve, reject) {
-      var s = document.createElement("script");
-      s.src = SRC;
-      s.integrity = SRI;
-      s.crossOrigin = "anonymous";
-      s.onload = function () {
-        real = window.mermaid;
-        window.mermaid = stub;
-        real.initialize(config);
-        resolve(real);
-      };
-      s.onerror = function () { loading = null; reject(new Error("Mermaid did not load")); };
-      document.head.appendChild(s);
-    }));
-  }
-  // One observer for the diagrams still waiting: on the screen only until the reader engages, then a screen ahead.
-  function watch() {
-    if (io) io.disconnect();
-    io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) release(function (w) { return w.el === e.target; });
-      });
-    }, { rootMargin: ahead ? "100% 0px" : "0px" });
-    waiting.forEach(function (w) { io.observe(w.el); });
-  }
-  function release(which) {
-    waiting = waiting.filter(function (w) {
-      if (!which(w)) return true;
-      io.unobserve(w.el);
-      w.go();
-      return false;
-    });
-  }
-  function near(el) {
-    if (real || !el || !("IntersectionObserver" in window)) return Promise.resolve();
-    return new Promise(function (resolve) {
-      waiting.push({ el: el, go: resolve });
-      if (io) io.observe(el); else watch();
-    });
-  }
-  function engaged() {
-    ENGAGE.forEach(function (t) { window.removeEventListener(t, engaged, true); });
-    ahead = true;
-    if (io) watch();
-  }
-  ENGAGE.forEach(function (t) { window.addEventListener(t, engaged, { capture: true, passive: true }); });
-  window.addEventListener("beforeprint", function () { if (io) release(function () { return true; }); });
-  window.mermaid = stub;
-})();
-</script>
 
   </head>
   
@@ -537,10 +471,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-get" class="md-nav__link">
+  <a href="#what-it-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you get
+        What it does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-it-is-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where it is used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inside-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inside the module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pins-and-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pins and wiring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driver-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driver coverage
       
     </span>
   </a>
@@ -585,6 +574,8 @@
   
     
     
+      
+        
       
         
       
@@ -866,10 +857,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-get" class="md-nav__link">
+  <a href="#what-it-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you get
+        What it does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-it-is-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where it is used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inside-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inside the module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pins-and-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pins and wiring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driver-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driver coverage
       
     </span>
   </a>
@@ -926,7 +972,7 @@
 
 
 <div class="kb-hero">
-<p><span class="kb-kicker">Driver</span></p>
+<p><span class="kb-kicker">Gas mass flow meter and controller</span></p>
 <h1 id="basis-2-driver">BASIS 2 Driver<a class="headerlink" href="#basis-2-driver" title="Permanent link">&para;</a></h1>
 <p>A C++20 driver for the Alicat BASIS 2 gas mass flow meters (B series) and controllers (BC series). It reads
 flow, temperature and totals, sets setpoints and valve holds, and speaks both the ASCII protocol and Modbus RTU
@@ -935,30 +981,206 @@ behind one API, on any MCU.</p>
 <a class="md-button" href="api-guide/">API guide</a>
 <a class="md-button" href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2">Source on GitHub</a></p>
 </div>
+<!-- generated: chip-summary -->
+<p>The <strong>BASIS 2</strong> is a family of gas mass flow meters (B series) and controllers (BC series): it reports the flow,
+temperature and total of nine gases, and a controller sets the flow with its own valve (Introduction, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=3">p.
+3</a>).</p>
+<!-- /generated -->
+
+<figure class="kb-figure">
+<img src="diagrams/chip-hero.svg#only-light" alt="Overview of the BASIS 2, a family of gas mass flow meters (B series) and controllers (BC series): it reports the flow, temperature and total of nine gases, and a controller sets the flow with its own valve. A MCU talks to it over RS-232 or RS-485; it drives Valve; it reads back Gas flow, Gas temperature. Headline figures: 12 to 24 V supply on pin 4 only; 1000:1 turndown, 0.1 to 100 % of full scale; 9 gases selectable, stored in the instrument; 176 Hz digital update rate at best." width="1200" height="840"><img src="diagrams/chip-hero.dark.svg#only-dark" alt="Overview of the BASIS 2, a family of gas mass flow meters (B series) and controllers (BC series): it reports the flow, temperature and total of nine gases, and a controller sets the flow with its own valve. A MCU talks to it over RS-232 or RS-485; it drives Valve; it reads back Gas flow, Gas temperature. Headline figures: 12 to 24 V supply on pin 4 only; 1000:1 turndown, 0.1 to 100 % of full scale; 9 gases selectable, stored in the instrument; 176 Hz digital update rate at best." width="1200" height="840">
+<figcaption>BASIS 2</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The BASIS 2 in the middle, drawn as its JST GH 6-pin connector package. On the left the MCU that runs the driver, joined to it by RS-232 or RS-485. To the right, what the chip drives, in the order the power flows. Below it, what the chip reads back. The tiles at the bottom are the headline numbers, each with the datasheet section and page it comes from.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<h2 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="diagrams/chip-capabilities.svg#only-light" alt="Capability map of the BASIS 2: Flow, temperature and total (supported): Polls the whole data frame or single items and decodes each number exactly; Setpoint, ramp and watchdog (supported): Sets the flow of a controller, limits how fast it changes and closes the valve if the line goes quiet; Valve hold and loop gains (supported): Holds the valve at a fixed drive, opens or closes it, and tunes the closed loop; Tare and autotare (supported): Zeroes the flow reading at no flow, and on a controller zeroes it again at a closed setpoint; Gas selection (supported): Selects one of the nine calibrated gases and lists the gases the instrument holds; Totalizer and batch (supported): Counts the gas that has passed, sets what happens at the limit, and dispenses a set volume; Measurement window (supported): Starts a timed measurement, by command or by an event, and reads its averages and ranges; Unit ID, baud and protocol (guarded): Changes the unit ID, address, baud rate or protocol, restores factory settings, and scans a line; Analog setpoint and output (not covered): A 0 to 5 V or 4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver." width="1200" height="1168" loading="lazy"><img src="diagrams/chip-capabilities.dark.svg#only-dark" alt="Capability map of the BASIS 2: Flow, temperature and total (supported): Polls the whole data frame or single items and decodes each number exactly; Setpoint, ramp and watchdog (supported): Sets the flow of a controller, limits how fast it changes and closes the valve if the line goes quiet; Valve hold and loop gains (supported): Holds the valve at a fixed drive, opens or closes it, and tunes the closed loop; Tare and autotare (supported): Zeroes the flow reading at no flow, and on a controller zeroes it again at a closed setpoint; Gas selection (supported): Selects one of the nine calibrated gases and lists the gases the instrument holds; Totalizer and batch (supported): Counts the gas that has passed, sets what happens at the limit, and dispenses a set volume; Measurement window (supported): Starts a timed measurement, by command or by an event, and reads its averages and ranges; Unit ID, baud and protocol (guarded): Changes the unit ID, address, baud rate or protocol, restores factory settings, and scans a line; Analog setpoint and output (not covered): A 0 to 5 V or 4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver." width="1200" height="1168" loading="lazy">
+<figcaption>What the BASIS 2 does</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>Each card is one function of the BASIS 2: an icon, its name and what it does for the application. The filled pill says how this driver covers it (legend below); the outlined pills are the chip registers behind it. The coverage table in the README gives the driver calls and the datasheet section of each card.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<h2 id="where-it-is-used">Where it is used<a class="headerlink" href="#where-it-is-used" title="Permanent link">&para;</a></h2>
+<!-- generated: chip-uses -->
+<ul>
+<li>Logging flow data to a PC over the serial line</li>
+<li>Flow control from software, over a digital link or with analog signals</li>
+</ul>
+<p>Uses named by the datasheet (Introduction, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=3">p. 3</a>).</p>
+<!-- /generated -->
+
+<h2 id="inside-the-module">Inside the module<a class="headerlink" href="#inside-the-module" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="diagrams/chip-blocks.svg#only-light" alt="Block diagram of the BASIS 2: its function blocks, how they connect and which package pins reach each block." width="1200" height="587" loading="lazy"><img src="diagrams/chip-blocks.dark.svg#only-dark" alt="Block diagram of the BASIS 2: its function blocks, how they connect and which package pins reach each block." width="1200" height="587" loading="lazy">
+<figcaption>Inside the BASIS 2</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The BASIS 2's function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<h2 id="pins-and-wiring">Pins and wiring<a class="headerlink" href="#pins-and-wiring" title="Permanent link">&para;</a></h2>
+<figure class="kb-figure">
+<img src="diagrams/chip-pinout.svg#only-light" alt="Pinout of the BASIS 2 in JST GH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="760" height="533" loading="lazy"><img src="diagrams/chip-pinout.dark.svg#only-dark" alt="Pinout of the BASIS 2 in JST GH 6-pin connector, top view: 6 pins, each with its name, its electrical type as a colour and the driver hook that uses it." width="760" height="533" loading="lazy">
+<figcaption>BASIS 2 pinout, JST GH 6-pin connector</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The BASIS 2 seen from the top, in its JST GH 6-pin connector package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<figure class="kb-figure">
+<img src="diagrams/chip-wiring-rs485-multidrop.svg#only-light" alt="Wiring of the BASIS 2 for the RS-485 multidrop line: MCU UART TX to RS-485 transceiver DI (Write()); MCU UART RX to RS-485 transceiver RO (Read()); MCU GPIO (direction) to RS-485 transceiver DE, RE (Write()); RS-485 transceiver A to TX/A (Write() and Read()); RS-485 transceiver B to RX/B (Write() and Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="888" loading="lazy"><img src="diagrams/chip-wiring-rs485-multidrop.dark.svg#only-dark" alt="Wiring of the BASIS 2 for the RS-485 multidrop line: MCU UART TX to RS-485 transceiver DI (Write()); MCU UART RX to RS-485 transceiver RO (Read()); MCU GPIO (direction) to RS-485 transceiver DE, RE (Write()); RS-485 transceiver A to TX/A (Write() and Read()); RS-485 transceiver B to RX/B (Write() and Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="888" loading="lazy">
+<figcaption>Wiring: RS-485 multidrop line</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The MCU on the left, the BASIS 2 on the right of the parts between them (RS-485 transceiver). Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<figure class="kb-figure">
+<img src="diagrams/chip-wiring-rs232.svg#only-light" alt="Wiring of the BASIS 2 for the RS-232 point to point: MCU UART TX to RS-232 level shifter T1IN (Write()); MCU UART RX to RS-232 level shifter R1OUT (Read()); RS-232 level shifter T1OUT to RX/B (Write()); RS-232 level shifter R1IN to TX/A (Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="738" loading="lazy"><img src="diagrams/chip-wiring-rs232.dark.svg#only-dark" alt="Wiring of the BASIS 2 for the RS-232 point to point: MCU UART TX to RS-232 level shifter T1IN (Write()); MCU UART RX to RS-232 level shifter R1OUT (Read()); RS-232 level shifter T1OUT to RX/B (Write()); RS-232 level shifter R1IN to TX/A (Read()). Supplies, grounds and the support parts are listed under the drawing." width="1200" height="738" loading="lazy">
+<figcaption>Wiring: RS-232 point to point</figcaption>
+</figure>
+
+<details class="kb-figure-desc">
+<summary>Figure description and sources</summary>
+<p>The MCU on the left, the BASIS 2 on the right of the parts between them (RS-232 level shifter). Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.</p>
+<p>Drawn from: <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-alicat-basis2/blob/f776084b9b9e637bf9e758e8a735727a131558f7/inc/alicat_basis2_uart_interface.hpp"><code>inc/alicat_basis2_uart_interface.hpp</code></a>.</p>
+</details>
+<p>Every pin, both circuits, the serial settings, the LED and the size classes: <a href="hardware/">Hardware</a>.</p>
+<h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<p>Wire the instrument as above, write the port (<a href="porting/">Porting</a>), then read a flow:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">"alicat_basis2.hpp"</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">read_flow</span><span class="p">(</span><span class="n">MyPort</span><span class="o">&amp;</span><span class="w"> </span><span class="n">port</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">flow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="n">alicat_basis2</span><span class="o">::</span><span class="n">Bus</span><span class="o">&lt;</span><span class="n">MyPort</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bus</span><span class="p">(</span><span class="n">port</span><span class="p">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="n">alicat_basis2</span><span class="o">::</span><span class="n">Basis2</span><span class="o">&lt;</span><span class="n">MyPort</span><span class="o">&gt;</span><span class="w"> </span><span class="n">meter</span><span class="p">(</span><span class="n">bus</span><span class="p">);</span><span class="w"> </span><span class="c1">// unit ID 'A', 38400 baud, ASCII: the factory settings</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">meter</span><span class="p">.</span><span class="n">EnsureInitialized</span><span class="p">();</span><span class="w"> </span><span class="o">!</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 1. the port comes up; no traffic yet</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">error</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">meter</span><span class="p">.</span><span class="n">Begin</span><span class="p">();</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="o">!</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 2. learn the instrument: Timeout means check wiring and unit ID</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">error</span><span class="p">);</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">meter</span><span class="p">.</span><span class="n">ReadFlow</span><span class="p">();</span><span class="w"> </span><span class="c1">// 3. one poll</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">error</span><span class="p">);</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="n">flow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">ToDouble</span><span class="p">();</span><span class="w"> </span><span class="c1">// in the instrument's flow unit</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The steps explained: <a href="quickstart/">Quickstart</a>.</p>
+<h2 id="driver-coverage">Driver coverage<a class="headerlink" href="#driver-coverage" title="Permanent link">&para;</a></h2>
+<!-- generated: chip-coverage -->
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>What the chip does</th>
+<th>Driver API</th>
+<th>Registers</th>
+<th>Status</th>
+<th>Datasheet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="api-guide/">Flow, temperature and total</a></td>
+<td>Polls the whole data frame or single items and decodes each number exactly</td>
+<td><code>ReadFrame</code>, <code>ReadData</code>, <code>ReadFlow</code>, <code>ReadTemperature</code>, <code>ReadTotal</code>, <code>ReadStatus</code></td>
+<td><code>kFlow</code>, <code>kTemperature</code>, <code>kTotal</code>, <code>kStatus</code></td>
+<td>Supported</td>
+<td>Data Frame Format, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=10">p. 10</a></td>
+</tr>
+<tr>
+<td><a href="safety/">Setpoint, ramp and watchdog</a></td>
+<td>Sets the flow of a controller, limits how fast it changes and closes the valve if the line goes quiet (controllers only; the watchdog acts only on Modbus setpoints from an unsaved digital source)</td>
+<td><code>SetSetpoint</code>, <code>SetSetpointSource</code>, <code>SetRamp</code>, <code>DisableRamp</code>, <code>SetWatchdog</code></td>
+<td><code>kSetpoint</code>, <code>kSetpointType</code>, <code>kRamp</code>, <code>kWatchdog</code></td>
+<td>Supported</td>
+<td>Setpoint; Setpoint Source; Maximum Setpoint Ramp Rate, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=11">p. 11</a></td>
+</tr>
+<tr>
+<td><a href="safety/">Valve hold and loop gains</a></td>
+<td>Holds the valve at a fixed drive, opens or closes it, and tunes the closed loop (controllers only)</td>
+<td><code>HoldValve</code>, <code>ResumeControl</code>, <code>OpenValve</code>, <code>CloseValve</code>, <code>SetGains</code></td>
+<td><code>kGainP</code>, <code>kGainI</code></td>
+<td>Supported</td>
+<td>Hold Valve Position / Resume Flow; Loop Control Gains, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=13">p. 13</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Tare and autotare</a></td>
+<td>Zeroes the flow reading at no flow, and on a controller zeroes it again at a closed setpoint</td>
+<td><code>Tare</code>, <code>TareDefault</code>, <code>SetAutotare</code></td>
+<td><code>kTare</code>, <code>kTareSamples</code>, <code>kAutotare</code></td>
+<td>Supported</td>
+<td>Taring the Instrument, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=14">p. 14</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Gas selection</a></td>
+<td>Selects one of the nine calibrated gases and lists the gases the instrument holds</td>
+<td><code>SetGas</code>, <code>ReadGas</code>, <code>ReadGasList</code>, <code>ReadGasTable</code></td>
+<td><code>kGas</code>, <code>kGasTable</code></td>
+<td>Supported</td>
+<td>Active Gas, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=15">p. 15</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Totalizer and batch</a></td>
+<td>Counts the gas that has passed, sets what happens at the limit, and dispenses a set volume (batch on controllers only)</td>
+<td><code>ResetTotal</code>, <code>SetTotalizerLimit</code>, <code>SetBatch</code>, <code>DisableBatch</code>, <code>ReadBatchRemaining</code></td>
+<td><code>kTotalReset</code>, <code>kTotalLimit</code>, <code>kBatch</code>, <code>kBatchRemaining</code></td>
+<td>Supported</td>
+<td>Totalizer Reset; Totalizer Batch; Totalizer Configuration, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=15">p. 15</a></td>
+</tr>
+<tr>
+<td><a href="api-guide/">Measurement window</a></td>
+<td>Starts a timed measurement, by command or by an event, and reads its averages and ranges (controllers only)</td>
+<td><code>SetMeasurementTrigger</code>, <code>StartMeasurement</code>, <code>ReadAverages</code>, <code>ReadRanges</code>, <code>ReadPreviousMeasurement</code></td>
+<td><code>kTrigger</code>, <code>kSamples</code></td>
+<td>Supported</td>
+<td>Configure Measurement Triggering; Measurement Averages and Ranges, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=13">p. 13</a></td>
+</tr>
+<tr>
+<td><a href="safety/">Unit ID, baud and protocol</a></td>
+<td>Changes the unit ID, address, baud rate or protocol, restores factory settings, and scans a line (each change needs a confirmation token)</td>
+<td><code>ChangeUnitId</code>, <code>SetModbusAddress</code>, <code>ChangeBaud</code>, <code>SwitchToProtocol1</code>, <code>FactoryRestore</code>, <code>ScanUnitIds</code></td>
+<td><code>kUnitId</code>, <code>kModbusAddress</code>, <code>kBaud</code>, <code>kProtocol</code>, <code>kFactoryRestore</code></td>
+<td>Guarded</td>
+<td>Unit ID, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=16">p. 16</a></td>
+</tr>
+<tr>
+<td><a href="hardware/">Analog setpoint and output</a></td>
+<td>A 0 to 5 V or 4 to 20 mA setpoint input and flow output on pins 1 and 2, wired outside the driver</td>
+<td>-</td>
+<td>-</td>
+<td>Not covered</td>
+<td>Analog Signals, <a href="https://documents.alicat.com/manuals/DOC-MANUAL-BASIS2.pdf#page=28">p. 28</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Supported</strong>: the driver covers it and a host test checks it; <strong>Guarded</strong>: covered, behind an explicit acknowledgement
+because a wrong value can do harm; <strong>Not covered</strong>: the chip has it and the driver leaves it alone.</p>
+<p>From <a href="hardware.yml"><code>docs/hardware.yml</code></a>; <code>kokeb-docs hardware --check</code> confirms that every API name is in
+<code>inc/alicat_basis2.hpp</code>, <code>inc/alicat_basis2_types.hpp</code> and every register in <code>inc/alicat_basis2_registers.hpp</code>.</p>
+<!-- /generated -->
+
 <p>The driver has no platform code. You give it a small class that moves bytes on a serial line and tells the time; it
 does the rest: the unit ID and silent-interval rules of the line, frame parsing, unit and decimal handling, Modbus
 framing and CRC, retries of reads, and the guards around the commands that can strand an instrument.</p>
-<div class="kb-chip">
-<div class="kb-chip__head">
-<span class="kb-chip__kicker">Gas mass flow meters and controllers</span>
-<span class="kb-chip__name">BASIS 2</span>
-<span class="kb-chip__vendor">Alicat Scientific, B and BC series</span>
-</div>
-<dl>
-<dt>Function</dt>
-<dd>Mass flow, temperature and total of nine gases, 100 SCCM to 100 SLPM full scale; controllers add a setpoint, a
-ramp and a valve</dd>
-<dt>Interface</dt>
-<dd>RS-232 or RS-485 by model, 38400 baud 8N1 by default; ASCII protocol with unit IDs A to Z, or Modbus RTU</dd>
-<dt>Protocols</dt>
-<dd>ASCII "BASIS Protocol 2" (the default) and Modbus RTU, both complete, one API</dd>
-<dt>Supply</dt>
-<dd>12 to 24 V on pin 4 only; 210 mA for a controller, 12 mA for a meter</dd>
-<dt>Connector</dt>
-<dd>Six-pin JST GH: analog setpoint, analog output, ground, power, serial B and serial A</dd>
-</dl>
-</div>
-<h2 id="what-you-get">What you get<a class="headerlink" href="#what-you-get" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>One object per instrument.</strong> <code>Basis2&lt;YourPort&gt;</code> sits on a <code>Bus&lt;YourPort&gt;</code> that owns the serial line, so up to 26
   instruments share one line. See <a href="api-guide/">API guide</a>.</li>
