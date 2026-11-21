@@ -25,7 +25,7 @@ refs:
   order: {doc: specs, section: "Technical Data, ranges and options", page: 2}
   electrical: {doc: specs, section: "Technical Data", page: 1}
   blocks: {doc: manual, section: "Introduction", page: 3}
-  power: {doc: manual, section: "Power Connections", page: 6}
+  power: {doc: manual, section: "Power and Signal Connections", page: 6}
   frame: {doc: manual, section: "Data Frame Format", page: 10}
   setpoint: {doc: manual, section: "Setpoint; Setpoint Source; Maximum Setpoint Ramp Rate", page: 11}
   valve: {doc: manual, section: "Hold Valve Position / Resume Flow; Loop Control Gains", page: 13}
@@ -151,9 +151,11 @@ pins:
   - {number: 4, name: PWR, type: power, domain: PWR,
      function: "Power in, 12 to 24 V. Power on any other pin can permanently damage the instrument", ref: supply}
   - {number: 5, name: RX/B, type: bus, domain: SIGNAL,
-     function: "RS-232 receive (the instrument receives, unverified: the manual does not say whose side Rx names) or RS-485 B (+), by model", hook: write, ref: pinout}
+     function: "RS-232 receive (the instrument receives, unverified: the manual does not say whose side Rx names)
+       or RS-485 B (+), by model", hook: write, ref: pinout}
   - {number: 6, name: TX/A, type: bus, domain: SIGNAL,
-     function: "RS-232 transmit (the instrument transmits, unverified: the manual does not say whose side Tx names) or RS-485 A (-), by model", hook: read, ref: pinout}
+     function: "RS-232 transmit (the instrument transmits, unverified: the manual does not say whose side Tx names)
+       or RS-485 A (-), by model", hook: read, ref: pinout}
 
 block_diagram:
   ref: blocks

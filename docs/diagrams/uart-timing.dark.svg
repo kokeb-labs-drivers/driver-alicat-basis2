@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="664" viewBox="0 0 640 664" role="img" aria-labelledby="uart-timing-title uart-timing-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="uart-timing-title">UART character</title>
+<desc id="uart-timing-desc">One serial character of the BASIS 2 at its factory settings: a start bit, eight data bits least significant first and one stop bit with no parity, at 38400 bit/s unless the baud rate was changed.</desc>
+<rect x="0.5" y="0.5" width="639" height="663" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" fill="#F8D27A">ON THE BUS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" fill="#E8EDF3">UART character</text>
+<text x="32" y="102.7" font-size="15" fill="#9AA6B5">Datasheet: Alicat ASCII Serial Communication, Establishing Communication,</text>
+<text x="32" y="124.5" font-size="15" fill="#9AA6B5">p. 10; Serial Baud Rate, p. 17.</text>
+<rect x="32" y="140.4" width="576" height="1" fill="#252F3C"/>
+<path d="M88 232.8 L88 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M127.5 232.8 L127.5 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M167.1 232.8 L167.1 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M206.6 232.8 L206.6 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M246.2 232.8 L246.2 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M285.7 232.8 L285.7 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M325.2 232.8 L325.2 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M364.8 232.8 L364.8 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M404.3 232.8 L404.3 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M443.8 232.8 L443.8 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M483.4 232.8 L483.4 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M522.9 232.8 L522.9 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M562.5 232.8 L562.5 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M602 232.8 L602 268.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M32 314.9 L608 314.9" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M32 387.8 L608 387.8" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M32 481.7 L608 481.7" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M32 554.5 L608 554.5" fill="none" stroke="#252F3C" stroke-width="1"/>
+<path d="M168.1 223.8 L168.1 218.8 L205.6 218.8 L205.6 223.8" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+<path d="M207.6 191.6 L207.6 186.6 L521.9 186.6 L521.9 191.6" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+<path d="M523.9 223.8 L523.9 218.8 L561.5 218.8 L561.5 223.8" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+<path d="M88 237.8 L127.5 237.8 L167.1 237.8 L167.1 237.8 L167.1 263.9 L206.6 263.9" fill="none" stroke="#D2DAE4" stroke-width="2"/>
+<path d="M206.6 263.9 L206.6 250.8" fill="none" stroke="#D2DAE4" stroke-width="2"/>
+<path d="M522.9 237.8 L562.5 237.8 L602 237.8" fill="none" stroke="#D2DAE4" stroke-width="2"/>
+<path d="M206.6 250.8 L211.6 237.8 L241.2 237.8 L246.2 250.8 L241.2 263.9 L211.6 263.9 Z" fill="#13233A" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M246.2 250.8 L251.2 237.8 L280.7 237.8 L285.7 250.8 L280.7 263.9 L251.2 263.9 Z" fill="#13233A" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M285.7 250.8 L290.7 237.8 L320.2 237.8 L325.2 250.8 L320.2 263.9 L290.7 263.9 Z" fill="#13233A" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M325.2 250.8 L330.2 237.8 L359.8 237.8 L364.8 250.8 L359.8 263.9 L330.2 263.9 Z" fill="#13233A" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M364.8 250.8 L369.8 237.8 L399.3 237.8 L404.3 250.8 L399.3 263.9 L369.8 263.9 Z" fill="#13233A" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M404.3 250.8 L409.3 237.8 L438.8 237.8 L443.8 250.8 L438.8 263.9 L409.3 263.9 Z" fill="#13233A" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M443.8 250.8 L448.8 237.8 L478.4 237.8 L483.4 250.8 L478.4 263.9 L448.8 263.9 Z" fill="#13233A" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M483.4 250.8 L488.4 237.8 L517.9 237.8 L522.9 250.8 L517.9 263.9 L488.4 263.9 Z" fill="#13233A" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="568.5" width="576" height="65.1" rx="10" fill="#1B232E" stroke="#3A4656" stroke-width="1"/>
+<text x="186.8" y="207.9" font-size="14" font-weight="600" text-anchor="middle" fill="#E2E8F0">start</text>
+<text x="364.8" y="175.8" font-size="14" font-weight="600" text-anchor="middle" fill="#E2E8F0">8 data bits, no parity</text>
+<text x="542.7" y="207.9" font-size="14" font-weight="600" text-anchor="middle" fill="#E2E8F0">stop</text>
+<text x="32" y="256.2" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">TX</text>
+<text x="226.4" y="255.9" font-size="14" font-weight="600" text-anchor="middle" fill="#BFDBFE">D0</text>
+<text x="265.9" y="255.9" font-size="14" font-weight="600" text-anchor="middle" fill="#BFDBFE">D1</text>
+<text x="305.5" y="255.9" font-size="14" font-weight="600" text-anchor="middle" fill="#BFDBFE">D2</text>
+<text x="345" y="255.9" font-size="14" font-weight="600" text-anchor="middle" fill="#BFDBFE">D3</text>
+<text x="384.5" y="255.9" font-size="14" font-weight="600" text-anchor="middle" fill="#BFDBFE">D4</text>
+<text x="424.1" y="255.9" font-size="14" font-weight="600" text-anchor="middle" fill="#BFDBFE">D5</text>
+<text x="463.6" y="255.9" font-size="14" font-weight="600" text-anchor="middle" fill="#BFDBFE">D6</text>
+<text x="503.2" y="255.9" font-size="14" font-weight="600" text-anchor="middle" fill="#BFDBFE">D7</text>
+<text x="32" y="299.3" font-size="17" font-weight="700" fill="#E8EDF3">Timing values</text>
+<text x="32" y="335.7" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">baud</text>
+<text x="608" y="335.7" font-size="15" font-weight="700" text-anchor="end" fill="#E8EDF3">typ 38400 bit/s</text>
+<text x="32" y="355.9" font-size="15" fill="#D2DAE4">Bit rate at the factory setting</text>
+<text x="32" y="376.1" font-size="14" fill="#9AA6B5">Datasheet Alicat ASCII Serial Communication, Establishing Communication, p. 10</text>
+<text x="32" y="408.5" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">baud</text>
+<text x="608" y="408.5" font-size="15" font-weight="700" text-anchor="end" fill="#E8EDF3">min 4800 · max 115200 bit/s</text>
+<text x="32" y="428.8" font-size="15" fill="#D2DAE4">Bit rates the NCB command sets (4800, 9600, 19200, 38400, 57600,</text>
+<text x="32" y="449.8" font-size="15" fill="#D2DAE4">115200)</text>
+<text x="32" y="469.9" font-size="14" fill="#9AA6B5">Datasheet Serial Baud Rate, p. 17</text>
+<text x="32" y="502.4" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">stop</text>
+<text x="608" y="502.4" font-size="15" font-weight="700" text-anchor="end" fill="#E8EDF3">typ 1 bit</text>
+<text x="32" y="522.7" font-size="15" fill="#D2DAE4">Stop bits</text>
+<text x="32" y="542.8" font-size="14" fill="#9AA6B5">Datasheet Alicat ASCII Serial Communication, Establishing Communication, p. 10</text>
+<text x="46" y="597" font-size="17" font-weight="700" fill="#E2E8F0">Notes</text>
+<text x="46" y="617.4" font-size="15" fill="#E2E8F0">Default settings: 38400 baud, 8 data bits, no parity, 1 stop bit, unit ID A.</text>
+</svg>

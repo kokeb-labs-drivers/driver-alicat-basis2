@@ -1,4 +1,21 @@
 {
+  "ascii-transaction": {
+    "title": "ASCII poll of the data frame",
+    "alt": "One ASCII poll of a BASIS 2: the host sends the unit ID and a carriage return, the line stays idle for the serial idle timeout, and the instrument answers with one line of the data frame ended by a carriage return.",
+    "description": "The TX lane is what the host sends and the RX lane what the instrument answers, left to right in time. On TX the unit ID A and a carriage return poll the whole data frame; after the idle timeout the instrument sends on RX its unit ID, the temperature, flow and the other fields (some are left out) and the gas, then a carriage return. The table gives the idle timeout in byte times.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/ascii-transaction.timing.yml",
+    "sources": [
+      "docs/model/ascii-transaction.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
+    "font": ""
+  },
   "chip-blocks": {
     "title": "Inside the BASIS 2",
     "alt": "Block diagram of the BASIS 2: its function blocks, how they connect and which package pins reach each block.",
@@ -134,6 +151,40 @@
     "print": "landscape",
     "adaptive": true,
     "twin": false,
+    "font": ""
+  },
+  "rs485-topology": {
+    "title": "Several BASIS 2 on one RS-485 line",
+    "alt": "An RS-485 line on which an MCU and up to 26 BASIS 2 instruments share the B (+) and A (-) wires, each answering to its own unit ID in ASCII or its own Modbus address in Modbus RTU.",
+    "description": "The MCU on top and the BASIS 2 instruments under it connect to the rails B (+) and A (-) on the right, on pins 5 and 6 of each connector; the dashed card stands for the instruments in between. Each instrument needs a unique unit ID, A to Z, for ASCII and a unique Modbus address, 1 to 247, for Modbus RTU.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/rs485-topology.topology.yml",
+    "sources": [
+      "docs/model/rs485-topology.topology.yml"
+    ],
+    "kind": "topology",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": false,
+    "font": ""
+  },
+  "uart-timing": {
+    "title": "UART character",
+    "alt": "One serial character of the BASIS 2 at its factory settings: a start bit, eight data bits least significant first and one stop bit with no parity, at 38400 bit/s unless the baud rate was changed.",
+    "description": "The lane is TX, left to right in time, and the RX line carries the same format in the other direction. The line idles high, the start bit pulls it low for one bit time, the data bits D0 to D7 follow and the stop bit returns it high. The table gives the default bit rate and the range of rates the instrument can be set to.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/uart-timing.timing.yml",
+    "sources": [
+      "docs/model/uart-timing.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
     "font": ""
   }
 }

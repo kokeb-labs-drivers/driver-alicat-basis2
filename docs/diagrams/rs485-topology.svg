@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="785" viewBox="0 0 640 785" role="img" aria-labelledby="rs485-topology-title rs485-topology-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="rs485-topology-title">Several BASIS 2 on one RS-485 line</title>
+<desc id="rs485-topology-desc">An RS-485 line on which an MCU and up to 26 BASIS 2 instruments share the B (+) and A (-) wires, each answering to its own unit ID in ASCII or its own Modbus address in Modbus RTU.</desc>
+<rect x="0.5" y="0.5" width="639" height="784" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" fill="#7A360E">SEVERAL DEVICES</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" fill="#0E1726">Several BASIS 2 on one RS-485 line</text>
+<text x="32" y="102.7" font-size="15" fill="#566070">Datasheet: Power and Signal Connections, pin table, p. 7; Unit ID, p. 16;</text>
+<text x="32" y="124.5" font-size="15" fill="#566070">Modbus-RTU, Modbus Address, p. 18; Alicat ASCII Serial Communication,</text>
+<text x="32" y="146.2" font-size="15" fill="#566070">Establishing Communication, p. 10.</text>
+<rect x="32" y="162.2" width="576" height="1" fill="#E2E7EE"/>
+<path d="M538.1 216.4 L538.1 550.4" fill="none" stroke="#2B3442" stroke-width="2.2"/>
+<path d="M488.8 224.4 L538.1 224.4" fill="none" stroke="#2B3442" stroke-width="1.8"/>
+<path d="M488.8 316.4 L538.1 316.4" fill="none" stroke="#2B3442" stroke-width="1.8"/>
+<path d="M488.8 408.4 L538.1 408.4" fill="none" stroke="#2B3442" stroke-width="1.8" stroke-dasharray="5 4"/>
+<path d="M488.8 500.4 L538.1 500.4" fill="none" stroke="#2B3442" stroke-width="1.8"/>
+<path d="M584.7 216.4 L584.7 550.4" fill="none" stroke="#2B3442" stroke-width="2.2"/>
+<path d="M488.8 234.4 L584.7 234.4" fill="none" stroke="#2B3442" stroke-width="1.8"/>
+<path d="M488.8 326.4 L584.7 326.4" fill="none" stroke="#2B3442" stroke-width="1.8"/>
+<path d="M488.8 418.4 L584.7 418.4" fill="none" stroke="#2B3442" stroke-width="1.8" stroke-dasharray="5 4"/>
+<path d="M488.8 510.4 L584.7 510.4" fill="none" stroke="#2B3442" stroke-width="1.8"/>
+<rect x="32" y="208.4" width="456.8" height="74" rx="10" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="32" y="216.4" width="4" height="58" rx="2" fill="#2563EB"/>
+<rect x="32" y="300.4" width="456.8" height="74" rx="10" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="32" y="308.4" width="4" height="58" rx="2" fill="#0B7A72"/>
+<rect x="32" y="392.4" width="456.8" height="74" rx="10" fill="#FFFFFF" stroke="#738093" stroke-width="1" stroke-dasharray="6 4"/>
+<rect x="32" y="484.4" width="456.8" height="74" rx="10" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="32" y="492.4" width="4" height="58" rx="2" fill="#0B7A72"/>
+<rect x="32" y="580.4" width="576" height="173.8" rx="10" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="52" y="236.8" font-size="17" font-weight="700" fill="#1E429F">MCU</text>
+<text x="52" y="264.6" font-size="15" fill="#2B3442">UART and RS-485 transceiver</text>
+<text x="52" y="328.8" font-size="17" font-weight="700" fill="#0B5F59">BASIS 2</text>
+<text x="52" y="356.6" font-size="15" fill="#2B3442">unit ID A, Modbus 1</text>
+<text x="52" y="420.8" font-size="17" font-weight="700" fill="#0E1726">…</text>
+<text x="52" y="448.6" font-size="15" fill="#2B3442">unit IDs B to Y</text>
+<text x="52" y="512.8" font-size="17" font-weight="700" fill="#0B5F59">BASIS 2</text>
+<text x="52" y="540.6" font-size="15" fill="#2B3442">unit ID Z, Modbus 247</text>
+<text x="538.1" y="208.4" font-size="14" font-weight="700" text-anchor="middle" fill="#0E1726">B (+)</text>
+<circle cx="538.1" cy="224.4" r="3.6" fill="#2B3442"/>
+<circle cx="538.1" cy="316.4" r="3.6" fill="#2B3442"/>
+<circle cx="538.1" cy="408.4" r="3.6" fill="#2B3442"/>
+<circle cx="538.1" cy="500.4" r="3.6" fill="#2B3442"/>
+<text x="584.7" y="208.4" font-size="14" font-weight="700" text-anchor="middle" fill="#0E1726">A (-)</text>
+<circle cx="584.7" cy="234.4" r="3.6" fill="#2B3442"/>
+<circle cx="584.7" cy="326.4" r="3.6" fill="#2B3442"/>
+<circle cx="584.7" cy="418.4" r="3.6" fill="#2B3442"/>
+<circle cx="584.7" cy="510.4" r="3.6" fill="#2B3442"/>
+<text x="46" y="608.8" font-size="17" font-weight="700" fill="#334155">Limits</text>
+<text x="46" y="629.2" font-size="15" fill="#334155">Up to 26 instruments on one COM port (Alicat ASCII Serial</text>
+<text x="46" y="651" font-size="15" fill="#334155">Communication, Establishing Communication, p. 10). Unit IDs A to Z, one</text>
+<text x="46" y="672.8" font-size="15" fill="#334155">per instrument; A is the default (Unit ID, p. 16). Modbus addresses 1 to</text>
+<text x="46" y="694.5" font-size="15" fill="#334155">247, one per instrument (Modbus-RTU, Modbus Address, p. 18). RS-485</text>
+<text x="46" y="716.2" font-size="15" fill="#334155">B (+) on pin 5, A (-) on pin 6 (Power and Signal Connections, pin table, p.</text>
+<text x="46" y="738" font-size="15" fill="#334155">7).</text>
+</svg>

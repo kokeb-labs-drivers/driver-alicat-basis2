@@ -6,6 +6,24 @@ Every figure on this site is drawn by a Python module from facts extracted from 
 not redrawn, when the code changes. CI runs `kokeb-docs figures --check` and fails when a
 committed figure no longer matches the code. Each figure below lists the files it is drawn from.
 
+## ASCII poll of the data frame
+
+<!-- figure: ascii-transaction -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="ascii-transaction.dark.svg">
+  <img src="ascii-transaction.svg"
+    alt="One ASCII poll of a BASIS 2: the host sends the unit ID and a carriage return, the line stays idle
+    for the serial idle timeout, and the instrument answers with one line of the data frame ended by a
+    carriage return.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/ascii-transaction.timing.yml`](../model/ascii-transaction.timing.yml)
+
+Drawn from:
+
+- [`docs/model/ascii-transaction.timing.yml`](../model/ascii-transaction.timing.yml)
+
 ## Inside the BASIS 2
 
 <!-- figure: chip-blocks -->
@@ -221,3 +239,37 @@ Hardware description: [`docs/model/one-call-through-the-layers.seq.yml`](../mode
 Drawn from:
 
 - [`docs/model/one-call-through-the-layers.seq.yml`](../model/one-call-through-the-layers.seq.yml)
+
+## Several BASIS 2 on one RS-485 line
+
+<!-- figure: rs485-topology -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="rs485-topology.dark.svg">
+  <img src="rs485-topology.svg"
+    alt="An RS-485 line on which an MCU and up to 26 BASIS 2 instruments share the B (+) and A (-) wires,
+    each answering to its own unit ID in ASCII or its own Modbus address in Modbus RTU.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/rs485-topology.topology.yml`](../model/rs485-topology.topology.yml)
+
+Drawn from:
+
+- [`docs/model/rs485-topology.topology.yml`](../model/rs485-topology.topology.yml)
+
+## UART character
+
+<!-- figure: uart-timing -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="uart-timing.dark.svg">
+  <img src="uart-timing.svg"
+    alt="One serial character of the BASIS 2 at its factory settings: a start bit, eight data bits least
+    significant first and one stop bit with no parity, at 38400 bit/s unless the baud rate was changed.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/uart-timing.timing.yml`](../model/uart-timing.timing.yml)
+
+Drawn from:
+
+- [`docs/model/uart-timing.timing.yml`](../model/uart-timing.timing.yml)
